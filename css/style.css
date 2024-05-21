@@ -138,7 +138,7 @@ html {
 .fh5co-hero-inner .fh5co-hero-smartphone {
   position: absolute;
   right: 0px;
-  top: 120px;
+  top: 160px;
   height: 650px;
 }
 
@@ -892,7 +892,7 @@ html {
 
   .fh5co-hero-inner .fh5co-hero-smartphone {
     height: 420px;
-    top: 310px;
+    top: 400px;
   }
 
   .fh5co-advantages-outer .second-title {
@@ -1029,7 +1029,7 @@ html {
   .fh5co-hero-inner .fh5co-hero-smartphone {
     height: 450px;
     top: 420px;
-    margin-top: 70px;
+    margin-top: 120px;
   }
 
   .social-icons-header i:first-of-type {
@@ -1074,3 +1074,15 @@ html {
     text-align: center;
   }
 }
+
+
+
+@media only screen and (max-width: 500px) {
+  .titulo{
+    font-size: x-large !important;
+  }
+  .subtitulo{
+    font-size: normal !important;
+  }
+}
+
