@@ -32,7 +32,7 @@
                     nav:true,
                     loop:true,
                     autoplay: true,
-                    autoplayTimeout: 1500,
+                    autoplayTimeout: 4000,
                     navText: [
                         "<i class='fa carousel-left-arrow fa-chevron-left'></i>",
                         "<i class='fa carousel-right-arrow fa-chevron-right'></i>"
