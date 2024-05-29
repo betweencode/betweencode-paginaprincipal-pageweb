@@ -33,7 +33,7 @@
 }
 
 .imagen-carrusel {
-    width: 100%;
+    width: 90%;
     transition: transform 1s ease;
 }
 
