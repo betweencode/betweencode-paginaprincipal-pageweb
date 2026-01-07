@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Atiéndelos restaurant</title>
+    <link rel="icon" href="img/iconodeatiendolosensvg.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" href="img/image1.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con Atiéndelos Restaurant. Administra tu negocio." />
+    <meta name="keywords" content="Atiéndelos Restaurant, contacto, suscripción, software restaurant, sistema para restaurantes" />
+    <meta name="author" content="by betweencode" />
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .contact-form-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-control {
+            margin-bottom: 20px;
+        }
+        
+        .subscription-section {
+            padding: 80px 0;
+            background: linear-gradient(to right, #1e5799, #2989d8);
+            color: white;
+        }
+        
+        .subscription-card {
+            background: white;
+            color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .subscription-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .subscription-header {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .subscription-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .subscription-features {
+            padding: 20px;
+        }
+        
+        .subscription-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .subscription-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .subscription-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .subscription-footer {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .btn-subscription {
+            background: #1e5799;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-subscription:hover {
+            background: #2989d8;
+        }
+        
+        .featured {
+            position: relative;
+        }
+        
+        .featured::after {
+            content: "Recomendado";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #ff5722;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 0 0 0 5px;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #1e5799;
+        }
+    </style>
+</head>
+<body>
+
+<div id="page-wrap">
+
+    <!-- HEADER/NAVIGATION -->
+    <div class="header-section">
+        <nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
+            <a class="navbar-brand" href="index.html">Atiéndelos Restaurant</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-items-center ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#fh5co-features">Función</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#fh5co-reviews">Testimonios</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="contact.html">Contacto<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <div class="social-icons-header">
+                    <a href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- SUBSCRIPTION SECTION -->
+    <div class="subscription-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-md-12">
+                    <h1 class="wow fadeIn animated" data-wow-delay="0.2s">Nuestros Planes de Suscripción</h1>
+                    <p class="wow fadeIn animated" data-wow-delay="0.4s">Elige el plan que mejor se adapte a las necesidades de tu restaurante</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Plan Básico -->
+                <div class="col-md-4 wow fadeInUp animated" data-wow-delay="0.2s">
+                    <div class="subscription-card">
+                        <div class="subscription-header">
+                            <h3>Plan Básico</h3>
+                            <p>Ideal para pequeños negocios</p>
+                        </div>
+                        <div class="subscription-price">
+                            $299<small>/mes</small>
+                        </div>
+                        <div class="subscription-features">
+                            <ul>
+                                <li><i class="fas fa-check text-success"></i> 1 Punto de venta</li>
+                                <li><i class="fas fa-check text-success"></i> Gestión de mesas</li>
+                                <li><i class="fas fa-check text-success"></i> Reportes básicos</li>
+                                <li><i class="fas fa-check text-success"></i> Soporte por correo</li>
+                                <li><i class="fas fa-times text-danger"></i> Gestión de inventario</li>
+                                <li><i class="fas fa-times text-danger"></i> Reportes avanzados</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-footer">
+                            <a href="#contact-form" class="btn btn-subscription">Seleccionar Plan</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plan Estándar -->
+                <div class="col-md-4 wow fadeInUp animated" data-wow-delay="0.4s">
+                    <div class="subscription-card featured">
+                        <div class="subscription-header">
+                            <h3>Plan Estándar</h3>
+                            <p>Para restaurantes en crecimiento</p>
+                        </div>
+                        <div class="subscription-price">
+                            $499<small>/mes</small>
+                        </div>
+                        <div class="subscription-features">
+                            <ul>
+                                <li><i class="fas fa-check text-success"></i> 3 Puntos de venta</li>
+                                <li><i class="fas fa-check text-success"></i> Gestión de mesas</li>
+                                <li><i class="fas fa-check text-success"></i> Reportes completos</li>
+                                <li><i class="fas fa-check text-success"></i> Gestión de inventario</li>
+                                <li><i class="fas fa-check text-success"></i> Soporte prioritario</li>
+                                <li><i class="fas fa-check text-success"></i> Aplicación móvil</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-footer">
+                            <a href="#contact-form" class="btn btn-subscription">Seleccionar Plan</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plan Anual -->
+                <div class="col-md-4 wow fadeInUp animated" data-wow-delay="0.6s">
+                    <div class="subscription-card">
+                        <div class="subscription-header">
+                            <h3>Plan Anual</h3>
+                            <p>La mejor opción para ahorrar</p>
+                        </div>
+                        <div class="subscription-price">
+                            $4,490<small>/año</small>
+                        </div>
+                        <div class="subscription-features">
+                            <ul>
+                                <li><i class="fas fa-check text-success"></i> 5 Puntos de venta</li>
+                                <li><i class="fas fa-check text-success"></i> Todas las funciones</li>
+                                <li><i class="fas fa-check text-success"></i> Reportes personalizados</li>
+                                <li><i class="fas fa-check text-success"></i> Soporte 24/7</li>
+                                <li><i class="fas fa-check text-success"></i> 2 meses gratis</li>
+                                <li><i class="fas fa-check text-success"></i> Capacitación incluida</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-footer">
+                            <a href="#contact-form" class="btn btn-subscription">Seleccionar Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT FORM SECTION -->
+    <div id="contact-form" class="contact-form-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 wow fadeInLeft animated" data-wow-delay="0.2s">
+                    <h2>Contáctanos</h2>
+                    <p>Completa el formulario y un asesor se pondrá en contacto contigo para ayudarte a elegir la mejor solución para tu restaurante.</p>
+                    
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nombre completo*</label>
+                            <input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Nombre de la empresa*</label>
+                            <input type="text" class="form-control" id="company" placeholder="Nombre de tu restaurante" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico*</label>
+                            <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Teléfono*</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="plan">Plan de interés</label>
+                            <select class="form-control" id="plan">
+                                <option value="">Selecciona un plan</option>
+                                <option value="basic">Plan Básico</option>
+                                <option value="standard">Plan Estándar</option>
+                                <option value="annual">Plan Anual</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje (opcional)</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="¿Tienes alguna pregunta específica?"></textarea>
+                        </div>
+                        
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" required>
+                            <label class="form-check-label" for="terms">Acepto los <a href="#">términos y condiciones</a>*</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+                    </form>
+                </div>
+                
+                <div class="col-md-6 wow fadeInRight animated" data-wow-delay="0.4s">
+                    <div class="contact-info">
+                        <h2>Información de contacto</h2>
+                        <p>También puedes contactarnos directamente a través de los siguientes medios:</p>
+                        
+                        <div class="mt-4">
+                            <p><i class="fas fa-phone"></i> +52 (123) 456-7890</p>
+                            <p><i class="fas fa-envelope"></i> contacto@atiendelos.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad de México</p>
+                            <p><i class="fas fa-clock"></i> Lunes a sábados de 09:00 a.m. a 09:00 p.m.</p>
+                        </div>
+                        
+                        <div class="social-media mt-4">
+                            <h4>Síguenos en redes sociales</h4>
+                            <div class="social-icons mt-3">
+                                <a href="https://www.facebook.com/AtiendelosApp/" target="_blank" class="mr-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+                                <a href="#" target="_blank" class="mr-3"><i class="fab fa-instagram fa-2x"></i></a>
+                                <a href="https://www.twitter.com/" target="_blank" class="mr-3"><i class="fab fa-twitter fa-2x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-outer">
+        <div class="container footer-inner">
+            <div class="footer-three-grid wow fadeIn animated" data-wow-delay="0.66s">
+                <div class="column-1-3">
+                    <h1>Atiéndelos Restaurant</h1>
+                </div>
+                <div class="column-2-3">
+                    <nav class="footer-nav">
+                        <ul>
+                            <a href="index.html"><li>Inicio</li></a>
+                            <a href="index.html#fh5co-features"><li>Función</li></a>
+                            <a href="index.html#fh5co-reviews"><li>Testimonios</li></a>
+                            <a href="contact.html"><li class="active">Contacto</li></a>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="column-3-3">
+                    <div class="social-icons-footer">
+                        <a href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <span class="border-bottom-footer"></span>
+
+            <p class="copyright">&copy; 2024 Atiéndelos Restaurant App. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</div> <!-- main page wrapper -->
+    
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
+</body>
+</html>
