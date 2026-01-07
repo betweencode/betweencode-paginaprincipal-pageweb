@@ -586,6 +586,58 @@
 	var datarecibida = function(response) {
 		apitoken = response;
 	}
+
+	document.querySelector('.modal-footer .btn-primary').addEventListener('click', async function () {
+		const name = document.getElementById('name').value;
+		const company = document.getElementById('company').value;
+		const email = document.getElementById('email').value;
+		const phone = document.getElementById('phone').value;
+		const plan = document.getElementById('plan').value;
+
+		if (!name || !company || !email || !phone || !plan) {
+			alert('Por favor complete todos los campos requeridos');
+			return;
+		}
+
+		if (!document.getElementById('terms').checked) {
+			alert('Debe aceptar los términos y condiciones');
+			return;
+		}
+
+		if (!apitoken) {
+			alert('Por favor complete la verificación de seguridad');
+			return;
+		}
+
+		const data = {
+			nombre: name,
+			empresa: company,
+			correo: email,
+			telefono: phone,
+			plan: plan,
+			token: apitoken
+		};
+
+		try {
+			const response = await fetch('https://clientesatiendelos-183036175359.northamerica-south1.run.app', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data)
+			});
+
+			if (response.ok) {
+				alert('¡Gracias! Nos pondremos en contacto contigo pronto.');
+				$('#contactModal').modal('hide');
+			} else {
+				alert('Hubo un error al enviar el formulario. Por favor intente nuevamente.');
+			}
+		} catch (error) {
+			console.error('Error:', error);
+			alert('Hubo un error al enviar el formulario. Por favor intente nuevamente.');
+		}
+	});
 </script>
 </body>
 </html>
