@@ -7,12 +7,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Atiéndelos restaurant</title>
+	<title>Planes - Atiéndelos restaurant</title>
 	<link rel="icon" href="img/iconodeatiendolosensvg.svg" type="image/svg+xml">
 	<link rel="icon" type="image/png" href="img/image1.png">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Descubre nuestro Software de punto de venta, Atiéndelos Restaurant. Administra tu negocio." />
+	<meta name="description" content="Descubre nuestros planes de Atiéndelos Restaurant. Administra tu negocio." />
 	<meta name="keywords" content=" Atiéndelos Restaurant, punto de venta para restaurantes, software restaurant, sistema para restaurantes, administración de restaurantes, punto de venta, soft restaurant." />
 	<meta name="author" content="by betweencode" />
 
@@ -130,7 +130,7 @@
         }
 
         .btn-subscription {
-            background: #234197;
+            background: #00a4ae;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -139,7 +139,7 @@
         }
 
         .btn-subscription:hover {
-            background: #3a5fcc;
+            background: #008a92;
         }
 
         .featured {
@@ -151,7 +151,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            background: #c51717;
+            background: #00a4ae;
             color: white;
             padding: 5px 10px;
             font-size: 12px;
@@ -162,7 +162,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            background: #ff9800;
+            background: #00a4ae;
             color: white;
             padding: 5px 10px;
             font-size: 12px;
@@ -171,38 +171,80 @@
 
         .timer-icon {
             font-size: 1.5rem;
-            color: #ff9800;
+            color: #00a4ae;
             margin-right: 5px;
+        }
+        
+        .plans-header {
+            background: linear-gradient(to right, #00a4ae, #008a92);
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+            margin-bottom: 50px;
+			margin-top: -10px
+        }
+        
+        .plans-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .plans-header p {
+            font-size: 1.2rem;
+            margin: 0 auto;
+        }
+        
+        .plans-section {
+            padding: 50px 0;
+        }
+        
+        .back-to-home {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .back-to-home a {
+            background: #00a4ae;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        
+        .back-to-home a:hover {
+            background: #008a92;
         }
     </style>
 </head>
 <body>
 
-
 <div id="page-wrap">
 
-
 	<!-- ==========================================================================================================
-													   HERO
+												   HERO
 		 ========================================================================================================== -->
 
-	<div id="fh5co-hero-wrapper">
+	<div id="fh5co-hero-wrapper" style="height: auto;position: relative;z-index: 100">
 		<nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
-			<a class="navbar-brand" href="">Atiéndelos Restaurant</a>
+			<a class="navbar-brand" href="index.html">Atiéndelos Restaurant</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav nav-items-center ml-auto mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="index.html#fh5co-features">Función</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="index.html#fh5co-reviews">Testimonios</a>
+					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Objetivo<span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="$('#fh5co-features').goTo();return false;">Función</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="$('#fh5co-reviews').goTo();return false;">Testimonios</a>
+						<a class="nav-link" href="plans.html">Planes<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Contacto</a>
@@ -215,215 +257,137 @@
 				</div>
 			</div>
 		</nav>
-
-		<div class="container fh5co-hero-inner">
-			<h1 class="animated fadeIn wow titulo" data-wow-delay="0.4s">Bienvenido a Atiéndelos Restaurant </h1>
-			<p class="animated fadeIn wow subtitulo" data-wow-delay="0.67s">Gestionar un restaurante puede ser un desafío, pero con Atiéndelos Restaurant App, todo se simplifica. 
-				Optimiza la administración diaria, mejora la eficiencia operativa y reduce el tiempo dedicado a tareas rutinarias. Con Atiéndelos, puedes enfocarte 
-				en lo que realmente importa: brindar una experiencia excepcional a tus clientes y hacer crecer tu negocio.</p>
-			<button class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" data-toggle="modal" data-target="#contactModal">Contacto</button>
-			<button class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" onclick="window.location.href='plans.html'">Ver planes</button>
-			<img class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s" src="img/inicio.svg" alt="Smartphone">
-		</div>
-
-
-	</div> <!-- first section wrapper -->
-
-
-	<!-- ==========================================================================================================
-													 ADVANTAGES
-		 ========================================================================================================== -->
-
-	<div class="fh5co-advantages-outer">
-		<div class="container">
-			<h1 class="second-title"><span class="span-perfect"></span> <span class="span-features"></span></h1>
-			<small>Más que una App de administración restaurantera, la solución a sus problemas.</small>
-
-			<div class="row fh5co-advantages-grid-columns wow animated fadeIn" data-wow-delay="0.36s">
-
-				<div class="col-sm-4">
-					<img class="grid-image" src="img/reloj-de-arena (1).png" alt="Icon-1">
-					<h1 class="grid-title">Tiempo</h1>
-					<p class="grid-desc">Facilita la toma de pedidos en las mesas y envíalas directamente desde el dispositivo móvil del mesero hacia la cocina, reduciendo el tiempo de espera.</p>
-				</div>
-
-				<div class="col-sm-4">
-					<img class="grid-image" src="img/transferencia-movil.png" alt="Icon-2">
-					<h1 class="grid-title">Pagos</h1>
-					<p class="grid-desc">Ofrece la flexibilidad de pago en efectivo o con tarjeta bancaria. No hay necesidad de hacer esperar a los clientes.</p>
-				</div>
-
-				<div class="col-sm-4">
-					<img class="grid-image" src="img/estadistico.png" alt="Icon-3">
-					<h1 class="grid-title">Control total</h1>
-					<p class="grid-desc">Integra toda la organización de tu restaurante con una sola aplicación y lleva el control de tu negocio de forma fácil y eficiente.</p>
-				</div>
-
-
-			</div>
-		</div>
-	</div>
-
-
-	<!-- ==========================================================================================================
-													  SLIDER
-		 ========================================================================================================== -->
-
-	<div class="fh5co-slider-outer wow fadeIn" data-wow-delay="0.36s">
-		<small>Software práctico y comprensible:</small>
-		<div class="container fh5co-slider-inner">
-
-			<div class="owl-carousel owl-theme">
-
-				<div class="item"><img src="img/carrusel-funcion.svg" alt=""></div>
-				<div class="item"><img src="img/carrusel-mesa.svg" alt=""></div>
-				<div class="item"><img src="img/carrusel-caja.svg" alt=""></div>
-				<div class="item"><img src="img/carrusel-producto.svg" alt=""></div>
-
-
-			</div>
-
-		</div>
-	</div>
-
-
-	<!-- ==========================================================================================================
-													  FEATURES
-		 ========================================================================================================== -->
-
-	<div class="curved-bg-div wow animated fadeIn" data-wow-delay="0.15s"></div>
-	<div id="fh5co-features" class="fh5co-features-outer">
-		<div class="container">
-
-			<div class="row fh5co-features-grid-columns">
-
-				<div class="col-sm-6 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
-					<div class="col-sm-image-container">
-						<img class="img-float-left" src="img/reporte-ventas.svg" alt="smartphone-1">
-					</div>
-				</div>
-
-				<div class="col-sm-6 in-order-2 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
-					<h1>Generación de reportes</h1>
-					<p>- Obtenga un resumen en tiempo real de las finanzas de su restaurante y analice el rendimiento de las ventas por hora del día, semana, mes o año.</p>
-					<p>- Identifica tus productos estrella y aumenta tus ventas.</p>
-					<p>- Reportes por sucursal, vendedor y por categorías.</p>
-					<p>- Descarga reportes y estadísticas en formatos para excel.</p>
-					<p>- Controla tus gastos y márgenes de utilidad</p>
-				</div>
-
-
-
-
-				<div class="col-sm-6 in-order-5 wow animated fadeInLeft" data-wow-delay="0.22s">
-					<div class="col-sm-image-container">
-						<img class="img-float-left" src="img/gestion-usuario.svg" alt="smartphone-3">
-					</div>
-				</div>
-				<div class="col-sm-6 in-order-6 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
-					<h1>Gestión DE USUARIOS</h1>
-					<p>-Permite la creación ilimitada de usuarios.</p>
-					<p>-Personaliza los roles dentro de tu equipo para que se adapten de manera precisa a las responsabilidades y necesidades 
-						individuales de cada miembro. Esto garantizará una distribución eficiente de tareas y promoverá un ambiente de trabajo 
-						más productivo y satisfactorio para todos.</p>
-				</div>
-
-
-
-
-			</div> <!-- row -->
-
-
-		</div>
-	</div>
-
-
-	<!-- ==========================================================================================================
-													  REVIEWS
-		 ========================================================================================================== -->
-
-	<div id="fh5co-reviews" class="fh5co-reviews-outer">
-		<h1>Nuestros clientes</h1>
-		<div class="container fh5co-reviews-inner">
-			<div class="row justify-content-center">
-				<div class="col-sm-5 wow fadeIn animated" data-wow-delay="0.25s">
-
-					<p class="testimonial-desc">"Elegí atiéndelos restaurant porque es simple, accesible y se adapta a cualquier tipo de negocio. La comunicación y las respuestas siempre han sido de primera, y eso es una de las cosas que más me alegra de haber hecho el cambio. El apoyo que he recibido ha sido increíble."</p>
-					<small class="testimonial-author">PIG & FISH</small>
-
-				</div>
-				<div class="col-sm-5 testimonial-2 wow fadeIn animated" data-wow-delay="0.67s">
-
-					<p class="testimonial-desc">"Lo que más me gusta es la facilidad para administrar todos los puntos de venta desde cualquier lugar, además de la tranquilidad de saber que mi información está segura y respaldada."</p>
-					<small class="testimonial-author">Tlayudas Doña Flavia</small>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-
-<!-- ==========================================================================================================
-                                                 carrusel
+    </div>
+    
+    <!-- ==========================================================================================================
+                                                 PLANS HEADER
     ========================================================================================================== -->
-
-
-	<div class="clientes">
-        <div class="cliente-cliente">
-
-            <div class="conny">
-                <img src="img/playa del carmen.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/texas grill.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/pig and fish.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/tlayudas flavia.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/texas grill.svg" alt="" class="imagen-carrusel">
-            </div>
-            <!-- Duplicate the slides for continuous effect -->
-
-            <div class="conny">
-                <img src="img/playa del carmen.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/texas grill.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/pig and fish.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/tlayudas flavia.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel">
-            </div>
-            <div class="conny">
-                <img src="img/texas grill.svg" alt="" class="imagen-carrusel">
-            </div>
-
+    
+    <div class="plans-header">
+        <div class="container">
+            <h1>Nuestros Planes</h1>
+            <p>Elige el plan que mejor se adapte a las necesidades de tu restaurante y lleva tu negocio al siguiente nivel</p>
         </div>
     </div>
 
-	<!-- ==========================================================================================================
-                                                 BOTTOM
+    <!-- ==========================================================================================================
+                                                 PLANS SECTION
     ========================================================================================================== -->
+    
+    <div class="plans-section">
+        <div class="container">
+            <div class="row">
+                <!-- Plan Demo -->
+                <div class="col-md-3 wow fadeInUp animated" data-wow-delay="0.1s">
+                    <div class="subscription-card">
+                        <div class="subscription-header">
+                            <h3>Plan Demo</h3>
+                            <p>Prueba sin compromiso</p>
+                            <div class="demo-badge">¡NUEVO!</div>
+                        </div>
+                        <div class="subscription-price">
+                            <i class="fas fa-hourglass-half timer-icon"></i>4<small> horas</small>
+                        </div>
+                        <div class="subscription-features">
+                            <ul>
+                                <li><i class="fas fa-check text-success"></i> Acceso completo</li>
+                                <li><i class="fas fa-check text-success"></i> Sin tarjeta de crédito</li>
+                                <li><i class="fas fa-check text-success"></i> Soporte durante la prueba</li>
+                                <li><i class="fas fa-check text-success"></i> Datos de ejemplo</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-footer">
+                            <a href="#" class="btn btn-subscription" data-toggle="modal" data-target="#contactModal">Probar Gratis</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Plan Básico -->
+                <div class="col-md-3 wow fadeInUp animated" data-wow-delay="0.2s">
+                    <div class="subscription-card">
+                        <div class="subscription-header">
+                            <h3>Plan Básico</h3>
+                            <p>Ideal para pequeños negocios</p>
+                        </div>
+                        <div class="subscription-price">
+                            $299<small>/mes</small>
+                        </div>
+                        <div class="subscription-features">
+                            <ul>
+                                <li><i class="fas fa-check text-success"></i> 1 Punto de venta</li>
+                                <li><i class="fas fa-check text-success"></i> Gestión de mesas</li>
+                                <li><i class="fas fa-check text-success"></i> Reportes básicos</li>
+                                <li><i class="fas fa-times text-danger"></i> Gestión de inventario</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-footer">
+                            <a href="#" class="btn btn-subscription" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Plan Estándar -->
+                <div class="col-md-3 wow fadeInUp animated" data-wow-delay="0.3s">
+                    <div class="subscription-card featured">
+                        <div class="subscription-header">
+                            <h3>Plan Estándar</h3>
+                            <p>Para restaurantes en crecimiento</p>
+                        </div>
+                        <div class="subscription-price">
+                            $499<small>/mes</small>
+                        </div>
+                        <div class="subscription-features">
+                            <ul>
+                                <li><i class="fas fa-check text-success"></i> 3 Puntos de venta</li>
+                                <li><i class="fas fa-check text-success"></i> Gestión de inventario</li>
+                                <li><i class="fas fa-check text-success"></i> Reportes completos</li>
+                                <li><i class="fas fa-check text-success"></i> Soporte prioritario</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-footer">
+                            <a href="#" class="btn btn-subscription" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Anual -->
+                <div class="col-md-3 wow fadeInUp animated" data-wow-delay="0.4s">
+                    <div class="subscription-card">
+                        <div class="subscription-header">
+                            <h3>Plan Anual</h3>
+                            <p>La mejor opción para ahorrar</p>
+                        </div>
+                        <div class="subscription-price">
+                            $4,490<small>/año</small>
+                        </div>
+                        <div class="subscription-features">
+                            <ul>
+                                <li><i class="fas fa-check text-success"></i> 5 Puntos de venta</li>
+                                <li><i class="fas fa-check text-success"></i> Todas las funciones</li>
+                                <li><i class="fas fa-check text-success"></i> 2 meses gratis</li>
+                                <li><i class="fas fa-check text-success"></i> Soporte 24/7</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-footer">
+                            <a href="#" class="btn btn-subscription" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <h3>¿Necesitas un plan personalizado?</h3>
+                    <p>Contáctanos para crear un plan a medida para tu negocio</p>
+                    <a href="#" class="btn btn-subscription mt-3" data-toggle="modal" data-target="#contactModal">Solicitar información</a>
+                </div>
+            </div>
+            
+            <div class="back-to-home">
+                <a href="index.html"><i class="fas fa-arrow-left mr-2"></i> Volver a la página principal</a>
+            </div>
+        </div>
+    </div>
 
 	<!-- ==========================================================================================================
                                                SECTION 7 - SUB FOOTER
@@ -439,10 +403,11 @@
 				<div class="column-2-3">
 					<nav class="footer-nav">
 						<ul>
-							<a href="#" onclick="$('#fh5co-hero-wrapper').goTo();return false;"><li>Objetivo</li></a>
-							<a href="#" onclick="$('#fh5co-features').goTo();return false;"><li>Función</li></a>
-							<a href="#" onclick="$('#fh5co-reviews').goTo();return false;"><li>Testimonios</li></a>
-							<a href="#" data-toggle="modal" data-target="#contactModal"><li class="active">Contacto</li></a>
+							<a href="index.html"><li>Inicio</li></a>
+							<a href="index.html#fh5co-features"><li>Función</li></a>
+							<a href="index.html#fh5co-reviews"><li>Testimonios</li></a>
+							<a href="plans.html"><li class="active">Planes</li></a>
+							<a href="#" data-toggle="modal" data-target="#contactModal"><li>Contacto</li></a>
 						</ul>
 					</nav>
 				</div>
@@ -461,9 +426,6 @@
 
 		</div>
 	</footer>
-
-
-
 
 </div> <!-- main page wrapper -->
 
