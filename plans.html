@@ -8,7 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Planes - Atiéndelos restaurant</title>
-	<link rel="icon" href="img/iconodeatiendolosensvg.svg" type="image/svg+xml">
+	<link rel="icon" href="img/iconodeatiendelosensvg.svg" type="image/svg+xml">
 	<link rel="icon" type="image/png" href="img/image1.png">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +51,7 @@
         }
 
         .modal-header {
-            background: linear-gradient(to right, #234197, #3a5fcc);
+            background: linear-gradient(to right, #00a4ae, #01828a);
             color: white;
             border-radius: 10px 10px 0 0;
             padding: 20px;
@@ -216,6 +216,84 @@
         .back-to-home a:hover {
             background: #008a92;
         }
+
+/* Estilos para validación de formulario */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    padding-right: calc(1.5em + 0.75rem);
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.form-control.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+/* Estilos para toast de notificación */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    min-width: 250px;
+    background-color: white;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    overflow: hidden;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+.toast-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.toast-header.success {
+    background-color: #28a745;
+}
+
+.toast-header.error {
+    background-color: #dc3545;
+}
+
+.toast-header.warning {
+    background-color: #ffc107;
+}
+
+.toast-body {
+    padding: 1rem;
+}
+
+/* Estilo para botón deshabilitado */
+.btn-primary:disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    cursor: not-allowed;
+}
     </style>
 </head>
 <body>
@@ -449,21 +527,25 @@
 								<div class="form-group">
 									<label for="name">Nombre completo*</label>
 									<input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
+									<div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
 								</div>
 
 								<div class="form-group">
 									<label for="company">Nombre de la empresa*</label>
 									<input type="text" class="form-control" id="company" placeholder="Nombre de tu restaurante" required>
+									<div class="invalid-feedback">Por favor, ingresa el nombre de tu empresa.</div>
 								</div>
 
 								<div class="form-group">
 									<label for="email">Correo electrónico*</label>
 									<input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
+									<div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
 								</div>
 
 								<div class="form-group">
 									<label for="phone">Teléfono*</label>
 									<input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono" required>
+									<div class="invalid-feedback">Por favor, ingresa tu número de teléfono.</div>
 								</div>
 
 								<div class="form-group">
@@ -475,6 +557,7 @@
 										<option value="standard">Plan Estándar</option>
 										<option value="annual">Plan Anual</option>
 									</select>
+									<div class="invalid-feedback">Por favor, selecciona un plan.</div>
 								</div>
 
 								<div class="form-group">
@@ -485,6 +568,7 @@
 								<div class="form-group form-check">
 									<input type="checkbox" class="form-check-input" id="terms" required>
 									<label class="form-check-label" for="terms">Acepto los <a href="#">términos y condiciones</a>*</label>
+									<div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
 								</div>
 								<div class="form-group">
 									<div
@@ -524,7 +608,8 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Comenzar Ahora</button>
+					<button type="button" class="btn btn-primary" style="background-color: #00a4ae;
+    border-color: #007bff;">Comenzar Ahora</button>
 				</div>
 			</div>
 		</div>
@@ -552,15 +637,53 @@
 		const email = document.getElementById('email').value;
 		const phone = document.getElementById('phone').value;
 		const plan = document.getElementById('plan').value;
+		let isValid = true;
 
-		if (!name || !company || !email || !phone || !plan) {
-			alert('Por favor complete todos los campos requeridos');
-			return;
+		// Validación de campos y mostrar feedback visual
+		if (!name) {
+			document.getElementById('name').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('name').classList.remove('is-invalid');
+		}
+
+		if (!company) {
+			document.getElementById('company').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('company').classList.remove('is-invalid');
+		}
+
+		if (!email) {
+			document.getElementById('email').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('email').classList.remove('is-invalid');
+		}
+
+		if (!phone) {
+			document.getElementById('phone').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('phone').classList.remove('is-invalid');
+		}
+
+		if (!plan) {
+			document.getElementById('plan').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('plan').classList.remove('is-invalid');
 		}
 
 		if (!document.getElementById('terms').checked) {
-			alert('Debe aceptar los términos y condiciones');
-			return;
+			document.getElementById('terms').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('terms').classList.remove('is-invalid');
+		}
+
+		if (!isValid) {
+			return; // No continuar si el formulario no es válido
 		}
 
 		if (!apitoken) {
