@@ -30,7 +30,7 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
-	<link rel="preconnect" href="https://challenges.cloudflare.com">
+
 	<!-- Owl Carousel  -->
 	<link rel="stylesheet" href="css/owl.carousel.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -294,7 +294,7 @@
 			<p class="animated fadeIn wow subtitulo" data-wow-delay="0.67s">Gestionar un restaurante puede ser un desafío, pero con Atiéndelos Restaurant App, todo se simplifica. 
 				Optimiza la administración diaria, mejora la eficiencia operativa y reduce el tiempo dedicado a tareas rutinarias. Con Atiéndelos, puedes enfocarte 
 				en lo que realmente importa: brindar una experiencia excepcional a tus clientes y hacer crecer tu negocio.</p>
-			<button class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</button>
+			<button onclick="invocarCloudfire()" class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</button>
 			<button class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" onclick="window.location.href='plans.html'">Ver planes</button>
 			<img class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s" src="img/inicio.svg" alt="Smartphone">
 		</div>
@@ -604,13 +604,9 @@
 								<div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
 							</div>
 							<div class="form-group">
-								<div
-										class="cf-turnstile"
-										data-sitekey="0x4AAAAAACLGzm57QZTFMOPT"
-										data-theme="light"
-										data-size="normal"
-										data-callback="datarecibida"
-								></div>
+
+								<div id="turnstile-container"></div>
+
 							</div>
 						</form>
 					</div>
@@ -654,16 +650,53 @@
 	<script src="js/wow.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/toast.js"></script>
+
+
+
 <script
-		src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-		async
+		src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
 		defer
 ></script>
 
+
 <script>
 	let apitoken = undefined;
-	var datarecibida = function(response) {
+	let widgetId = undefined;
+	let datarecibida = function(response) {
+		console.log("Token recibido: ", response);
 		apitoken = response;
+	}
+
+	let invocarCloudfire = ()=>{
+		if(!Boolean(widgetId)){
+			console.log("No existe el widget asi que lo crearemos")
+			widgetId =  turnstile.render("#turnstile-container", {
+				sitekey: "0x4AAAAAACLGzm57QZTFMOPT",
+				callback: function (token) {
+					console.log("Success:", token);
+					datarecibida(token);
+				}
+			});
+		}else if(Boolean(widgetId) && !Boolean(apitoken)){
+			turnstile.remove(widgetId);
+			console.log("Ya existe el widget asi que lo eliminaremos",widgetId)
+			widgetId = undefined;
+			invocarCloudfire();
+		}else{
+			console.log("Ya existe el widget asi que lo recuperaremos",widgetId)
+			const isExpired = turnstile.isExpired(widgetId);
+
+			if(isExpired){
+				console.log("Esta expirado el widget");
+				turnstile.reset(widgetId);
+
+			}else{
+				console.log("No esta expirado el widget");
+				apitoken = turnstile.getResponse(widgetId);
+
+			}
+		}
+
 	}
 
 	document.querySelector('.modal-footer .btn-primary').addEventListener('click', async function () {

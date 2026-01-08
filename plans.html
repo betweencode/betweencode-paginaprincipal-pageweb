@@ -326,7 +326,7 @@
 						<a class="nav-link" href="plans.html">Planes<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Comenzar</a>
+						<a class="nav-link" href="#" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Comenzar</a>
 					</li>
 				</ul>
 				<div class="social-icons-header">
@@ -376,7 +376,7 @@
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" data-toggle="modal" data-target="#contactModal">Probar Gratis</a>
+                            <a href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Probar Gratis</a>
                         </div>
                     </div>
                 </div>
@@ -400,7 +400,7 @@
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
+                            <a href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
                         </div>
                     </div>
                 </div>
@@ -424,7 +424,7 @@
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
+                            <a href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
                         </div>
                     </div>
                 </div>
@@ -448,7 +448,7 @@
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
+                            <a href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
                         </div>
                     </div>
                 </div>
@@ -458,7 +458,7 @@
                 <div class="col-12 text-center">
                     <h3>¿Necesitas un plan personalizado?</h3>
                     <p>Accede ahora y personaliza un plan a medida para tu negocio</p>
-                    <a href="#" class="btn btn-subscription mt-3" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</a>
+                    <a href="#" class="btn btn-subscription mt-3" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</a>
                 </div>
             </div>
 
@@ -486,7 +486,7 @@
 							<a href="index.html#fh5co-features"><li>Función</li></a>
 							<a href="index.html#fh5co-reviews"><li>Testimonios</li></a>
 							<a href="plans.html"><li class="active">Planes</li></a>
-							<a href="#" data-toggle="modal" data-target="#contactModal"><li>Comenzar</li></a>
+							<a href="#" data-toggle="modal" onclick="invocarCloudfire()" data-target="#contactModal"><li>Comenzar</li></a>
 						</ul>
 					</nav>
 				</div>
@@ -571,13 +571,7 @@
 									<div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
 								</div>
 								<div class="form-group">
-									<div
-											class="cf-turnstile"
-											data-sitekey="0x4AAAAAACLGzm57QZTFMOPT"
-											data-theme="light"
-											data-size="normal"
-											data-callback="datarecibida"
-									></div>
+									<div id="turnstile-container"></div>
 								</div>
 							</form>
 						</div>
@@ -628,8 +622,42 @@
 ></script>
 <script>
 	let apitoken = "dsfdsf";
-	var datarecibida = function(response) {
+	let widgetId = undefined;
+	let datarecibida = function(response) {
+		console.log("Token recibido: ", response);
 		apitoken = response;
+	}
+
+	let invocarCloudfire = ()=>{
+		if(!Boolean(widgetId)){
+			console.log("No existe el widget asi que lo crearemos")
+			widgetId =  turnstile.render("#turnstile-container", {
+				sitekey: "0x4AAAAAACLGzm57QZTFMOPT",
+				callback: function (token) {
+					console.log("Success:", token);
+					datarecibida(token);
+				}
+			});
+		}else if(Boolean(widgetId) && !Boolean(apitoken)){
+			turnstile.remove(widgetId);
+			console.log("Ya existe el widget asi que lo eliminaremos",widgetId)
+			widgetId = undefined;
+			invocarCloudfire();
+		}else{
+			console.log("Ya existe el widget asi que lo recuperaremos",widgetId)
+			const isExpired = turnstile.isExpired(widgetId);
+
+			if(isExpired){
+				console.log("Esta expirado el widget");
+				turnstile.reset(widgetId);
+
+			}else{
+				console.log("No esta expirado el widget");
+				apitoken = turnstile.getResponse(widgetId);
+
+			}
+		}
+
 	}
 
 	document.querySelector('.modal-footer .btn-primary').addEventListener('click', async function () {
