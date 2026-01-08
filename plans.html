@@ -620,6 +620,7 @@
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/toast.js"></script>
 <script
 		src="https://challenges.cloudflare.com/turnstile/v0/api.js"
 		async
@@ -683,11 +684,12 @@
 		}
 
 		if (!isValid) {
+			modal.showmodal('warning', 'Por favor, completa todos los campos requeridos');
 			return; // No continuar si el formulario no es válido
 		}
 
 		if (!apitoken) {
-			alert('Por favor complete la verificación de seguridad');
+			modal.showmodal('warning', 'Por favor complete la verificación de seguridad');
 			return;
 		}
 
@@ -710,14 +712,14 @@
 			});
 
 			if (response.ok) {
-				alert('¡Gracias! Nos pondremos en contacto contigo pronto.');
+				modal.showmodal('success', '¡Gracias! Nos pondremos en contacto contigo pronto.');
 				$('#contactModal').modal('hide');
 			} else {
-				alert('Hubo un error al enviar el formulario. Por favor intente nuevamente.');
+				modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 			}
 		} catch (error) {
 			console.error('Error:', error);
-			alert('Hubo un error al enviar el formulario. Por favor intente nuevamente.');
+			modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 		}
 	});
 

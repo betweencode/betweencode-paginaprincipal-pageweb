@@ -176,6 +176,55 @@
             color: #ff9800;
             margin-right: 5px;
         }
+
+        /* Estilos para toast de notificación */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .toast {
+            min-width: 250px;
+            background-color: white;
+            color: #333;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            overflow: hidden;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        .toast-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            color: white;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .toast-header.success {
+            background-color: #28a745;
+        }
+
+        .toast-header.error {
+            background-color: #dc3545;
+        }
+
+        .toast-header.warning {
+            background-color: #ffc107;
+        }
+
+        .toast-body {
+            padding: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -575,6 +624,7 @@
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/toast.js"></script>
 <script
 		src="https://challenges.cloudflare.com/turnstile/v0/api.js"
 		async
@@ -595,17 +645,17 @@
 		const plan = document.getElementById('plan').value;
 
 		if (!name || !company || !email || !phone || !plan) {
-			alert('Por favor complete todos los campos requeridos');
+			modal.showmodal('warning', 'Por favor complete todos los campos requeridos');
 			return;
 		}
 
 		if (!document.getElementById('terms').checked) {
-			alert('Debe aceptar los términos y condiciones');
+			modal.showmodal('warning', 'Debe aceptar los términos y condiciones');
 			return;
 		}
 
 		if (!apitoken) {
-			alert('Por favor complete la verificación de seguridad');
+			modal.showmodal('warning', 'Por favor complete la verificación de seguridad');
 			return;
 		}
 
@@ -630,14 +680,14 @@
 			});
 
 			if (response.ok) {
-				alert('¡Gracias! Nos pondremos en contacto contigo pronto.');
+				modal.showmodal('success', '¡Gracias! Nos pondremos en contacto contigo pronto.');
 				$('#contactModal').modal('hide');
 			} else {
-				alert('Hubo un error al enviar el formulario. Por favor intente nuevamente.');
+				modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 			}
 		} catch (error) {
 			console.error('Error:', error);
-			alert('Hubo un error al enviar el formulario. Por favor intente nuevamente.');
+			modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 		}
 	});
 </script>
