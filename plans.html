@@ -740,8 +740,15 @@
 			});
 
 			if (response.ok) {
+				const jsonResponse = await response.json();
 				modal.showmodal('success', '¡Gracias! Nos pondremos en contacto contigo pronto.');
 				$('#contactModal').modal('hide');
+				console.log("respuesta", jsonResponse);
+				if (jsonResponse.submessage) {
+					alert("Se redireccionara!!..");
+					window.location.href = jsonResponse.submessage;
+				}
+
 			} else {
 				modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 			}
