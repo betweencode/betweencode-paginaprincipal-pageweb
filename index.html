@@ -30,7 +30,7 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
-	<link rel="preconnect" href="https://challenges.cloudflare.com">
+
 	<!-- Owl Carousel  -->
 	<link rel="stylesheet" href="css/owl.carousel.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -52,7 +52,7 @@
         }
 
         .modal-header {
-            background: linear-gradient(to right, #234197, #3a5fcc);
+            background: linear-gradient(to right, #00a4ae, #01828a);
             color: white;
             border-radius: 10px 10px 0 0;
             padding: 20px;
@@ -176,6 +176,77 @@
             color: #ff9800;
             margin-right: 5px;
         }
+
+        /* Estilos para toast de notificación */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .toast {
+            min-width: 250px;
+            background-color: white;
+            color: #333;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            overflow: hidden;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        .toast-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            color: white;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .toast-header.success {
+            background-color: #28a745;
+        }
+
+        .toast-header.error {
+            background-color: #dc3545;
+        }
+
+        .toast-header.warning {
+            background-color: #ffc107;
+        }
+
+        .toast-body {
+            padding: 1rem;
+        }
+
+		/* Estilos para validación de formulario */
+		.form-control.is-invalid {
+			border-color: #dc3545;
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+			background-repeat: no-repeat;
+			background-position: right calc(0.375em + 0.1875rem) center;
+			background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+			padding-right: calc(1.5em + 0.75rem);
+		}
+
+		.invalid-feedback {
+			display: none;
+			width: 100%;
+			margin-top: 0.25rem;
+			font-size: 80%;
+			color: #dc3545;
+		}
+
+		.form-control.is-invalid ~ .invalid-feedback {
+			display: block;
+		}
     </style>
 </head>
 <body>
@@ -223,7 +294,7 @@
 			<p class="animated fadeIn wow subtitulo" data-wow-delay="0.67s">Gestionar un restaurante puede ser un desafío, pero con Atiéndelos Restaurant App, todo se simplifica. 
 				Optimiza la administración diaria, mejora la eficiencia operativa y reduce el tiempo dedicado a tareas rutinarias. Con Atiéndelos, puedes enfocarte 
 				en lo que realmente importa: brindar una experiencia excepcional a tus clientes y hacer crecer tu negocio.</p>
-			<button class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</button>
+			<button onclick="invocarCloudfire()" class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</button>
 			<button class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" onclick="window.location.href='plans.html'">Ver planes</button>
 			<img class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s" src="img/inicio.svg" alt="Smartphone">
 		</div>
@@ -470,121 +541,162 @@
 </div> <!-- main page wrapper -->
 
 	<!-- Modal de Contacto -->
-	<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="contactModalLabel">Comienza Ahora</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-6">
-							<p>Completa el formulario para acceder inmediatamente a tu plan. Tendrás control total del sistema desde el primer momento.</p>
+<!-- Modal de Contacto -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="contactModalLabel">Comienza Ahora</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p>Completa el formulario para acceder inmediatamente a tu plan. Tendrás control total del sistema desde el primer momento.</p>
 
-							<form class="contact-form">
-								<div class="form-group">
-									<label for="name">Nombre completo*</label>
-									<input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
-								</div>
+						<form class="contact-form">
+							<div class="form-group">
+								<label for="name">Nombre completo*</label>
+								<input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
+								<div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="company">Nombre de la empresa*</label>
-									<input type="text" class="form-control" id="company" placeholder="Nombre de tu restaurante" required>
-								</div>
+							<div class="form-group">
+								<label for="company">Nombre de la empresa*</label>
+								<input type="text" class="form-control" id="company" placeholder="Nombre de tu restaurante" required>
+								<div class="invalid-feedback">Por favor, ingresa el nombre de tu empresa.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="email">Correo electrónico*</label>
-									<input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
-								</div>
+							<div class="form-group">
+								<label for="email">Correo electrónico*</label>
+								<input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
+								<div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="phone">Teléfono*</label>
-									<input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono" required>
-								</div>
+							<div class="form-group">
+								<label for="phone">Teléfono*</label>
+								<input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono" required>
+								<div class="invalid-feedback">Por favor, ingresa tu número de teléfono.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="plan">Plan de interés</label>
-									<select class="form-control" id="plan">
-										<option value="">Selecciona un plan</option>
-										<option value="demo">Plan Demo (4 horas)</option>
-										<option value="basic">Plan Básico</option>
-										<option value="standard">Plan Estándar</option>
-										<option value="annual">Plan Anual</option>
-									</select>
-								</div>
+							<div class="form-group">
+								<label for="plan">Plan de interés</label>
+								<select class="form-control" id="plan">
+									<option value="">Selecciona un plan</option>
+									<option value="demo">Plan Demo (4 horas)</option>
+									<option value="basic">Plan Básico</option>
+									<option value="standard">Plan Estándar</option>
+									<option value="annual">Plan Anual</option>
+								</select>
+								<div class="invalid-feedback">Por favor, selecciona un plan.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="message">Mensaje (opcional)</label>
-									<textarea class="form-control" id="message" rows="4" placeholder="¿Tienes alguna pregunta específica?"></textarea>
-								</div>
+							<div class="form-group">
+								<label for="message">Mensaje (opcional)</label>
+								<textarea class="form-control" id="message" rows="4" placeholder="¿Tienes alguna pregunta específica?"></textarea>
+							</div>
 
-								<div class="form-group form-check">
-									<input type="checkbox" class="form-check-input" id="terms" required>
-									<label class="form-check-label" for="terms">Acepto los <a href="#">términos y condiciones</a>*</label>
-								</div>
+							<div class="form-group form-check">
+								<input type="checkbox" class="form-check-input" id="terms" required>
+								<label class="form-check-label" for="terms">Acepto los <a href="#">términos y condiciones</a>*</label>
+								<div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
+							</div>
+							<div class="form-group">
 
-								<div class="form-group">
-									<div
-											class="cf-turnstile"
-											data-sitekey="0x4AAAAAACLGzm57QZTFMOPT"
-											data-theme="light"
-											data-size="normal"
-											data-callback="datarecibida"
-									></div>
-								</div>
-							</form>
-						</div>
+								<div id="turnstile-container"></div>
 
-						<div class="col-md-6">
-							<div class="contact-info">
-								<h4>Centro de Soporte</h4>
-								<p>Nuestro equipo está listo para ayudarte a comenzar. Accede inmediatamente a través de estos canales:</p>
+							</div>
+						</form>
+					</div>
 
-								<div class="mt-4">
-									<p><i class="fas fa-phone"></i> +52 (123) 456-7890</p>
-									<p><i class="fas fa-envelope"></i> contacto@atiendelos.com</p>
-									<p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad de México</p>
-									<p><i class="fas fa-clock"></i> Lunes a sábados de 09:00 a.m. a 09:00 p.m.</p>
-								</div>
+					<div class="col-md-6">
+						<div class="contact-info">
+							<h4>Centro de Soporte</h4>
+							<p>Nuestro equipo está listo para ayudarte a comenzar. Accede inmediatamente a través de estos canales:</p>
 
-								<div class="social-media mt-4">
-									<h4>Síguenos en redes sociales</h4>
-									<div class="social-icons mt-3">
-										<a href="https://www.facebook.com/AtiendelosApp/" target="_blank" class="mr-3"><i class="fab fa-facebook-f fa-2x"></i></a>
-										<a href="#" target="_blank" class="mr-3"><i class="fab fa-instagram fa-2x"></i></a>
-										<a href="https://www.twitter.com/" target="_blank" class="mr-3"><i class="fab fa-twitter fa-2x"></i></a>
-									</div>
+							<div class="mt-4">
+								<p><i class="fas fa-phone"></i> +52 (123) 456-7890</p>
+								<p><i class="fas fa-envelope"></i> contacto@atiendelos.com</p>
+								<p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad de México</p>
+								<p><i class="fas fa-clock"></i> Lunes a sábados de 09:00 a.m. a 09:00 p.m.</p>
+							</div>
+
+							<div class="social-media mt-4">
+								<h4>Síguenos en redes sociales</h4>
+								<div class="social-icons mt-3">
+									<a href="https://www.facebook.com/AtiendelosApp/" target="_blank" class="mr-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+									<a href="#" target="_blank" class="mr-3"><i class="fab fa-instagram fa-2x"></i></a>
+									<a href="https://www.twitter.com/" target="_blank" class="mr-3"><i class="fab fa-twitter fa-2x"></i></a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary">Comenzar Ahora</button>
-				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				<button type="button" class="btn btn-primary" style="background-color: #00a4ae;
+    border-color: #007bff;">Comenzar Ahora</button>
 			</div>
 		</div>
 	</div>
+</div>
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/toast.js"></script>
+
+
+
 <script
-		src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-		async
+		src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
 		defer
 ></script>
 
+
 <script>
 	let apitoken = undefined;
-	var datarecibida = function(response) {
+	let widgetId = undefined;
+	let datarecibida = function(response) {
+		console.log("Token recibido: ", response);
 		apitoken = response;
+	}
+
+	let invocarCloudfire = ()=>{
+		if(!Boolean(widgetId)){
+			console.log("No existe el widget asi que lo crearemos")
+			widgetId =  turnstile.render("#turnstile-container", {
+				sitekey: "0x4AAAAAACLGzm57QZTFMOPT",
+				callback: function (token) {
+					console.log("Success:", token);
+					datarecibida(token);
+				}
+			});
+		}else if(Boolean(widgetId) && !Boolean(apitoken)){
+			turnstile.remove(widgetId);
+			console.log("Ya existe el widget asi que lo eliminaremos",widgetId)
+			widgetId = undefined;
+			invocarCloudfire();
+		}else{
+			console.log("Ya existe el widget asi que lo recuperaremos",widgetId)
+			const isExpired = turnstile.isExpired(widgetId);
+
+			if(isExpired){
+				console.log("Esta expirado el widget");
+				turnstile.reset(widgetId);
+
+			}else{
+				console.log("No esta expirado el widget");
+				apitoken = turnstile.getResponse(widgetId);
+
+			}
+		}
+
 	}
 
 	document.querySelector('.modal-footer .btn-primary').addEventListener('click', async function () {
@@ -593,19 +705,58 @@
 		const email = document.getElementById('email').value;
 		const phone = document.getElementById('phone').value;
 		const plan = document.getElementById('plan').value;
+		let isValid = true;
 
-		if (!name || !company || !email || !phone || !plan) {
-			alert('Por favor complete todos los campos requeridos');
-			return;
+		// Validación de campos y mostrar feedback visual
+		if (!name) {
+			document.getElementById('name').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('name').classList.remove('is-invalid');
+		}
+
+		if (!company) {
+			document.getElementById('company').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('company').classList.remove('is-invalid');
+		}
+
+		if (!email) {
+			document.getElementById('email').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('email').classList.remove('is-invalid');
+		}
+
+		if (!phone) {
+			document.getElementById('phone').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('phone').classList.remove('is-invalid');
+		}
+
+		if (!plan) {
+			document.getElementById('plan').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('plan').classList.remove('is-invalid');
 		}
 
 		if (!document.getElementById('terms').checked) {
-			alert('Debe aceptar los términos y condiciones');
-			return;
+			document.getElementById('terms').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('terms').classList.remove('is-invalid');
+		}
+
+		if (!isValid) {
+			modal.showmodal('warning', 'Por favor, completa todos los campos requeridos');
+			return; // No continuar si el formulario no es válido
 		}
 
 		if (!apitoken) {
-			alert('Por favor complete la verificación de seguridad');
+			modal.showmodal('warning', 'Por favor complete la verificación de seguridad');
 			return;
 		}
 
@@ -628,14 +779,14 @@
 			});
 
 			if (response.ok) {
-				alert('¡Gracias! Nos pondremos en contacto contigo pronto.');
+				modal.showmodal('success', '¡Gracias! Nos pondremos en contacto contigo pronto.');
 				$('#contactModal').modal('hide');
 			} else {
-				alert('Hubo un error al enviar el formulario. Por favor intente nuevamente.');
+				modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 			}
 		} catch (error) {
 			console.error('Error:', error);
-			alert('Hubo un error al enviar el formulario. Por favor intente nuevamente.');
+			modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 		}
 	});
 </script>
