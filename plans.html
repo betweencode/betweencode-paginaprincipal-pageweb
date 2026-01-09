@@ -606,6 +606,27 @@
     border-color: #007bff;">Comenzar Ahora</button>
 				</div>
 			</div>
+ 	</div>
+	</div>
+
+	<!-- Modal de Código de Acceso -->
+	<div class="modal fade" id="accessCodeModal" tabindex="-1" role="dialog" aria-labelledby="accessCodeModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" style="background: linear-gradient(to right, #00a4ae, #01828a); color: white;">
+					<h5 class="modal-title" id="accessCodeModalLabel">¡Código de Acceso Generado!</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<i class="fas fa-check-circle fa-4x mb-3" style="color: #00a4ae;"></i>
+					<p>Código de acceso generado, al dar clic te redireccionará a atiendelosrestaurant para la versión demo!!.. disfrute su instancia</p>
+				</div>
+				<div class="modal-footer">
+					<button id="redirectButton" type="button" class="btn btn-primary mx-auto" style="background-color: #00a4ae; border-color: #00a4ae;">Continuar a la Demo</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -745,8 +766,14 @@
 				$('#contactModal').modal('hide');
 				console.log("respuesta", jsonResponse);
 				if (jsonResponse.submessage) {
-					alert("Se redireccionara!!..");
-					window.location.href = jsonResponse.submessage;
+					// Create and show the custom modal
+					const redirectUrl = jsonResponse.submessage;
+					$('#accessCodeModal').modal('show');
+
+					// Set up the redirect when the user clicks on the modal
+					document.getElementById('redirectButton').onclick = function() {
+						window.location.href = redirectUrl;
+					};
 				}
 
 			} else {
