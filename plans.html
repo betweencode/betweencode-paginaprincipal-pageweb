@@ -317,7 +317,7 @@
 
 	<div id="fh5co-hero-wrapper" style="height: auto;position: relative;z-index: 100">
 		<nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
-			<a class="navbar-brand" href="index.html">Atiéndelos Restaurant</a>
+			<a class="navbar-brand" onclick="ga4('Logo atiendelos restaurant')" href="index.html">Atiéndelos Restaurant</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -325,25 +325,21 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav nav-items-center ml-auto mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="index.html">Inicio</a>
+						<a class="nav-link" onclick="ga4('planes_inicio')" href="index.html">Inicio</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="index.html#fh5co-features">Función</a>
+						<a class="nav-link" onclick="ga4('planes_funcion')" href="index.html#fh5co-features">Función</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="index.html#fh5co-reviews">Testimonios</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="plans.html">Planes<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="index.html#fh5co-reviews" onclick="ga4('planes_testimonos')">Testimonios</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Comenzar</a>
+						<a class="nav-link" href="#" onclick="invocarCloudfire();ga4('planes_comenzar')" data-toggle="modal" data-target="#contactModal">Comenzar</a>
 					</li>
 				</ul>
 				<div class="social-icons-header">
-					<a href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-					<a href="https://freeh" target="_blank"><i class="fab fa-instagram"></i></a>
-					<a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+					<a onclick="ga4('planes_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+					<a onclick="ga4('planes_instagram')" href="https://freeh" target="_blank"><i class="fab fa-instagram"></i></a>
 				</div>
 			</div>
 		</nav>
@@ -796,7 +792,7 @@
 	});
 
 
-	var ga4 = (nombreevento, parametros) => {
+	let ga4 = (nombreevento, parametros) => {
 		if (parametros) gtag("event", nombreevento, parametros);
 		else gtag("event", nombreevento);
 	};

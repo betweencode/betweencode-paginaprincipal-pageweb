@@ -283,22 +283,21 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav nav-items-center ml-auto mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Objetivo<span class="sr-only">(current)</span></a>
+						<a onclick="ga4('inicio_objetivo')" class="nav-link" href="#">Objetivo<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="$('#fh5co-features').goTo();return false;">Función</a>
+						<a class="nav-link"  href="#" onclick="$('#fh5co-features').goTo();return false;ga4('inicio_funcion')">Función</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="$('#fh5co-reviews').goTo();return false;">Testimonios</a>
+						<a class="nav-link" href="#" onclick="$('#fh5co-reviews').goTo();return false;ga4('inicio_testimonios')">Testimonios</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Comenzar</a>
+						<a class="nav-link" href="#" data-toggle="modal" onclick="ga4('inicio_comenzar')" data-target="#contactModal">Comenzar</a>
 					</li>
 				</ul>
 				<div class="social-icons-header">
-					<a href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-					<a href="https://freeh" target="_blank"><i class="fab fa-instagram"></i></a>
-					<a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+					<a onclick="ga4('inicio_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+					<a onclick="ga4('inicio_instagram')" href="https://freeh" target="_blank"><i class="fab fa-instagram"></i></a>
 				</div>
 			</div>
 		</nav>
@@ -308,8 +307,8 @@
 			<p class="animated fadeIn wow subtitulo" data-wow-delay="0.67s">Gestionar un restaurante puede ser un desafío, pero con Atiéndelos Restaurant App, todo se simplifica. 
 				Optimiza la administración diaria, mejora la eficiencia operativa y reduce el tiempo dedicado a tareas rutinarias. Con Atiéndelos, puedes enfocarte 
 				en lo que realmente importa: brindar una experiencia excepcional a tus clientes y hacer crecer tu negocio.</p>
-			<button onclick="invocarCloudfire()" class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</button>
-			<button class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" onclick="window.location.href='plans.html'">Ver planes</button>
+			<button onclick="invocarCloudfire();ga4('inicio_comenzarahora')" class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</button>
+			<button onclose="ga4('inicio_verplanes')" class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" onclick="window.location.href='plans.html'">Ver planes</button>
 			<img class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s" src="img/inicio.svg" alt="Smartphone">
 		</div>
 
@@ -600,9 +599,9 @@
 								<select class="form-control" id="plan">
 									<option value="">Selecciona un plan</option>
 									<option value="demo">Plan Demo (4 horas)</option>
-									<option value="basic">Plan Básico</option>
-									<option value="standard">Plan Estándar</option>
-									<option value="annual">Plan Anual</option>
+									<option value="plan1">Plan Básico</option>
+									<option value="plan2">Plan Estándar</option>
+									<option value="plan3">Plan Anual</option>
 								</select>
 								<div class="invalid-feedback">Por favor, selecciona un plan.</div>
 							</div>
@@ -618,9 +617,7 @@
 								<div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
 							</div>
 							<div class="form-group">
-
 								<div id="turnstile-container"></div>
-
 							</div>
 						</form>
 					</div>
@@ -631,9 +628,8 @@
 							<p>Nuestro equipo está listo para ayudarte a comenzar. Accede inmediatamente a través de estos canales:</p>
 
 							<div class="mt-4">
-								<p><i class="fas fa-phone"></i> +52 (123) 456-7890</p>
-								<p><i class="fas fa-envelope"></i> contacto@atiendelos.com</p>
-								<p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad de México</p>
+								<p><i class="fas fa-phone"></i> +52 (332) 149 64 75</p>
+								<p><i class="fas fa-envelope"></i> soporte@atiendelos.com</p>
 								<p><i class="fas fa-clock"></i> Lunes a sábados de 09:00 a.m. a 09:00 p.m.</p>
 							</div>
 
@@ -658,6 +654,27 @@
 	</div>
 </div>
 
+<div class="modal fade" id="accessCodeModal" tabindex="-1" role="dialog" aria-labelledby="accessCodeModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="background: linear-gradient(to right, #00a4ae, #01828a); color: white;">
+				<h5 class="modal-title" id="accessCodeModalLabel">¡Código de Acceso Generado!</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body text-center">
+				<i class="fas fa-check-circle fa-4x mb-3" style="color: #00a4ae;"></i>
+				<p>Código de acceso generado, al dar clic te redireccionará a atiendelosrestaurant para la versión demo!!.. disfrute su instancia</p>
+			</div>
+			<div class="modal-footer">
+				<button id="redirectButton" type="button" class="btn btn-primary mx-auto" style="background-color: #00a4ae; border-color: #00a4ae;">Continuar a la Demo</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/owl.carousel.js"></script>
@@ -674,7 +691,7 @@
 
 
 <script>
-	let apitoken = undefined;
+	let apitoken = "dsfdsf";
 	let widgetId = undefined;
 	let datarecibida = function(response) {
 		console.log("Token recibido: ", response);
@@ -793,8 +810,21 @@
 			});
 
 			if (response.ok) {
+				const jsonResponse = await response.json();
 				modal.showmodal('success', '¡Gracias! Nos pondremos en contacto contigo pronto.');
 				$('#contactModal').modal('hide');
+				console.log("respuesta", jsonResponse);
+				if (jsonResponse.submessage) {
+					// Create and show the custom modal
+					const redirectUrl = jsonResponse.submessage;
+					$('#accessCodeModal').modal('show');
+
+					// Set up the redirect when the user clicks on the modal
+					document.getElementById('redirectButton').onclick = function() {
+						window.location.href = redirectUrl;
+					};
+				}
+
 			} else {
 				modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 			}
@@ -803,6 +833,12 @@
 			modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 		}
 	});
+
+
+	let ga4 = (nombreevento, parametros) => {
+		if (parametros) gtag("event", nombreevento, parametros);
+		else gtag("event", nombreevento);
+	};
 </script>
 </body>
 </html>
