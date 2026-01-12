@@ -295,6 +295,17 @@
     cursor: not-allowed;
 }
     </style>
+
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-78CQW8R24X"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-78CQW8R24X');
+	</script>
 </head>
 <body>
 
@@ -357,7 +368,7 @@
         <div class="container">
             <div class="row">
                 <!-- Plan Demo -->
-                <div class="col-md-3 wow fadeInUp animated" data-wow-delay="0.1s">
+                <div onclick="ga4('Plan demo')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.1s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Plan Demo</h3>
@@ -382,7 +393,7 @@
                 </div>
 
                 <!-- Plan Básico -->
-                <div class="col-md-3 wow fadeInUp animated" data-wow-delay="0.2s">
+                <div onclick="ga4('Primer plan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.2s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Plan Básico</h3>
@@ -406,7 +417,7 @@
                 </div>
 
                 <!-- Plan Estándar -->
-                <div class="col-md-3 wow fadeInUp animated" data-wow-delay="0.3s">
+                <div onclick="ga4('Segundo plan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.3s">
                     <div class="subscription-card featured">
                         <div class="subscription-header">
                             <h3>Plan Estándar</h3>
@@ -430,7 +441,7 @@
                 </div>
 
                 <!-- Plan Anual -->
-                <div class="col-md-3 wow fadeInUp animated" data-wow-delay="0.4s">
+                <div onclick="ga4('Tercer plan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.4s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Plan Anual</h3>
@@ -458,7 +469,7 @@
                 <div class="col-12 text-center">
                     <h3>¿Necesitas un plan personalizado?</h3>
                     <p>Accede ahora y personaliza un plan a medida para tu negocio</p>
-                    <a href="#" class="btn btn-subscription mt-3" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</a>
+                    <a onclick="ga4('Comenzar ahora')" href="#" class="btn btn-subscription mt-3" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</a>
                 </div>
             </div>
 
@@ -582,9 +593,8 @@
 								<p>Nuestro equipo está listo para ayudarte a comenzar. Accede inmediatamente a través de estos canales:</p>
 
 								<div class="mt-4">
-									<p><i class="fas fa-phone"></i> +52 (123) 456-7890</p>
-									<p><i class="fas fa-envelope"></i> contacto@atiendelos.com</p>
-									<p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad de México</p>
+									<p><i class="fas fa-phone"></i> +52 (332) 149 64 75</p>
+									<p><i class="fas fa-envelope"></i> soporte@atiendelos.com</p>
 									<p><i class="fas fa-clock"></i> Lunes a sábados de 09:00 a.m. a 09:00 p.m.</p>
 								</div>
 
@@ -785,6 +795,11 @@
 		}
 	});
 
+
+	var ga4 = (nombreevento, parametros) => {
+		if (parametros) gtag("event", nombreevento, parametros);
+		else gtag("event", nombreevento);
+	};
 
 </script>
 </body>
