@@ -686,11 +686,14 @@
 	}
 
 	document.querySelector('.modal-footer .btn-primary').addEventListener('click', async function () {
-		const name = document.getElementById('name').value;
-		const company = document.getElementById('company').value;
-		const email = document.getElementById('email').value;
-		const phone = document.getElementById('phone').value;
-		const plan = document.getElementById('plan').value;
+		const name = document.getElementById('name').value?.trim();
+		const company = document.getElementById('company').value?.trim();
+		const email = document.getElementById('email').value?.trim();
+		const phone = document.getElementById('phone').value?.trim();
+		const plan = document.getElementById('plan').value?.trim();
+
+
+
 		let isValid = true;
 
 		// Validación de campos y mostrar feedback visual
