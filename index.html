@@ -283,10 +283,10 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav nav-items-center ml-auto mr-auto">
 					<li class="nav-item active">
-						<a onclick="ga4('inicio_objetivo')" class="nav-link" href="#">Objetivo<span class="sr-only">(current)</span></a>
+						<a onclick="ga4('inicio_objetivo');$('#fh5co-features').goTo()"  class="nav-link" href="#">Objetivo<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link"  href="#" onclick="$('#fh5co-features').goTo();return false;ga4('inicio_funcion')">Función</a>
+						<a class="nav-link"  href="plans.html" onclick="ga4('inicio_planes')">Planes</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#" onclick="$('#fh5co-reviews').goTo();return false;ga4('inicio_testimonios')">Testimonios</a>
@@ -534,9 +534,8 @@
 				</div>
 				<div class="column-3-3">
 					<div class="social-icons-footer">
-						<a href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-						<a href="https://free" target="_blank"><i class="fab fa-instagram" ></i></a>
-						<a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+						<a onclick="ga4('inicio_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+						<a onclick="ga4('inicio_instagram')" href="https://free" target="_blank"><i class="fab fa-instagram" ></i></a>
 					</div>
 				</div>
 			</div>
@@ -784,11 +783,13 @@
 		}
 
 		// Email validation
-		if (!isValidEmail(email)) {
-			document.getElementById('email').classList.add('is-invalid');
-			isValid = false;
-		} else {
-			document.getElementById('email').classList.remove('is-invalid');
+		if(email){
+			if (!isValidEmail(email)) {
+				document.getElementById('email').classList.add('is-invalid');
+				isValid = false;
+			} else {
+				document.getElementById('email').classList.remove('is-invalid');
+			}
 		}
 
 		// Phone validation

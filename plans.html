@@ -528,9 +528,8 @@
 				</div>
 				<div class="column-3-3">
 					<div class="social-icons-footer">
-						<a href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-						<a href="https://free" target="_blank"><i class="fab fa-instagram" ></i></a>
-						<a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+						<a onclick="ga4('planes_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+						<a onclick="ga4('planes_instagram')" target="_blank"><i class="fab fa-instagram" ></i></a>
 					</div>
 				</div>
 			</div>
@@ -771,11 +770,13 @@
 		}
 
 		// Email validation
-		if (!isValidEmail(email)) {
-			document.getElementById('email').classList.add('is-invalid');
-			isValid = false;
-		} else {
-			document.getElementById('email').classList.remove('is-invalid');
+		if(email){
+			if (!isValidEmail(email)) {
+				document.getElementById('email').classList.add('is-invalid');
+				isValid = false;
+			} else {
+				document.getElementById('email').classList.remove('is-invalid');
+			}
 		}
 
 		// Phone validation
