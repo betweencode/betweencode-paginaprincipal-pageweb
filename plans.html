@@ -664,25 +664,37 @@
 </div>
 
 	<!-- Modal de Código de Acceso -->
-	<div class="modal fade" id="accessCodeModal" tabindex="-1" role="dialog" aria-labelledby="accessCodeModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header" style="background: linear-gradient(to right, #00a4ae, #01828a); color: white;">
-					<h5 class="modal-title" id="accessCodeModalLabel">¡Código de Acceso Generado!</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
-						<span aria-hidden="true">&times;</span>
+<div class="modal fade" id="accessCodeModal" tabindex="-1" role="dialog" aria-labelledby="accessCodeModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="background: linear-gradient(to right, #00a4ae, #01828a); color: white;">
+				<h5 class="modal-title" id="accessCodeModalLabel">¡Código generado!</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body text-center">
+				<i class="fas fa-check-circle fa-4x mb-3" style="color: #00a4ae;"></i>
+				<p>Se ha generado el link de atiendelos</p>
+				<div class="url-container p-2 mb-3"
+					 style="background: #f8f9fa; border-radius: 5px; display: flex; align-items: center; justify-content: space-between;">
+					<span id="generatedUrl" class="mr-2" style="word-break: break-all; margin-right: 10px;"></span>
+					<button class="btn btn-sm" style="background: #00a4ae; color: white;" onclick="copyUrl()">
+						<i class="fas fa-copy"></i>
 					</button>
 				</div>
-				<div class="modal-body text-center">
-					<i class="fas fa-check-circle fa-4x mb-3" style="color: #00a4ae;"></i>
-					<p>Código de acceso generado, al dar clic te redireccionará a atiendelosrestaurant para la versión demo!!.. disfrute su instancia</p>
+				<div id="copyMessage" style="display: none; color: #00a4ae; font-size: 0.9em;">
+					¡URL copiada al portapapeles!
 				</div>
-				<div class="modal-footer">
-					<button id="redirectButton" type="button" class="btn btn-primary mx-auto" style="background-color: #00a4ae; border-color: #00a4ae;">Continuar a la Demo</button>
-				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button id="redirectButton"  type="button" class="btn btn-primary mx-auto" style="background-color: #00a4ae; border-color: #00a4ae;">Dar clic para continuar</button>
 			</div>
 		</div>
 	</div>
+</div>
+
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
@@ -844,10 +856,14 @@
 				if (jsonResponse.submessage) {
 					// Create and show the custom modal
 					const redirectUrl = jsonResponse.submessage;
+					let temporal = document.getElementById("generatedUrl");
+					temporal.textContent = redirectUrl;
 					$('#accessCodeModal').modal('show');
 
 					// Set up the redirect when the user clicks on the modal
 					document.getElementById('redirectButton').onclick = function() {
+						ga4('planes_boton_continuar_click');
+						$('#accessCodeModal').modal('hide');
 						window.location.href = redirectUrl;
 					};
 				}
@@ -870,6 +886,18 @@
 
 	let anio = document.getElementById('anio');
 	anio.innerText = new Date().getFullYear();
+
+
+	window.copyUrl = function () {
+		const urlText = document.getElementById('generatedUrl').textContent;
+		navigator.clipboard.writeText(urlText).then(() => {
+			const copyMessage = document.getElementById('copyMessage');
+			copyMessage.style.display = 'block';
+			setTimeout(() => {
+				copyMessage.style.display = 'none';
+			}, 2000);
+		});
+	};
 </script>
 </body>
 </html>
