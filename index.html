@@ -308,7 +308,7 @@
 				Optimiza la administración diaria, mejora la eficiencia operativa y reduce el tiempo dedicado a tareas rutinarias. Con Atiéndelos, puedes enfocarte 
 				en lo que realmente importa: brindar una experiencia excepcional a tus clientes y hacer crecer tu negocio.</p>
 			<button onclick="invocarCloudfire();ga4('inicio_comenzarahora')" class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</button>
-			<button onclose="ga4('inicio_verplanes')" class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" onclick="window.location.href='plans.html'">Ver planes</button>
+			<button class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" onclick="window.location.href='plans.html';ga4('inicio_verplanes')">Ver planes</button>
 			<img class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s" src="img/inicio.svg" alt="Smartphone">
 		</div>
 
@@ -583,13 +583,13 @@
 							</div>
 
 							<div class="form-group">
-								<label for="email">Correo electrónico*</label>
+								<label for="email">Correo electrónico (deseable)</label>
 								<input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
 								<div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
 							</div>
 
 							<div class="form-group">
-								<label for="phone">Teléfono*</label>
+								<label for="phone">Teléfono* (Obligatorio)</label>
 								<input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono" required>
 								<div class="invalid-feedback">Por favor, ingresa tu número de teléfono.</div>
 							</div>
@@ -636,9 +636,8 @@
 							<div class="social-media mt-4">
 								<h4>Síguenos en redes sociales</h4>
 								<div class="social-icons mt-3">
-									<a href="https://www.facebook.com/AtiendelosApp/" target="_blank" class="mr-3"><i class="fab fa-facebook-f fa-2x"></i></a>
-									<a href="#" target="_blank" class="mr-3"><i class="fab fa-instagram fa-2x"></i></a>
-									<a href="https://www.twitter.com/" target="_blank" class="mr-3"><i class="fab fa-twitter fa-2x"></i></a>
+									<a onclick="ga4('inicio_contacto_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank" class="mr-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+									<a onclick="ga4('inicio_contacto_instagram')" href="#" target="_blank" class="mr-3"><i class="fab fa-instagram fa-2x"></i></a>
 								</div>
 							</div>
 						</div>
@@ -699,6 +698,13 @@
 	}
 
 	let invocarCloudfire = ()=>{
+
+		document.getElementById('name').value = '';
+		document.getElementById('company').value= '';
+		document.getElementById('email').value= '';
+		document.getElementById('phone').value= '';
+		document.getElementById('plan').value= '';
+
 		if(!Boolean(widgetId)){
 			console.log("No existe el widget asi que lo crearemos")
 			widgetId =  turnstile.render("#turnstile-container", {
@@ -708,24 +714,16 @@
 					datarecibida(token);
 				}
 			});
-		}else if(Boolean(widgetId) && !Boolean(apitoken)){
-			turnstile.remove(widgetId);
-			console.log("Ya existe el widget asi que lo eliminaremos",widgetId)
-			widgetId = undefined;
-			invocarCloudfire();
 		}else{
-			console.log("Ya existe el widget asi que lo recuperaremos",widgetId)
-			const isExpired = turnstile.isExpired(widgetId);
-
-			if(isExpired){
-				console.log("Esta expirado el widget");
-				turnstile.reset(widgetId);
-
-			}else{
-				console.log("No esta expirado el widget");
-				apitoken = turnstile.getResponse(widgetId);
-
-			}
+			turnstile.remove(widgetId);
+			console.log("Ya existe el widget asi que lo reiniciaremos",widgetId)
+			widgetId =  turnstile.render("#turnstile-container", {
+				sitekey: "0x4AAAAAACLGzm57QZTFMOPT",
+				callback: function (token) {
+					console.log("Success:", token);
+					datarecibida(token);
+				}
+			});
 		}
 
 	}
@@ -753,12 +751,7 @@
 			document.getElementById('company').classList.remove('is-invalid');
 		}
 
-		if (!email) {
-			document.getElementById('email').classList.add('is-invalid');
-			isValid = false;
-		} else {
-			document.getElementById('email').classList.remove('is-invalid');
-		}
+
 
 		if (!phone) {
 			document.getElementById('phone').classList.add('is-invalid');

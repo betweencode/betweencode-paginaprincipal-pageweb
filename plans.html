@@ -516,104 +516,103 @@
 </div> <!-- main page wrapper -->
 
 	<!-- Modal de Contacto -->
-	<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="contactModalLabel">Comienza Ahora</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-6">
-							<p>Completa el formulario para acceder inmediatamente a tu plan. Tendrás control total del sistema desde el primer momento.</p>
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="contactModalLabel">Comienza Ahora</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p>Completa el formulario para acceder inmediatamente a tu plan. Tendrás control total del sistema desde el primer momento.</p>
 
-							<form class="contact-form">
-								<div class="form-group">
-									<label for="name">Nombre completo*</label>
-									<input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
-									<div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
-								</div>
+						<form class="contact-form">
+							<div class="form-group">
+								<label for="name">Nombre completo*</label>
+								<input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
+								<div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="company">Nombre de la empresa*</label>
-									<input type="text" class="form-control" id="company" placeholder="Nombre de tu restaurante" required>
-									<div class="invalid-feedback">Por favor, ingresa el nombre de tu empresa.</div>
-								</div>
+							<div class="form-group">
+								<label for="company">Nombre de la empresa*</label>
+								<input type="text" class="form-control" id="company" placeholder="Nombre de tu restaurante" required>
+								<div class="invalid-feedback">Por favor, ingresa el nombre de tu empresa.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="email">Correo electrónico*</label>
-									<input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
-									<div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
-								</div>
+							<div class="form-group">
+								<label for="email">Correo electrónico (deseable)</label>
+								<input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
+								<div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="phone">Teléfono*</label>
-									<input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono" required>
-									<div class="invalid-feedback">Por favor, ingresa tu número de teléfono.</div>
-								</div>
+							<div class="form-group">
+								<label for="phone">Teléfono* (Obligatorio)</label>
+								<input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono" required>
+								<div class="invalid-feedback">Por favor, ingresa tu número de teléfono.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="plan">Plan de interés</label>
-									<select class="form-control" id="plan">
-										<option value="">Selecciona un plan</option>
-										<option value="demo">Plan Demo (4 horas)</option>
-										<option value="plan1">Plan Básico</option>
-										<option value="plan2">Plan Estándar</option>
-										<option value="plan3">Plan Anual</option>
-									</select>
-									<div class="invalid-feedback">Por favor, selecciona un plan.</div>
-								</div>
+							<div class="form-group">
+								<label for="plan">Plan de interés</label>
+								<select class="form-control" id="plan">
+									<option value="">Selecciona un plan</option>
+									<option value="demo">Plan Demo (4 horas)</option>
+									<option value="plan1">Plan Básico</option>
+									<option value="plan2">Plan Estándar</option>
+									<option value="plan3">Plan Anual</option>
+								</select>
+								<div class="invalid-feedback">Por favor, selecciona un plan.</div>
+							</div>
 
-								<div class="form-group">
-									<label for="message">Mensaje (opcional)</label>
-									<textarea class="form-control" id="message" rows="4" placeholder="¿Tienes alguna pregunta específica?"></textarea>
-								</div>
+							<div class="form-group">
+								<label for="message">Mensaje (opcional)</label>
+								<textarea class="form-control" id="message" rows="4" placeholder="¿Tienes alguna pregunta específica?"></textarea>
+							</div>
 
-								<div class="form-group form-check">
-									<input type="checkbox" class="form-check-input" id="terms" required>
-									<label class="form-check-label" for="terms">Acepto los <a href="#">términos y condiciones</a>*</label>
-									<div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
-								</div>
-								<div class="form-group">
-									<div id="turnstile-container"></div>
-								</div>
-							</form>
-						</div>
+							<div class="form-group form-check">
+								<input type="checkbox" class="form-check-input" id="terms" required>
+								<label class="form-check-label" for="terms">Acepto los <a href="#">términos y condiciones</a>*</label>
+								<div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
+							</div>
+							<div class="form-group">
+								<div id="turnstile-container"></div>
+							</div>
+						</form>
+					</div>
 
-						<div class="col-md-6">
-							<div class="contact-info">
-								<h4>Centro de Soporte</h4>
-								<p>Nuestro equipo está listo para ayudarte a comenzar. Accede inmediatamente a través de estos canales:</p>
+					<div class="col-md-6">
+						<div class="contact-info">
+							<h4>Centro de Soporte</h4>
+							<p>Nuestro equipo está listo para ayudarte a comenzar. Accede inmediatamente a través de estos canales:</p>
 
-								<div class="mt-4">
-									<p><i class="fas fa-phone"></i> +52 (332) 149 64 75</p>
-									<p><i class="fas fa-envelope"></i> soporte@atiendelos.com</p>
-									<p><i class="fas fa-clock"></i> Lunes a sábados de 09:00 a.m. a 09:00 p.m.</p>
-								</div>
+							<div class="mt-4">
+								<p><i class="fas fa-phone"></i> +52 (332) 149 64 75</p>
+								<p><i class="fas fa-envelope"></i> soporte@atiendelos.com</p>
+								<p><i class="fas fa-clock"></i> Lunes a sábados de 09:00 a.m. a 09:00 p.m.</p>
+							</div>
 
-								<div class="social-media mt-4">
-									<h4>Síguenos en redes sociales</h4>
-									<div class="social-icons mt-3">
-										<a href="https://www.facebook.com/AtiendelosApp/" target="_blank" class="mr-3"><i class="fab fa-facebook-f fa-2x"></i></a>
-										<a href="#" target="_blank" class="mr-3"><i class="fab fa-instagram fa-2x"></i></a>
-										<a href="https://www.twitter.com/" target="_blank" class="mr-3"><i class="fab fa-twitter fa-2x"></i></a>
-									</div>
+							<div class="social-media mt-4">
+								<h4>Síguenos en redes sociales</h4>
+								<div class="social-icons mt-3">
+									<a onclick="ga4('inicio_contacto_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank" class="mr-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+									<a onclick="ga4('inicio_contacto_instagram')" href="#" target="_blank" class="mr-3"><i class="fab fa-instagram fa-2x"></i></a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary" style="background-color: #00a4ae;
-    border-color: #007bff;">Comenzar Ahora</button>
-				</div>
 			</div>
- 	</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				<button type="button" class="btn btn-primary" style="background-color: #00a4ae;
+    border-color: #007bff;">Comenzar Ahora</button>
+			</div>
+		</div>
 	</div>
+</div>
 
 	<!-- Modal de Código de Acceso -->
 	<div class="modal fade" id="accessCodeModal" tabindex="-1" role="dialog" aria-labelledby="accessCodeModalLabel" aria-hidden="true">
@@ -663,9 +662,6 @@
 		document.getElementById('phone').value= '';
 		document.getElementById('plan').value= '';
 
-
-
-		debugger;
 		if(!Boolean(widgetId)){
 			console.log("No existe el widget asi que lo crearemos")
 			widgetId =  turnstile.render("#turnstile-container", {
