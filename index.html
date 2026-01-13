@@ -729,35 +729,61 @@
 	}
 
 	document.querySelector('.modal-footer .btn-primary').addEventListener('click', async function () {
-		const name = document.getElementById('name').value;
-		const company = document.getElementById('company').value;
-		const email = document.getElementById('email').value;
-		const phone = document.getElementById('phone').value;
-		const plan = document.getElementById('plan').value;
+		const name = document.getElementById('name').value?.trim();
+		const company = document.getElementById('company').value?.trim();
+		const email = document.getElementById('email').value?.trim();
+		const countryCode = document.getElementById('country_code').value?.trim();
+		const phoneNumber = document.getElementById('phone').value?.trim();
+		const phone = countryCode + phoneNumber; // Concatenate country code with phone number
+		const plan = document.getElementById('plan').value?.trim();
+
+
+		// Validation functions
+		const isValidName = (name) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/.test(name);
+		const isValidCompany = (company) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]{2,50}$/.test(company);
+		const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+		const isValidPhone = (phone) => /^\d{1,15}$/.test(phone);
+
 		let isValid = true;
 
-		// Validación de campos y mostrar feedback visual
-		if (!name) {
+		debugger;
+		// Name validation
+		if (!name || !isValidName(name)) {
 			document.getElementById('name').classList.add('is-invalid');
 			isValid = false;
 		} else {
 			document.getElementById('name').classList.remove('is-invalid');
 		}
 
-		if (!company) {
+		// Company validation
+		if (!company || !isValidCompany(company)) {
 			document.getElementById('company').classList.add('is-invalid');
 			isValid = false;
 		} else {
 			document.getElementById('company').classList.remove('is-invalid');
 		}
 
+		// Email validation
+		if (!email || !isValidEmail(email)) {
+			document.getElementById('email').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('email').classList.remove('is-invalid');
+		}
 
-
-		if (!phone) {
+		// Phone validation
+		if (!phoneNumber || !isValidPhone(phoneNumber)) {
 			document.getElementById('phone').classList.add('is-invalid');
 			isValid = false;
 		} else {
 			document.getElementById('phone').classList.remove('is-invalid');
+		}
+
+		if (!countryCode) {
+			document.getElementById('country_code').classList.add('is-invalid');
+			isValid = false;
+		} else {
+			document.getElementById('country_code').classList.remove('is-invalid');
 		}
 
 		if (!plan) {
@@ -826,7 +852,6 @@
 			modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
 		}
 	});
-
 
 	let ga4 = (nombreevento, parametros) => {
 		if (parametros) gtag("event", nombreevento, parametros);
