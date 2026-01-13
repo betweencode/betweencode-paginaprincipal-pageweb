@@ -733,32 +733,41 @@
 		const plan = document.getElementById('plan').value?.trim();
 
 
+		// Validation functions
+		const isValidName = (name) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/.test(name);
+		const isValidCompany = (company) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]{2,50}$/.test(company);
+		const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+		const isValidPhone = (phone) => /^\d{1,15}$/.test(phone);
 
 		let isValid = true;
 
-		// Validación de campos y mostrar feedback visual
-		if (!name) {
+		debugger;
+		// Name validation
+		if (!name || !isValidName(name)) {
 			document.getElementById('name').classList.add('is-invalid');
 			isValid = false;
 		} else {
 			document.getElementById('name').classList.remove('is-invalid');
 		}
 
-		if (!company) {
+		// Company validation
+		if (!company || !isValidCompany(company)) {
 			document.getElementById('company').classList.add('is-invalid');
 			isValid = false;
 		} else {
 			document.getElementById('company').classList.remove('is-invalid');
 		}
 
-		if (!email) {
+		// Email validation
+		if (!email || !isValidEmail(email)) {
 			document.getElementById('email').classList.add('is-invalid');
 			isValid = false;
 		} else {
 			document.getElementById('email').classList.remove('is-invalid');
 		}
 
-		if (!phoneNumber) {
+		// Phone validation
+		if (!phoneNumber || !isValidPhone(phoneNumber)) {
 			document.getElementById('phone').classList.add('is-invalid');
 			isValid = false;
 		} else {
