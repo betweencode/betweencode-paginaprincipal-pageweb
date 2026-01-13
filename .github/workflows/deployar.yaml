@@ -1,0 +1,50 @@
+name: Deploy static content to Pages
+
+on:
+  # Se ejecuta al hacer push a la rama main
+  push:
+    branches: ["main"]
+
+  # Permite ejecutarlo manualmente desde la pestaña Actions
+  workflow_dispatch:
+
+# Permisos necesarios para desplegar en Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# ESTA ES LA CLAVE: Evita que se formen colas infinitas.
+# Si lanzas un nuevo cambio, cancela el anterior.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Trabajo de despliegue único
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # Si tu proyecto requiere compilación (ej. React, Flutter),
+      # agrega aquí los pasos de 'Build' antes de subir el artefacto.
+      # Por ejemplo: npm install && npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # IMPORTANTE: Cambia '.' por la carpeta de salida si usas un framework.
+          # Ejemplos: './dist' para Vite/React, './build/web' para Flutter.
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
