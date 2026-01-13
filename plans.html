@@ -380,7 +380,7 @@
         <div class="container">
             <div class="row">
                 <!-- Plan Demo -->
-                <div onclick="ga4('planes_plandemo')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.1s">
+                <div onclick="ga4('planes_plandemo')" id="plandemo" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.1s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Plan demo</h3>
@@ -405,7 +405,7 @@
                 </div>
 
                 <!-- Plan Básico -->
-                <div onclick="ga4('planes_Primer_plan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.2s">
+                <div onclick="ga4('planes_Primer_plan')" id="plandos" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.2s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Plan Básico</h3>
@@ -431,7 +431,7 @@
                 </div>
 
                 <!-- Plan Estándar -->
-                <div onclick="ga4('planes_segundoplan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.3s">
+                <div onclick="ga4('planes_segundoplan')" id="plantres" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.3s">
                     <div class="subscription-card featured">
                         <div class="subscription-header">
                             <h3>Plan Estándar</h3>
@@ -459,7 +459,7 @@
                 </div>
 
                 <!-- Plan Anual -->
-                <div onclick="ga4('planes_tercerplan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.4s">
+                <div onclick="ga4('planes_tercerplan')" id="plancuatro" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.4s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Plan Premium</h3>
@@ -490,7 +490,7 @@
 
             </div>
 
-            <div class="row mt-5">
+            <div id="ocultar1" class="row mt-5">
                 <div class="col-12 text-center">
                     <h3>¿Necesitas un plan personalizado?</h3>
                     <p>Accede ahora y personaliza un plan a medida para tu negocio</p>
@@ -498,7 +498,7 @@
                 </div>
             </div>
 
-            <div class="back-to-home">
+            <div id="ocultar2" class="back-to-home">
                 <a href="index.html"><i class="fas fa-arrow-left mr-2"></i> Volver a la página principal</a>
             </div>
         </div>
@@ -508,7 +508,7 @@
                                                SECTION 7 - SUB FOOTER
     ========================================================================================================== -->
 
-	<footer class="footer-outer">
+	<footer id="ocultar3" class="footer-outer">
 		<div class="container footer-inner">
 
 			<div class="footer-three-grid wow fadeIn animated" data-wow-delay="0.66s">
@@ -900,6 +900,34 @@
 			}, 2000);
 		});
 	};
+</script>
+
+
+
+<script>
+
+   window.onload = ()=>{
+	   window.parent.postMessage("planes_onload", "*");
+   }
+
+   window.addEventListener('message', function (event) {
+
+	   // Verify origin
+	   if (event.origin !== 'https://app.atiendelos.com' && event.origin !== 'http://localhost:8100') return;
+
+	   if(event.data === 'padre_cargando'){
+
+		   ga4('appatiendelos_selecconandoplan');
+		     document.getElementById('fh5co-hero-wrapper').style.display = 'none';
+		     document.getElementById('plandemo').style.display = 'none';
+		   document.getElementById('ocultar1').style.display = 'none';
+		   document.getElementById('ocultar2').style.display = 'none';
+		   document.getElementById('ocultar3').style.display = 'none';
+			 document.getElementById('plandos').className = "col-md-4 wow fadeInUp animated";
+		   document.getElementById('plantres').className = "col-md-4 wow fadeInUp animated";
+		   document.getElementById('plancuatro').className = "col-md-4 wow fadeInUp animated";
+	   }});
+
 </script>
 
 
