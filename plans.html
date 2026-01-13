@@ -317,7 +317,7 @@
 
 	<div id="fh5co-hero-wrapper" style="height: auto;position: relative;z-index: 100">
 		<nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
-			<a class="navbar-brand" onclick="ga4('Logo atiendelos restaurant')" href="index.html">Atiéndelos Restaurant</a>
+			<a class="navbar-brand" onclick="ga4('planes_Logoatiendelosrestaurant')" href="index.html">Atiéndelos Restaurant</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -364,7 +364,7 @@
         <div class="container">
             <div class="row">
                 <!-- Plan Demo -->
-                <div onclick="ga4('Plan demo')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.1s">
+                <div onclick="ga4('planes_plandemo')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.1s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Plan Demo</h3>
@@ -389,7 +389,7 @@
                 </div>
 
                 <!-- Plan Básico -->
-                <div onclick="ga4('Primer plan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.2s">
+                <div onclick="ga4('planes_Primer_plan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.2s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Plan Básico</h3>
@@ -413,7 +413,7 @@
                 </div>
 
                 <!-- Plan Estándar -->
-                <div onclick="ga4('Segundo plan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.3s">
+                <div onclick="ga4('planes_segundoplan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.3s">
                     <div class="subscription-card featured">
                         <div class="subscription-header">
                             <h3>Plan Estándar</h3>
@@ -437,7 +437,7 @@
                 </div>
 
                 <!-- Plan Anual -->
-                <div onclick="ga4('Tercer plan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.4s">
+                <div onclick="ga4('planes_tercerplan')" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.4s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Plan Anual</h3>
@@ -465,7 +465,7 @@
                 <div class="col-12 text-center">
                     <h3>¿Necesitas un plan personalizado?</h3>
                     <p>Accede ahora y personaliza un plan a medida para tu negocio</p>
-                    <a onclick="ga4('Comenzar ahora')" href="#" class="btn btn-subscription mt-3" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</a>
+                    <a href="#" class="btn btn-subscription mt-3" onclick="invocarCloudfire();ga4('planes_comenzarahora')" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</a>
                 </div>
             </div>
 
@@ -656,6 +656,16 @@
 	}
 
 	let invocarCloudfire = ()=>{
+
+		document.getElementById('name').value = '';
+		document.getElementById('company').value= '';
+		document.getElementById('email').value= '';
+		document.getElementById('phone').value= '';
+		document.getElementById('plan').value= '';
+
+
+
+		debugger;
 		if(!Boolean(widgetId)){
 			console.log("No existe el widget asi que lo crearemos")
 			widgetId =  turnstile.render("#turnstile-container", {
@@ -665,24 +675,16 @@
 					datarecibida(token);
 				}
 			});
-		}else if(Boolean(widgetId) && !Boolean(apitoken)){
-			turnstile.remove(widgetId);
-			console.log("Ya existe el widget asi que lo eliminaremos",widgetId)
-			widgetId = undefined;
-			invocarCloudfire();
 		}else{
-			console.log("Ya existe el widget asi que lo recuperaremos",widgetId)
-			const isExpired = turnstile.isExpired(widgetId);
-
-			if(isExpired){
-				console.log("Esta expirado el widget");
-				turnstile.reset(widgetId);
-
-			}else{
-				console.log("No esta expirado el widget");
-				apitoken = turnstile.getResponse(widgetId);
-
-			}
+			turnstile.remove(widgetId);
+			console.log("Ya existe el widget asi que lo reiniciaremos",widgetId)
+			widgetId =  turnstile.render("#turnstile-container", {
+				sitekey: "0x4AAAAAACLGzm57QZTFMOPT",
+				callback: function (token) {
+					console.log("Success:", token);
+					datarecibida(token);
+				}
+			});
 		}
 
 	}
