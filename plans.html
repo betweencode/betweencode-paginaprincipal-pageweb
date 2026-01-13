@@ -608,7 +608,7 @@
 								<label for="plan">Plan de interés</label>
 								<select class="form-control" id="plan">
 									<option value="">Selecciona un plan</option>
-									<option value="demo">Plan Demo (1 día)</option>
+									<option id="quitardemo" value="demo">Plan Demo (1 día)</option>
 									<option value="plan1">Plan Básico</option>
 									<option value="plan2">Plan Estándar</option>
 									<option value="plan3">Plan Premium</option>
@@ -866,7 +866,11 @@
 					document.getElementById('redirectButton').onclick = function() {
 						ga4('planes_boton_continuar_click');
 						$('#accessCodeModal').modal('hide');
-						window.location.href = redirectUrl;
+						if(!isparten){
+							window.location.href = redirectUrl;
+						}else{
+							window.parent.postMessage({type:"planSelected",url:redirectUrl}, "*");
+						}
 					};
 				}
 
@@ -910,6 +914,8 @@
 	   window.parent.postMessage("planes_onload", "*");
    }
 
+
+   let isparten = false;
    window.addEventListener('message', function (event) {
 
 	   // Verify origin
@@ -917,11 +923,14 @@
 
 	   if(event.data === 'padre_cargando'){
 
+		   isparten = true;
+
 		   ga4('appatiendelos_selecconandoplan');
 		     document.getElementById('fh5co-hero-wrapper').style.display = 'none';
 		     document.getElementById('plandemo').style.display = 'none';
 		   document.getElementById('ocultar1').style.display = 'none';
 		   document.getElementById('ocultar2').style.display = 'none';
+		   document.getElementById('quitardemo').style.display = 'none';
 		   document.getElementById('ocultar3').style.display = 'none';
 			 document.getElementById('plandos').className = "col-md-4 wow fadeInUp animated";
 		   document.getElementById('plantres').className = "col-md-4 wow fadeInUp animated";
