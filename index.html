@@ -566,7 +566,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-8">
 						<p>Completa el formulario para acceder inmediatamente a tu plan. Tendrás control total del sistema desde el primer momento.</p>
 
 						<form class="contact-form">
@@ -590,7 +590,28 @@
 
 							<div class="form-group">
 								<label for="phone">Teléfono* (Obligatorio)</label>
-								<input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono" required>
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<select class="form-control" id="country_code" style="width: auto; border-top-right-radius: 0; border-bottom-right-radius: 0;height: 100%;">
+											<option value="+52">🇲🇽 +52 (México)</option>
+											<option value="+1">🇺🇸 +1 (USA/Canadá)</option>
+											<option value="+34">🇪🇸 +34 (España)</option>
+											<option value="+57">🇨🇴 +57 (Colombia)</option>
+											<option value="+56">🇨🇱 +56 (Chile)</option>
+											<option value="+51">🇵🇪 +51 (Perú)</option>
+											<option value="+54">🇦🇷 +54 (Argentina)</option>
+											<option value="+58">🇻🇪 +58 (Venezuela)</option>
+											<option value="+502">🇬🇹 +502 (Guatemala)</option>
+											<option value="+503">🇸🇻 +503 (El Salvador)</option>
+											<option value="+504">🇭🇳 +504 (Honduras)</option>
+											<option value="+505">🇳🇮 +505 (Nicaragua)</option>
+											<option value="+506">🇨🇷 +506 (Costa Rica)</option>
+											<option value="+507">🇵🇦 +507 (Panamá)</option>
+											<option value="+593">🇪🇨 +593 (Ecuador)</option>
+										</select>
+									</div>
+									<input type="tel" class="form-control" id="phone" placeholder="Teléfono" required style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+								</div>
 								<div class="invalid-feedback">Por favor, ingresa tu número de teléfono.</div>
 							</div>
 
@@ -598,7 +619,7 @@
 								<label for="plan">Plan de interés</label>
 								<select class="form-control" id="plan">
 									<option value="">Selecciona un plan</option>
-									<option value="demo">Plan Demo (4 horas)</option>
+									<option value="demo">Plan Demo (1 día)</option>
 									<option value="plan1">Plan Básico</option>
 									<option value="plan2">Plan Estándar</option>
 									<option value="plan3">Plan Premium</option>
@@ -622,7 +643,7 @@
 						</form>
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<div class="contact-info">
 							<h4>Centro de Soporte</h4>
 							<p>Nuestro equipo está listo para ayudarte a comenzar. Accede inmediatamente a través de estos canales:</p>
@@ -746,7 +767,6 @@
 
 		let isValid = true;
 
-		debugger;
 		// Name validation
 		if (!name || !isValidName(name)) {
 			document.getElementById('name').classList.add('is-invalid');
