@@ -524,7 +524,7 @@
 
 			<span class="border-bottom-footer"></span>
 
-			<p class="copyright">&copy; 2024 Atiéndelos Restaurant App. Todos los derechos reservados.
+			<p class="copyright">&copy; <span id="anio"></span> Atiéndelos Restaurant App. Todos los derechos reservados.
 
 		</div>
 	</footer>
@@ -759,7 +759,7 @@
 		}
 
 		// Email validation
-		if (!email || !isValidEmail(email)) {
+		if (!isValidEmail(email)) {
 			document.getElementById('email').classList.add('is-invalid');
 			isValid = false;
 		} else {
@@ -854,6 +854,9 @@
 		else gtag("event", nombreevento);
 	};
 
+
+	let anio = document.getElementById('anio');
+	anio.innerText = new Date().getFullYear();
 </script>
 </body>
 </html>
