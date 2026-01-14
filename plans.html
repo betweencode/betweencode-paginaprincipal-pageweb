@@ -425,7 +425,7 @@
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
+                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
                         </div>
                     </div>
                 </div>
@@ -453,7 +453,7 @@
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
+                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan2';invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
                         </div>
                     </div>
                 </div>
@@ -483,7 +483,7 @@
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
+                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan3';invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Seleccionar Plan</a>
                         </div>
                     </div>
                 </div>
@@ -606,7 +606,7 @@
 
 							<div class="form-group">
 								<label for="plan">Plan de interés</label>
-								<select class="form-control" id="plan">
+								<select disabled class="form-control" id="plan">
 									<option value="">Selecciona un plan</option>
 									<option id="quitardemo" value="demo">Plan Demo (1 día)</option>
 									<option value="plan1">Plan Básico</option>
@@ -710,6 +710,9 @@
 <script>
 	let apitoken = "dsfdsf";
 	let widgetId = undefined;
+
+	let planinteres = "demo";
+	let isnotIframe = true;
 	let datarecibida = function(response) {
 		console.log("Token recibido: ", response);
 		apitoken = response;
@@ -717,12 +720,17 @@
 
 	let invocarCloudfire = ()=>{
 
+		if(isnotIframe && planinteres !== "demo"){
+			document.location.href = "https://atiendelos.com/auth/register";
+		}
+
 		document.getElementById('name').value = '';
 		document.getElementById('company').value= '';
 		document.getElementById('email').value= '';
 		document.getElementById('phone').value= '';
 		document.getElementById('country_code').value= '+52'; // Reset to default Mexico country code
-		document.getElementById('plan').value= '';
+
+		document.getElementById('plan').value = planinteres;
 
 		if(!Boolean(widgetId)){
 			console.log("No existe el widget asi que lo crearemos")
@@ -910,6 +918,7 @@
 
 <script>
 
+
    window.onload = ()=>{
 	   window.parent.postMessage("planes_onload", "*");
    }
@@ -924,6 +933,7 @@
 	   if(event.data === 'padre_cargando'){
 
 		   isparten = true;
+		   isnotIframe=false;
 
 		   ga4('appatiendelos_selecconandoplan');
 		     document.getElementById('fh5co-hero-wrapper').style.display = 'none';
