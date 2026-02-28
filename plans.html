@@ -709,13 +709,12 @@
 	}
 
 	let invocarCloudfire = ()=>{
-		document.getElementById('name').value = '';
 		document.getElementById('company').value= '';
 		document.getElementById('email').value= '';
 		document.getElementById('phone').value= '';
 		document.getElementById('country_code').value= '+52'; // Reset to default Mexico country code
 
-		document.getElementById('plan').value = planinteres;
+
 
 		if(!Boolean(widgetId)){
 			console.log("No existe el widget asi que lo crearemos")
