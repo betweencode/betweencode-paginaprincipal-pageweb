@@ -163,7 +163,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            background: #00a4ae;
+            background: #ae0000;
             color: white;
             padding: 5px 10px;
             font-size: 12px;
@@ -393,15 +393,17 @@
                         </div>
                         <div class="subscription-features">
                             <ul>
-                                <li><i class="fas fa-check text-success"></i> Accede a una vista previa de como es el sistema</li>
-                                <li><i class="fas fa-check text-success"></i> Podrás realizar tu primera venta</li>
-								<li><i class="fas fa-check text-success"></i> Vista restaurante</li>
-								<li><i class="fas fa-check text-success"></i> Vista punto de venta</li>
-								<li><i class="fas fa-times text-danger"></i> No es aplicación para tu negocio, si quieres una seleccionar un plan y crear tu cuenta.</li>
+                                <li><i class="fas fa-check text-success"></i> Explora con datos de prueba</li>
+                                <li><i class="fas fa-check text-success"></i> Realiza una venta como mesero / cajero</li>
+								<li><i class="fas fa-check text-success"></i> Punto de venta express</li>
+								<li><i class="fas fa-check text-success"></i> Punto de venta restaurante</li>
+								<li><i class="fas fa-times text-danger"></i> No es aplicación para tu negocio, son datos demo, si quieres para tu negocio create tu cuenta.</li>
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Demostración</a>
+                            <a style="white-space: break-spaces" href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Explorar con datos de prueba</a>
+							<span style="    font-size: smaller;
+    font-weight: 200;">*No requiere registro. Datos de ejemplo incluidos</span>
                         </div>
                     </div>
                 </div>
@@ -418,16 +420,18 @@
                         </div>
                         <div class="subscription-features">
                             <ul>
-								<li><i class="fas fa-check text-success"></i> 1 usuario</li>
-                                <li><i class="fas fa-check text-success"></i> 1 sesión por dispositivo</li>
+								<li><i class="fas fa-check text-success"></i> 2 Usuarios activos (Administrador, Venta/Cajero)</li>
+                                <li><i class="fas fa-check text-success"></i> 1 dispositivo por usuario</li>
 								<li><i class="fas fa-check text-success"></i> Configuración de impresora (máximo 1 impresora)</li>
-                                <li><i class="fas fa-check text-success"></i> Caja y venta</li>
-								<li><i class="fas fa-check text-success"></i> Corte del día</li>
+								<li><i class="fas fa-check text-success"></i> Terminal de pago mercado libre (opcional)</li>
+                                <li><i class="fas fa-check text-success"></i> Punto de venta express</li>
+								<li><i class="fas fa-check text-success"></i> Corte de caja</li>
 								<li><i class="fas fa-times text-danger"></i> Multisucursal</li>
+								<li><i class="fas fa-times text-danger"></i> Punto de venta de restaurante.</li>
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarPanelAtiendelos()">Seleccionar Plan</a>
+                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarPanelAtiendelos()">Create una cuenta</a>
                         </div>
                     </div>
                 </div>
@@ -444,10 +448,12 @@
                         </div>
                         <div class="subscription-features">
                             <ul>
+								<li><i class="fas fa-check text-success"></i> Todos los beneficios del plan anterior</li>
                                 <li><i class="fas fa-check text-success"></i> 3 Usuarios (Administrador, Mesero y cajero)</li>
-								<li><i class="fas fa-check text-success"></i> Máximo 3 dispositivos concurrentes</li>
-								<li><i class="fas fa-check text-success"></i> Configuración de pantalla Barra / Cocina</li>
-								<li><i class="fas fa-check text-success"></i> Configuración de impresora (maxímo 3 impresora)</li>
+								<li><i class="fas fa-check text-success"></i> Sin limite de dispositivos</li>
+								<li><i class="fas fa-check text-success"></i> Terminal de pago mercado libre (opcional)</li>
+								<li><i class="fas fa-check text-success"></i> Configuración de pantalla Barra / Cocina (Según negocio)</li>
+								<li><i class="fas fa-check text-success"></i> Configuración de impresora (Según negocio)</li>
 								<li><i class="fas fa-check text-success"></i> Caja y venta</li>
 								<li><i class="fas fa-check text-success"></i> Corte del día</li>
 								<li><i class="fas fa-check text-success"></i> Reportes Históricos / Estadísticas</li>
@@ -455,7 +461,7 @@
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan2';invocarPanelAtiendelos()">Seleccionar Plan</a>
+                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan2';invocarPanelAtiendelos()">Create una cuenta</a>
                         </div>
                     </div>
                 </div>
@@ -472,7 +478,8 @@
                         </div>
                         <div class="subscription-features">
                             <ul>
-                                <li><i class="fas fa-check text-success"></i> Usuario ilimitado</li>
+								<li><i class="fas fa-check text-success"></i> Todos los beneficios del plan anterior</li>
+                                <li><i class="fas fa-check text-success"></i> Usuarios ilimitados</li>
 								<li><i class="fas fa-check text-success"></i> Gestión de usuario</li>
 								<li><i class="fas fa-check text-success"></i> Capitán de meseros</li>
 								<li><i class="fas fa-check text-success"></i> Dispositivos inlimitados</li>
@@ -485,7 +492,7 @@
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan3';invocarPanelAtiendelos()" >Seleccionar Plan</a>
+                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan3';invocarPanelAtiendelos()" >Create una cuenta</a>
                         </div>
                     </div>
                 </div>
@@ -800,12 +807,19 @@
 			return;
 		}
 
+		const params = new URLSearchParams(window.location.search);
+        const recomendado = params.get('recomendadoPor');
+
 		const data = {
 			empresa: company,
 			correo: email,
 			telefono: phone,
 			token: apitoken
 		};
+
+		if(recomendado){
+			data.recomendado=recomendado;
+		}
 
 		try {
 			const response = await fetch('http://localhost:3333', {
