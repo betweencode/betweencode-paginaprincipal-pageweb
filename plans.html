@@ -378,6 +378,12 @@
 
     <div class="plans-section">
         <div class="container">
+			<div id="desaparecerboton" class="row m-auto">
+				 <div style="    text-align: center;
+    padding-bottom: 15px;" class="col-md-12 m-auto">
+					 <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarPanelAtiendelos()">Create una cuenta</a>
+				 </div>
+			</div>
             <div class="row">
                 <!-- Plan Demo -->
                 <div onclick="ga4('planes_plandemo')" id="plandemo" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.1s">
@@ -430,6 +436,7 @@
 								<li><i class="fas fa-times text-danger"></i> Punto de venta de restaurante.</li>
                             </ul>
                         </div>
+
                         <div class="subscription-footer">
                             <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarPanelAtiendelos()">Create una cuenta</a>
                         </div>
@@ -897,6 +904,8 @@
    }
 
 
+
+   document.getElementById('desaparecerboton').style.display = 'none';
    let isparten = false;
    window.addEventListener('message', function (event) {
 
@@ -918,6 +927,8 @@
 			 document.getElementById('plandos').className = "col-md-4 wow fadeInUp animated";
 		   document.getElementById('plantres').className = "col-md-4 wow fadeInUp animated";
 		   document.getElementById('plancuatro').className = "col-md-4 wow fadeInUp animated";
+		   document.getElementById('desaparecerboton').style.display = 'block';
+
 	   }});
 
 </script>
