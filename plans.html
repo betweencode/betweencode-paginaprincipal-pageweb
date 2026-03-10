@@ -385,10 +385,10 @@
 
     <div class="plans-section">
         <div class="container">
-			<div id="desaparecerboton" class="row m-auto">
+			<div id="" class="row m-auto">
 				 <div style="    text-align: center;
     padding-bottom: 15px;" class="col-md-12 m-auto">
-					 <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarPanelAtiendelos()">Create una cuenta</a>
+					 <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarPanelAtiendelos()">Create una cuenta para 14 días de prueba!..</a>
 				 </div>
 			</div>
             <div class="row">
@@ -719,7 +719,11 @@
 
 
 	let invocarPanelAtiendelos = ()=>{
-		document.location.href = "https://atiendelos.com/auth/register";
+		if(!isparten){
+			document.location.href = "https://atiendelos.com/auth/register";
+		}else{
+			window.parent.postMessage({type:"registrarplanes"}, "*");
+		}
 	}
 
 	let invocarCloudfire = ()=>{
@@ -936,6 +940,16 @@
 		   document.getElementById('plancuatro').className = "col-md-4 wow fadeInUp animated";
 		   document.getElementById('desaparecerboton').style.display = 'block';
 
+		   const params = new URLSearchParams(window.location.search);
+		   console.log("Tiene parametros");
+		   const parametros = params.get('parametros');
+		   console.log("Extrae parametros",parametros);
+		   if(parametros){
+			   console.log("Tiene parametros");
+			   const parseado = JSON.parse(atob(parametros));
+			   console.log("Parseado",parseado);
+			   console.log("Estoy desde el hijo!!., se puede parsear",parseado);
+		   }
 	   }});
 
 </script>
