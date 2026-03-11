@@ -965,10 +965,12 @@
    let isparten = false;
    window.addEventListener('message', function (event) {
 
-	   alert("samf");
+
 
 	   // Verify origin
 	   if (event.origin !== 'https://app.atiendelos.com' && event.origin !== 'http://localhost:8100') return;
+
+	   alert("samf");
 
 	   if(event.data === 'padre_cargando'){
 
