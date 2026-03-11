@@ -317,6 +317,34 @@
 .flag-icon {
     margin-right: 5px;
 }
+
+/* Estilos para el spinner de carga */
+#spinner-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #00a4ae;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
     </style>
 
 
@@ -331,6 +359,10 @@
 	</script>
 </head>
 <body>
+
+<div id="spinner-wrapper">
+    <div class="spinner"></div>
+</div>
 
 
 
@@ -916,7 +948,15 @@
 
 
    window.onload = ()=>{
-	   window.parent.postMessage("planes_onload", "*");
+
+	   const spinner = document.getElementById('spinner-wrapper');
+	   if (spinner) {
+		   const isInIframe = window.self !== window.top;
+
+		   if (!isInIframe) {
+			   spinner.style.display = 'none';
+	       }
+	   }
    }
 
 
@@ -955,6 +995,11 @@
 			   parametrosrellenados = parametros;
 			   console.log("Parseado",parseado);
 			   console.log("Estoy desde el hijo!!., se puede parsear",parseado);
+
+			   const spinner = document.getElementById('spinner-wrapper');
+			   if (spinner) {
+				   spinner.style.display = 'none';
+			   }
 		   }
 	   }});
 
