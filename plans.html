@@ -725,7 +725,7 @@
 		if(!isparten){
 			document.location.href = "https://atiendelos.com/auth/register";
 		}else{
-			window.parent.postMessage({type:"registrarplanes",url:"http://localhost:4200?parametros="+parametrosrellenados}, "*");
+			window.parent.postMessage({type:"registrarplanes",url:"http://localhost:4200/auth/register?parametros="+parametrosrellenados}, "*");
 		}
 	}
 
@@ -932,12 +932,12 @@
 		   isnotIframe=false;
 
 		   ga4('appatiendelos_selecconandoplan');
-		     document.getElementById('fh5co-hero-wrapper').style.display = 'none';
-		     document.getElementById('plandemo').style.display = 'none';
+		   document.getElementById('fh5co-hero-wrapper').style.display = 'none';
+		   document.getElementById('plandemo').style.display = 'none';
 		   document.getElementById('ocultar1').style.display = 'none';
 		   document.getElementById('ocultar2').style.display = 'none';
 		   document.getElementById('ocultar3').style.display = 'none';
-			 document.getElementById('plandos').className = "col-md-4 wow fadeInUp animated";
+		   document.getElementById('plandos').className = "col-md-4 wow fadeInUp animated";
 		   document.getElementById('plantres').className = "col-md-4 wow fadeInUp animated";
 		   document.getElementById('plancuatro').className = "col-md-4 wow fadeInUp animated";
 		   document.getElementById('desaparecerboton').style.display = 'block';
