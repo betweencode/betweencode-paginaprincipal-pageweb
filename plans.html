@@ -955,7 +955,9 @@
 
 		   if (!isInIframe) {
 			   spinner.style.display = 'none';
-	       }
+	       }else{
+			   window.parent.postMessage("planes_onload", "*");
+		   }
 	   }
    }
 
@@ -970,7 +972,7 @@
 	   // Verify origin
 	   if (event.origin !== 'https://app.atiendelos.com' && event.origin !== 'http://localhost:8100') return;
 
-	   alert("samf");
+
 
 	   if(event.data === 'padre_cargando'){
 
