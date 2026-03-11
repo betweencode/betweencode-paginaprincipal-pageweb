@@ -707,6 +707,9 @@
 		defer
 ></script>
 <script>
+
+	let parametrosrellenados = {};
+
 	let apitoken = "dsfdsf";
 	let widgetId = undefined;
 
@@ -722,7 +725,7 @@
 		if(!isparten){
 			document.location.href = "https://atiendelos.com/auth/register";
 		}else{
-			window.parent.postMessage({type:"registrarplanes"}, "*");
+			window.parent.postMessage({type:"registrarplanes",url:"http://localhost:4200?parametros="+parametrosrellenados}, "*");
 		}
 	}
 
@@ -946,6 +949,8 @@
 		   if(parametros){
 			   console.log("Tiene parametros");
 			   const parseado = JSON.parse(atob(parametros));
+
+			   parametrosrellenados = parametros;
 			   console.log("Parseado",parseado);
 			   console.log("Estoy desde el hijo!!., se puede parsear",parseado);
 		   }
