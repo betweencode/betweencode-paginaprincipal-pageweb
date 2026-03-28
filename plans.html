@@ -733,6 +733,7 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.min.js"></script>
+	<script src="js/configuraciones.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/toast.js"></script>
 <script
@@ -757,9 +758,9 @@
 
 	let invocarPanelAtiendelos = ()=>{
 		if(!isparten){
-			document.location.href = "https://atiendelos.com/auth/register";
+			document.location.href = CONFIG.URL_ATIENDELOSV2;
 		}else{
-			window.parent.postMessage({type:"registrarplanes",url:"http://localhost:4200/auth/register?parametros="+parametrosrellenados}, "*");
+			window.parent.postMessage({type:"registrarplanes",url:CONFIG.URL_ATIENDELOSV2+"/auth/register?parametros="+parametrosrellenados}, "*");
 		}
 	}
 
@@ -876,7 +877,7 @@
 		}
 
 		try {
-			const response = await fetch('http://localhost:3333', {
+			const response = await fetch(CONFIG.URL_CLIENTES, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -970,7 +971,7 @@
 
 
 	   // Verify origin
-	   if (event.origin !== 'https://app.atiendelos.com' && event.origin !== 'http://localhost:8100') return;
+	   if (event.origin !== CONFIG.URL_ATIENDELOSV1) return;
 
 
 
