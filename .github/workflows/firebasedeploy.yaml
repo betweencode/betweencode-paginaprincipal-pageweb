@@ -1,0 +1,20 @@
+run-name: Despliegue a producción ${{ inputs.deploy_target }} por @${{ github.actor }}
+on:
+    push:
+        tags:
+            - v1.*
+
+
+jobs:
+    despliegue-produccion:
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@master
+            - name: Deploy to Firebase
+              uses: w9jds/firebase-action@master
+              with:
+                args: deploy --only hosting:restaurantesatiendelos
+              env:
+                FIREBASE_TOKEN: ${{ secrets.TOKEN_FIREBASE }}
