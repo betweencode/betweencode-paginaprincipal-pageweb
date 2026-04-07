@@ -994,6 +994,7 @@
 
 
 
+	   console.log("Mensaje recibido desde el iframe: padre_cargando", event);
 	   // Verify origin
 	   if (event.origin !== CONFIG.URL_ATIENDELOSV1) return;
 
@@ -1027,10 +1028,11 @@
 			   console.log("Parseado",parseado);
 			   console.log("Estoy desde el hijo!!., se puede parsear",parseado);
 
-			   const spinner = document.getElementById('spinner-wrapper');
-			   if (spinner) {
-				   spinner.style.display = 'none';
-			   }
+
+		   }
+		   const spinner = document.getElementById('spinner-wrapper');
+		   if (spinner) {
+			   spinner.style.display = 'none';
 		   }
 	   }});
 
