@@ -410,6 +410,9 @@
         <div class="container">
             <h1>Nuestros Planes</h1>
             <p>Elige el plan que mejor se adapte a las necesidades de tu restaurante y lleva tu negocio al siguiente nivel</p>
+            <div class="mt-3">
+
+            </div>
         </div>
     </div>
 
@@ -729,6 +732,21 @@
 </div>
 
 
+<!-- Loading Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+		<div class="modal-content" style="text-align:center; padding: 20px;">
+			<div class="modal-header" style="justify-content: center; border-bottom: none; padding-bottom: 0;">
+				<h5 class="modal-title" id="loadingModalLabel">Cargando...</h5>
+			</div>
+			<div class="modal-body">
+				<div class="spinner" style="margin: 10px auto 20px auto;"></div>
+				<p style="margin: 0;">Por favor, espera un momento.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/owl.carousel.js"></script>
@@ -877,6 +895,7 @@
 		}
 
 		try {
+			showLoadingModal('Generando llaves de creación de la cuenta demo');
 			const response = await fetch(CONFIG.URL_CLIENTES, {
 				method: 'POST',
 				headers: {
@@ -887,6 +906,7 @@
 
 			if (response.ok) {
 				const jsonResponse = await response.json();
+				hideLoadingModal();
 				modal.showmodal('success', '¡Gracias! Nos pondremos en contacto contigo pronto.');
 				$('#contactModal').modal('hide');
 				console.log("respuesta", jsonResponse);
@@ -904,7 +924,11 @@
 						ga4('planes_boton_continuar_click');
 						$('#accessCodeModal').modal('hide');
 						if(!isparten){
-							window.location.href = redirectUrl;
+							let link = document.createElement('a');
+							link.href = redirectUrl;
+							link.target = '_blank';
+							link.click();
+							//window.location.href = redirectUrl;
 						}else{
 							window.parent.postMessage({type:"planSelected",url:redirectUrl}, "*");
 						}
@@ -970,6 +994,7 @@
 
 
 
+	   console.log("Mensaje recibido desde el iframe: padre_cargando", event);
 	   // Verify origin
 	   if (event.origin !== CONFIG.URL_ATIENDELOSV1) return;
 
@@ -1003,15 +1028,45 @@
 			   console.log("Parseado",parseado);
 			   console.log("Estoy desde el hijo!!., se puede parsear",parseado);
 
-			   const spinner = document.getElementById('spinner-wrapper');
-			   if (spinner) {
-				   spinner.style.display = 'none';
-			   }
+
+		   }
+		   const spinner = document.getElementById('spinner-wrapper');
+		   if (spinner) {
+			   spinner.style.display = 'none';
 		   }
 	   }});
 
 </script>
 
+
+<script>
+// Helpers para el modal de loading
+function showLoadingModal(message){
+	try{
+		if(message){
+			$('#loadingModalLabel').text(message);
+		}else{
+			$('#loadingModalLabel').text('Cargando...');
+		}
+		$('#loadingModal').modal('show');
+	}catch(e){
+		console.error('No se pudo mostrar el loading modal:', e);
+	}
+}
+
+function hideLoadingModal(){
+	try{
+		$('#loadingModal').modal('hide');
+	}catch(e){
+		console.error('No se pudo ocultar el loading modal:', e);
+	}
+}
+
+// Botón de demostración: muestra el loading por 2 segundos
+function demoLoading(){
+	showLoadingModal('Cargando...');
+}
+</script>
 
 </body>
 </html>

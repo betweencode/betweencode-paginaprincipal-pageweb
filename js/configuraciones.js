@@ -6,8 +6,8 @@ const CONFIG = (() => {
     return {
       ENV: 'production',
       URL_CLIENTES: 'https://clientesatiendelos-183036175359.northamerica-south1.run.app',
-      URL_ATIENDELOSV2: 'https://black-plant-0a3faca0f.1.azurestaticapps.net',
-      URL_ATIENDELOSV1: 'http://localhost:8100'
+      URL_ATIENDELOSV2: 'https://atiendelos.com',
+      URL_ATIENDELOSV1: 'https://app.atiendelos.com'
     };
   }
 
