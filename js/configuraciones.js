@@ -16,7 +16,7 @@ const CONFIG = (() => {
       ENV: 'development',
       URL_CLIENTES: 'https://clientesatiendelos-183036175359.northamerica-south1.run.app',
       URL_ATIENDELOSV2: 'https://black-plant-0a3faca0f.1.azurestaticapps.net',
-      URL_ATIENDELOSV1: 'http://localhost:8100'
+      URL_ATIENDELOSV1: 'https://ashy-water-077754410.1.azurestaticapps.net'
     };
   }
 
