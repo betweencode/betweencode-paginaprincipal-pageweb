@@ -3,23 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <title>Atiéndelos Restaurant</title>
-    <link rel="icon" href="img/iconodeatiendolosensvg.svg" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="img/iconodeatiendolosensvg.svg"
+      type="image/svg+xml"
+    />
     <link rel="icon" type="image/png" href="img/image1.png" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Descubre nuestro Software de punto de venta, Atiéndelos Restaurant. Administra tu negocio." />
-    <meta name="keywords" content="Atiéndelos Restaurant, punto de venta para restaurantes, software restaurant, sistema para restaurantes, administración de restaurantes, punto de venta, soft restaurant." />
+    <meta
+      name="description"
+      content="Descubre nuestro Software de punto de venta, Atiéndelos Restaurant. Administra tu negocio."
+    />
+    <meta
+      name="keywords"
+      content="Atiéndelos Restaurant, punto de venta para restaurantes, software restaurant, sistema para restaurantes, administración de restaurantes, punto de venta, soft restaurant."
+    />
     <meta name="author" content="by betweencode" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/owl.carousel.css" />
     <link rel="stylesheet" href="css/owl.theme.default.min.css" />
     <link rel="stylesheet" href="css/animate.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    />
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/carrusel.css" />
@@ -36,19 +52,26 @@
         --bg-light: #f8f9fa;
         --border-color: #e0e0e0;
         --danger-color: #dc3545;
-        
+
         /* Variable para la animación Flip según la pantalla */
-        --flip-shift: -70px; 
+        --flip-shift: -70px;
       }
       @media (min-width: 768px) {
-        :root { --flip-shift: -90px; }
+        :root {
+          --flip-shift: -90px;
+        }
       }
 
       body {
         font-family: "Inter", sans-serif;
         color: var(--text-dark);
       }
-      h1, h2, h3, h4, h5, .modal-title {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      .modal-title {
         font-weight: 600;
         letter-spacing: -0.5px;
       }
@@ -60,16 +83,23 @@
         transition: all 0.3s ease;
         font-weight: 500;
       }
-      .btn-primary:hover, .btn-primary:focus {
+      .btn-primary:hover,
+      .btn-primary:focus {
         background-color: var(--primary-dark) !important;
         transform: translateY(-2px);
         box-shadow: 0 6px 12px rgba(0, 164, 174, 0.3);
       }
 
       @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-        100% { transform: translateY(0px); }
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
       }
       .img-floating {
         animation: float 4s ease-in-out infinite;
@@ -85,18 +115,20 @@
         line-height: 1.2;
         margin-bottom: 20px;
         color: #ffffff; /* Letras blancas para contrastar con el fondo */
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* Sombra para resaltar */
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra para resaltar */
       }
       @media (min-width: 768px) {
-        .hero-dynamic-title { font-size: 2.8rem; }
+        .hero-dynamic-title {
+          font-size: 2.8rem;
+        }
       }
-      
+
       .hero-text-white {
         color: #ffffff !important;
         font-size: 1.15rem;
         line-height: 1.6;
         opacity: 0.95;
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.8); /* Sombra para que se lea perfecto */
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Sombra para que se lea perfecto */
       }
 
       .flip-wrapper {
@@ -104,7 +136,7 @@
         overflow: hidden;
         display: inline-block;
         margin-top: 15px;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.3); /* Sombra a la cajita animada */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra a la cajita animada */
         border-radius: 8px;
       }
       .flip-list {
@@ -127,18 +159,42 @@
         text-shadow: none; /* Quitamos la sombra aquí porque el fondo ya contrasta */
       }
       @media (min-width: 768px) {
-        .flip-wrapper { height: 75px; }
-        .flip-list li { height: 75px; line-height: 75px; font-size: 2.5rem; margin-bottom: 15px;}
+        .flip-wrapper {
+          height: 75px;
+        }
+        .flip-list li {
+          height: 75px;
+          line-height: 75px;
+          font-size: 2.5rem;
+          margin-bottom: 15px;
+        }
       }
-      .bg-primary-app { background-color: var(--primary-color); }
-      .bg-express-app { background-color: var(--primary-express); }
-      .bg-secondary-app { background-color: var(--secondary-color); }
+      .bg-primary-app {
+        background-color: var(--primary-color);
+      }
+      .bg-express-app {
+        background-color: var(--primary-express);
+      }
+      .bg-secondary-app {
+        background-color: var(--secondary-color);
+      }
 
       @keyframes flip-text {
-        0%, 25% { transform: translateY(0); }
-        33%, 58% { transform: translateY(var(--flip-shift)); } 
-        66%, 91% { transform: translateY(calc(var(--flip-shift) * 2)); }
-        100% { transform: translateY(0); }
+        0%,
+        25% {
+          transform: translateY(0);
+        }
+        33%,
+        58% {
+          transform: translateY(var(--flip-shift));
+        }
+        66%,
+        91% {
+          transform: translateY(calc(var(--flip-shift) * 2));
+        }
+        100% {
+          transform: translateY(0);
+        }
       }
 
       /* --- TARJETAS --- */
@@ -165,64 +221,216 @@
         transition: all 0.3s ease;
         border-top: 4px solid var(--primary-color);
       }
-      .tech-feature-box:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
-      .tech-feature-box i { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
-      .tech-feature-box h4 { font-size: 1.25rem; font-weight: 700; margin-bottom: 15px; }
-      .tech-feature-box p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+      .tech-feature-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .tech-feature-box i {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+      .tech-feature-box h4 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+      .tech-feature-box p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
 
       /* --- BANNER EXPRESS --- */
-      .express-banner-wrapper { padding: 40px 15px; }
+      .express-banner-wrapper {
+        padding: 40px 15px;
+      }
       .express-banner {
-        background: linear-gradient(135deg, var(--primary-express), var(--dark-express));
-        color: white; padding: 40px 30px; border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(255, 107, 0, 0.25); text-align: center; overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          var(--primary-express),
+          var(--dark-express)
+        );
+        color: white;
+        padding: 40px 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(255, 107, 0, 0.25);
+        text-align: center;
+        overflow: hidden;
       }
-      .express-banner h2 { color: white; font-weight: 700; margin-bottom: 15px; }
-      .express-banner p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 25px; }
+      .express-banner h2 {
+        color: white;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+      .express-banner p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 25px;
+      }
       .btn-banner {
-        background: white; color: var(--dark-express); padding: 12px 30px; border-radius: 30px;
-        font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; display: inline-block; text-decoration: none;
+        background: white;
+        color: var(--dark-express);
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        display: inline-block;
+        text-decoration: none;
       }
-      .btn-banner:hover { background: #fff5eb; transform: scale(1.05); color: var(--primary-express); text-decoration: none; }
+      .btn-banner:hover {
+        background: #fff5eb;
+        transform: scale(1.05);
+        color: var(--primary-express);
+        text-decoration: none;
+      }
 
       /* --- CARRUSEL Y OVERLAP FIX --- */
-      .review-item { background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); margin: 15px; text-align: center; border: 1px solid #eee; transition: transform 0.3s ease; height: 100%; }
-      .review-item:hover { transform: translateY(-5px); }
-      .review-text { font-style: italic; color: #555; margin-bottom: 20px; line-height: 1.6; }
-      .review-author { font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9em; }
-      .stars { color: #ffc107; margin-bottom: 15px; }
+      .review-item {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        margin: 15px;
+        text-align: center;
+        border: 1px solid #eee;
+        transition: transform 0.3s ease;
+        height: 100%;
+      }
+      .review-item:hover {
+        transform: translateY(-5px);
+      }
+      .review-text {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+      .review-author {
+        font-weight: 700;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9em;
+      }
+      .stars {
+        color: #ffc107;
+        margin-bottom: 15px;
+      }
 
-      .fh5co-reviews-outer { height: auto !important; min-height: auto !important; overflow: hidden; clear: both; padding: 80px 0; }
-      #fh5co-reviews { height: auto !important; position: relative; }
-      .clientes { overflow: hidden !important; position: relative; clear: both; width: 100%; display: block; background: white; padding: 40px 0; }
-      .footer-outer { clear: both; position: relative; z-index: 10; }
+      .fh5co-reviews-outer {
+        height: auto !important;
+        min-height: auto !important;
+        overflow: hidden;
+        clear: both;
+        padding: 80px 0;
+      }
+      #fh5co-reviews {
+        height: auto !important;
+        position: relative;
+      }
+      .clientes {
+        overflow: hidden !important;
+        position: relative;
+        clear: both;
+        width: 100%;
+        display: block;
+        background: white;
+        padding: 40px 0;
+      }
+      .footer-outer {
+        clear: both;
+        position: relative;
+        z-index: 10;
+      }
 
       /* Formularios y Modales */
-      .modal-content { border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); border: none; }
-      .modal-header { background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: white; padding: 24px 30px; border: none; }
-      .modal-body { padding: 30px; }
-      .modal-footer { border-top: 1px solid var(--border-color); padding: 20px 30px; background-color: #fafafa; }
-      .form-control { margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--border-color); padding: 12px 15px; transition: all 0.2s; }
-      .form-control:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 164, 174, 0.15); outline: none; }
-      .contact-info-panel { background-color: var(--bg-light); padding: 25px; border-radius: 12px; height: 100%; border: 1px solid var(--border-color); }
-
-      .form-control.is-invalid { border-color: var(--danger-color); }
-      .invalid-feedback { display: none; margin-top: -15px; margin-bottom: 15px; font-size: 85%; color: var(--danger-color); font-weight: 500; }
-      .form-control.is-invalid ~ .invalid-feedback { display: block; }
-      .toast-container { position: fixed; top: 20px; right: 20px; z-index: 10000; }
-      
-      /* Ajuste Navbar Text */
-      .navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand {
-          color: white !important;
-          text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      .modal-content {
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border: none;
       }
-      .social-icons-header a { color: white !important; }
+      .modal-header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--primary-dark)
+        );
+        color: white;
+        padding: 24px 30px;
+        border: none;
+      }
+      .modal-body {
+        padding: 30px;
+      }
+      .modal-footer {
+        border-top: 1px solid var(--border-color);
+        padding: 20px 30px;
+        background-color: #fafafa;
+      }
+      .form-control {
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        padding: 12px 15px;
+        transition: all 0.2s;
+      }
+      .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(0, 164, 174, 0.15);
+        outline: none;
+      }
+      .contact-info-panel {
+        background-color: var(--bg-light);
+        padding: 25px;
+        border-radius: 12px;
+        height: 100%;
+        border: 1px solid var(--border-color);
+      }
+
+      .form-control.is-invalid {
+        border-color: var(--danger-color);
+      }
+      .invalid-feedback {
+        display: none;
+        margin-top: -15px;
+        margin-bottom: 15px;
+        font-size: 85%;
+        color: var(--danger-color);
+        font-weight: 500;
+      }
+      .form-control.is-invalid ~ .invalid-feedback {
+        display: block;
+      }
+      .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+      }
+
+      /* Ajuste Navbar Text */
+      .navbar-light .navbar-nav .nav-link,
+      .navbar-light .navbar-brand {
+        color: white !important;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      }
+      .social-icons-header a {
+        color: white !important;
+      }
     </style>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-78CQW8R24X"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-78CQW8R24X"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag("js", new Date());
       gtag("config", "G-78CQW8R24X");
     </script>
@@ -230,41 +438,91 @@
   <body>
     <div id="page-wrap">
       <div id="fh5co-hero-wrapper">
-        <nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
-          <a class="navbar-brand" href="">Atiéndelos Restaurant</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <nav
+          class="container navbar navbar-expand-lg main-navbar-nav navbar-light"
+        >
+          <a class="navbar-brand" href="index.html">
+            <img
+              src="img/logo-blanco.svg"
+              alt="Logo Atiéndelos"
+              style="max-height: 45px; width: auto; display: inline-block"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-items-center ml-auto mr-auto">
               <li class="nav-item active">
-                <a onclick="ga4('inicio_objetivo'); $('#fh5co-features').goTo();" class="nav-link" href="#">Objetivo</a>
+                <a
+                  onclick="
+                    ga4('inicio_objetivo');
+                    $('#fh5co-features').goTo();
+                  "
+                  class="nav-link"
+                  href="#"
+                  >Objetivo</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="plans.html" onclick="ga4('inicio_planes')">Planes</a>
+                <a
+                  class="nav-link"
+                  href="plans.html"
+                  onclick="ga4('inicio_planes')"
+                  >Planes</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="$('#fh5co-reviews').goTo(); return false;">Testimonios</a>
+                <a
+                  class="nav-link"
+                  href="#"
+                  onclick="
+                    $('#fh5co-reviews').goTo();
+                    return false;
+                  "
+                  >Testimonios</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="express.html" style="font-weight: 600">
+                <a
+                  class="nav-link"
+                  href="express.html"
+                  style="font-weight: 600"
+                >
                   <i class="fas fa-bolt mr-1"></i> Versión Express
                 </a>
               </li>
             </ul>
             <div class="social-icons-header">
-              <a onclick="ga4('inicio_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a onclick="ga4('inicio_instagram')" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a
+                onclick="ga4('inicio_facebook')"
+                href="https://www.facebook.com/AtiendelosApp/"
+                target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a onclick="ga4('inicio_instagram')" href="#" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
             </div>
           </div>
         </nav>
 
-        <div class="container fh5co-hero-inner" style="padding-top: 10vh; padding-bottom: 8vh;">
+        <div
+          class="container fh5co-hero-inner"
+          style="padding-top: 10vh; padding-bottom: 8vh"
+        >
           <div class="row align-items-center">
-            
             <div class="col-lg-6 col-md-12 text-left mb-5 mb-lg-0">
-              <h1 class="animated fadeIn wow hero-dynamic-title" data-wow-delay="0.4s">
+              <h1
+                class="animated fadeIn wow hero-dynamic-title"
+                data-wow-delay="0.4s"
+              >
                 El sistema ideal para tu
                 <div class="flip-wrapper">
                   <ul class="flip-list">
@@ -274,26 +532,53 @@
                   </ul>
                 </div>
               </h1>
-              
-              <p class="animated fadeIn wow hero-text-white mb-4 mt-3" data-wow-delay="0.67s">
+
+              <p
+                class="animated fadeIn wow hero-text-white mb-4 mt-3"
+                data-wow-delay="0.67s"
+              >
                 Gestionar tu negocio nunca fue tan fluido. Optimiza la toma de
-                pedidos, acelera el servicio en cocina y ten el control total de tus
-                cortes de caja. Con Atiéndelos, enfócate en brindar una experiencia
-                gastronómica excepcional.
+                pedidos, acelera el servicio en cocina y ten el control total de
+                tus cortes de caja. Con Atiéndelos, enfócate en brindar una
+                experiencia gastronómica excepcional.
               </p>
 
-              <button class="btn btn-lg features-btn-first animated fadeInLeft wow btn-primary px-4 py-3 mt-2" data-wow-delay="0.95s" style="font-size: 1.1rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);" onclick="window.location.href = 'plans.html'; ga4('inicio_verplanes');">
+              <button
+                class="btn btn-lg features-btn-first animated fadeInLeft wow btn-primary px-4 py-3 mt-2"
+                data-wow-delay="0.95s"
+                style="
+                  font-size: 1.1rem;
+                  border-radius: 8px;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                "
+                onclick="
+                  window.location.href = 'plans.html';
+                  ga4('inicio_verplanes');
+                "
+              >
                 Ver planes
               </button>
             </div>
 
-            <div class="col-lg-6 col-md-12 text-center text-lg-right mt-4 mt-lg-0">
-              <img class="animated fadeInRight wow img-floating img-fluid" data-wow-delay="1s" src="img/inicio.svg" alt="Smartphone" style="max-height: 550px; object-fit: contain; position: relative; z-index: 2;" />
+            <div
+              class="col-lg-6 col-md-12 text-center text-lg-right mt-4 mt-lg-0"
+            >
+              <img
+                class="animated fadeInRight wow img-floating img-fluid"
+                data-wow-delay="1s"
+                src="img/inicio.svg"
+                alt="Smartphone"
+                style="
+                  max-height: 550px;
+                  object-fit: contain;
+                  position: relative;
+                  z-index: 2;
+                "
+              />
             </div>
-            
           </div>
         </div>
-        </div>
+      </div>
 
       <div class="fh5co-advantages-outer">
         <div class="container">
@@ -303,21 +588,42 @@
           </h1>
           <small>Más que una App, el motor que agiliza tu restaurante.</small>
 
-          <div class="row fh5co-advantages-grid-columns wow animated fadeIn" data-wow-delay="0.36s">
+          <div
+            class="row fh5co-advantages-grid-columns wow animated fadeIn"
+            data-wow-delay="0.36s"
+          >
             <div class="col-sm-4 advantage-card">
-              <img class="grid-image" src="img/reloj-de-arena (1).png" alt="Tiempo" />
+              <img
+                class="grid-image"
+                src="img/reloj-de-arena (1).png"
+                alt="Tiempo"
+              />
               <h1 class="grid-title">Comandas al instante</h1>
-              <p class="grid-desc">El mesero toma la orden en su dispositivo y se imprime directamente en cocina o barra. Cero errores, tiempos de espera reducidos.</p>
+              <p class="grid-desc">
+                El mesero toma la orden en su dispositivo y se imprime
+                directamente en cocina o barra. Cero errores, tiempos de espera
+                reducidos.
+              </p>
             </div>
             <div class="col-sm-4 advantage-card">
-              <img class="grid-image" src="img/transferencia-movil.png" alt="Pagos" />
+              <img
+                class="grid-image"
+                src="img/transferencia-movil.png"
+                alt="Pagos"
+              />
               <h1 class="grid-title">Cuentas Claras</h1>
-              <p class="grid-desc">Divide cuentas fácilmente, aplica propinas y ofrece pagos en efectivo o tarjeta. Un cierre de mesa rápido y sin estrés.</p>
+              <p class="grid-desc">
+                Divide cuentas fácilmente, aplica propinas y ofrece pagos en
+                efectivo o tarjeta. Un cierre de mesa rápido y sin estrés.
+              </p>
             </div>
             <div class="col-sm-4 advantage-card">
               <img class="grid-image" src="img/estadistico.png" alt="Control" />
               <h1 class="grid-title">Control de Inventario</h1>
-              <p class="grid-desc">Conoce tus mermas, controla tus insumos y revisa tus cortes de caja desde tu celular estés donde estés.</p>
+              <p class="grid-desc">
+                Conoce tus mermas, controla tus insumos y revisa tus cortes de
+                caja desde tu celular estés donde estés.
+              </p>
             </div>
           </div>
         </div>
@@ -327,10 +633,14 @@
         <small>Software práctico y comprensible:</small>
         <div class="container fh5co-slider-inner">
           <div class="owl-carousel owl-theme" id="functions-slider">
-            <div class="item"><img src="img/carrusel-funcion.svg" alt="" /></div>
+            <div class="item">
+              <img src="img/carrusel-funcion.svg" alt="" />
+            </div>
             <div class="item"><img src="img/carrusel-mesa.svg" alt="" /></div>
             <div class="item"><img src="img/carrusel-caja.svg" alt="" /></div>
-            <div class="item"><img src="img/carrusel-producto.svg" alt="" /></div>
+            <div class="item">
+              <img src="img/carrusel-producto.svg" alt="" />
+            </div>
           </div>
         </div>
       </div>
@@ -338,68 +648,126 @@
       <div class="container" style="padding: 60px 0">
         <div class="row text-center mb-5">
           <div class="col-12 wow fadeIn" data-wow-delay="0.2s">
-            <h2 style="font-weight: 700; color: #333">Tecnología diseñada para tu comodidad</h2>
-            <p class="text-muted" style="font-size: 1.1rem">Atiéndelos se adapta a tu negocio, no tú a Atiéndelos.</p>
+            <h2 style="font-weight: 700; color: #333">
+              Tecnología diseñada para tu comodidad
+            </h2>
+            <p class="text-muted" style="font-size: 1.1rem">
+              Atiéndelos se adapta a tu negocio, no tú a Atiéndelos.
+            </p>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.2s">
+          <div
+            class="col-lg-3 col-md-6 mb-4 wow fadeInUp"
+            data-wow-delay="0.2s"
+          >
             <div class="tech-feature-box">
               <i class="fas fa-cloud"></i>
               <h4>100% Cloud</h4>
-              <p>Disponible a toda hora y en todo lugar. Tu información está siempre sincronizada, segura y respaldada en la nube.</p>
+              <p>
+                Disponible a toda hora y en todo lugar. Tu información está
+                siempre sincronizada, segura y respaldada en la nube.
+              </p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.3s">
+          <div
+            class="col-lg-3 col-md-6 mb-4 wow fadeInUp"
+            data-wow-delay="0.3s"
+          >
             <div class="tech-feature-box">
               <i class="fas fa-laptop-mobile"></i>
               <h4>Multi-Dispositivo</h4>
-              <p>Compatible con cualquier celular, tablet o computadora con acceso a internet. Sin necesidad de equipos costosos.</p>
+              <p>
+                Compatible con cualquier celular, tablet o computadora con
+                acceso a internet. Sin necesidad de equipos costosos.
+              </p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.4s">
+          <div
+            class="col-lg-3 col-md-6 mb-4 wow fadeInUp"
+            data-wow-delay="0.4s"
+          >
             <div class="tech-feature-box">
               <i class="fas fa-print"></i>
               <h4>Conectividad</h4>
-              <p>Fácil configuración e integración inalámbrica con tus impresoras térmicas mediante red WiFi o Bluetooth.</p>
+              <p>
+                Fácil configuración e integración inalámbrica con tus impresoras
+                térmicas mediante red WiFi o Bluetooth.
+              </p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.5s">
+          <div
+            class="col-lg-3 col-md-6 mb-4 wow fadeInUp"
+            data-wow-delay="0.5s"
+          >
             <div class="tech-feature-box">
               <i class="fas fa-magic"></i>
               <h4>Totalmente Intuitivo</h4>
-              <p>Una interfaz gráfica tan amigable y fácil de usar que tú y tu equipo la dominarán en minutos, sin capacitaciones aburridas.</p>
+              <p>
+                Una interfaz gráfica tan amigable y fácil de usar que tú y tu
+                equipo la dominarán en minutos, sin capacitaciones aburridas.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="curved-bg-div wow animated fadeIn" data-wow-delay="0.15s"></div>
+      <div
+        class="curved-bg-div wow animated fadeIn"
+        data-wow-delay="0.15s"
+      ></div>
       <div id="fh5co-features" class="fh5co-features-outer">
         <div class="container">
           <div class="row fh5co-features-grid-columns">
-            <div class="col-sm-6 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
+            <div
+              class="col-sm-6 in-order-1 wow animated fadeInLeft"
+              data-wow-delay="0.22s"
+            >
               <div class="col-sm-image-container">
-                <img class="img-float-left" src="img/reporte-ventas.svg" alt="smartphone-1" />
+                <img
+                  class="img-float-left"
+                  src="img/reporte-ventas.svg"
+                  alt="smartphone-1"
+                />
               </div>
             </div>
-            <div class="col-sm-6 in-order-2 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
+            <div
+              class="col-sm-6 in-order-2 sm-6-content wow animated fadeInRight"
+              data-wow-delay="0.22s"
+            >
               <h1>Generación de reportes</h1>
-              <p>- Obtenga un resumen en tiempo real de las finanzas y analice el rendimiento de las ventas.</p>
+              <p>
+                - Obtenga un resumen en tiempo real de las finanzas y analice el
+                rendimiento de las ventas.
+              </p>
               <p>- Identifica tus productos estrella y aumenta tus ventas.</p>
               <p>- Descarga reportes y estadísticas en formatos para excel.</p>
               <p>- Controla tus gastos y márgenes de utilidad</p>
             </div>
-            <div class="col-sm-6 in-order-5 wow animated fadeInLeft" data-wow-delay="0.22s">
+            <div
+              class="col-sm-6 in-order-5 wow animated fadeInLeft"
+              data-wow-delay="0.22s"
+            >
               <div class="col-sm-image-container">
-                <img class="img-float-left" src="img/gestion-usuario.svg" alt="smartphone-3" />
+                <img
+                  class="img-float-left"
+                  src="img/gestion-usuario.svg"
+                  alt="smartphone-3"
+                />
               </div>
             </div>
-            <div class="col-sm-6 in-order-6 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
+            <div
+              class="col-sm-6 in-order-6 sm-6-content wow animated fadeInRight"
+              data-wow-delay="0.22s"
+            >
               <h1>Gestión de Usuarios</h1>
               <p>- Permite la creación ilimitada de usuarios.</p>
-              <p>- Personaliza los roles dentro de tu equipo para que se adapten de manera precisa a las responsabilidades individuales (cajeros, meseros, gerentes).</p>
+              <p>
+                - Personaliza los roles dentro de tu equipo para que se adapten
+                de manera precisa a las responsabilidades individuales (cajeros,
+                meseros, gerentes).
+              </p>
             </div>
           </div>
         </div>
@@ -408,28 +776,62 @@
       <div class="container express-banner-wrapper">
         <div class="express-banner wow fadeInUp" data-wow-delay="0.2s">
           <h2>¿Tienes una tienda de abarrotes o venta de mostrador?</h2>
-          <p>Descubre Atiéndelos Express, nuestra versión especializada en ventas rápidas y lectura de códigos de barras, sin funciones complejas de restaurante.</p>
-          <a href="express.html" class="btn-banner">Conocer Versión Express <i class="fas fa-arrow-right ml-2"></i></a>
+          <p>
+            Descubre Atiéndelos Express, nuestra versión especializada en ventas
+            rápidas y lectura de códigos de barras, sin funciones complejas de
+            restaurante.
+          </p>
+          <a href="express.html" class="btn-banner"
+            >Conocer Versión Express <i class="fas fa-arrow-right ml-2"></i
+          ></a>
         </div>
       </div>
 
-      <div id="fh5co-reviews" class="fh5co-reviews-outer" style="background-color: var(--bg-light)">
+      <div
+        id="fh5co-reviews"
+        class="fh5co-reviews-outer"
+        style="background-color: var(--bg-light)"
+      >
         <h1 class="text-center mb-5">Lo que dicen nuestros restauranteros</h1>
         <div class="container">
           <div class="owl-carousel owl-theme" id="reviews-carousel">
             <div class="item review-item">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p class="review-text">"Elegí Atiéndelos Restaurant porque es simple y accesible. La comunicación cocina-meseros mejoró al 100%. El soporte técnico ha sido increíble."</p>
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">
+                "Elegí Atiéndelos Restaurant porque es simple y accesible. La
+                comunicación cocina-meseros mejoró al 100%. El soporte técnico
+                ha sido increíble."
+              </p>
               <span class="review-author">PIG & FISH</span>
             </div>
             <div class="item review-item">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p class="review-text">"Lo que más me gusta es la facilidad para administrar las ventas desde cualquier lugar, además de la tranquilidad de saber que mis cortes de caja son exactos."</p>
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">
+                "Lo que más me gusta es la facilidad para administrar las ventas
+                desde cualquier lugar, además de la tranquilidad de saber que
+                mis cortes de caja son exactos."
+              </p>
               <span class="review-author">Tlayudas Doña Flavia</span>
             </div>
             <div class="item review-item">
-              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-              <p class="review-text">"El módulo de reportes nos ayudó a identificar cuáles son nuestros platillos estrella. La interfaz es tan intuitiva que capacitar al nuevo personal nos toma solo minutos."</p>
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
+              </div>
+              <p class="review-text">
+                "El módulo de reportes nos ayudó a identificar cuáles son
+                nuestros platillos estrella. La interfaz es tan intuitiva que
+                capacitar al nuevo personal nos toma solo minutos."
+              </p>
               <span class="review-author">Texas Grill</span>
             </div>
           </div>
@@ -438,97 +840,219 @@
 
       <div class="clientes">
         <div class="cliente-cliente">
-          <div class="conny"><img src="img/playa del carmen.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/texas grill.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/pig and fish.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/tlayudas flavia.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/playa del carmen.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/texas grill.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/pig and fish.svg" alt="" class="imagen-carrusel" /></div>
-          <div class="conny"><img src="img/tlayudas flavia.svg" alt="" class="imagen-carrusel" /></div>
+          <div class="conny">
+            <img
+              src="img/playa del carmen.svg"
+              alt=""
+              class="imagen-carrusel"
+            />
+          </div>
+          <div class="conny">
+            <img src="img/texas grill.svg" alt="" class="imagen-carrusel" />
+          </div>
+          <div class="conny">
+            <img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel" />
+          </div>
+          <div class="conny">
+            <img src="img/pig and fish.svg" alt="" class="imagen-carrusel" />
+          </div>
+          <div class="conny">
+            <img src="img/tlayudas flavia.svg" alt="" class="imagen-carrusel" />
+          </div>
+          <div class="conny">
+            <img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel" />
+          </div>
+          <div class="conny">
+            <img
+              src="img/playa del carmen.svg"
+              alt=""
+              class="imagen-carrusel"
+            />
+          </div>
+          <div class="conny">
+            <img src="img/texas grill.svg" alt="" class="imagen-carrusel" />
+          </div>
+          <div class="conny">
+            <img src="img/paraiso gourmet.svg" alt="" class="imagen-carrusel" />
+          </div>
+          <div class="conny">
+            <img src="img/pig and fish.svg" alt="" class="imagen-carrusel" />
+          </div>
+          <div class="conny">
+            <img src="img/tlayudas flavia.svg" alt="" class="imagen-carrusel" />
+          </div>
         </div>
       </div>
 
       <footer class="footer-outer">
         <div class="container footer-inner">
-          <div class="footer-three-grid wow fadeIn animated" data-wow-delay="0.66s">
+          <div
+            class="footer-three-grid wow fadeIn animated"
+            data-wow-delay="0.66s"
+          >
             <div class="column-1-3">
               <h1>Atiéndelos App</h1>
             </div>
             <div class="column-2-3">
               <nav class="footer-nav">
                 <ul>
-                  <a href="#" onclick="$('#fh5co-hero-wrapper').goTo(); return false;"><li>Objetivo</li></a>
+                  <a
+                    href="#"
+                    onclick="
+                      $('#fh5co-hero-wrapper').goTo();
+                      return false;
+                    "
+                    ><li>Objetivo</li></a
+                  >
                   <a href="express.html"><li>Punto de Venta Express</li></a>
-                  <a href="#" onclick="$('#fh5co-reviews').goTo(); return false;"><li>Testimonios</li></a>
+                  <a
+                    href="#"
+                    onclick="
+                      $('#fh5co-reviews').goTo();
+                      return false;
+                    "
+                    ><li>Testimonios</li></a
+                  >
                 </ul>
               </nav>
             </div>
             <div class="column-3-3">
               <div class="social-icons-footer">
-                <a onclick="ga4('inicio_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a onclick="ga4('inicio_instagram')" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a
+                  onclick="ga4('inicio_facebook')"
+                  href="https://www.facebook.com/AtiendelosApp/"
+                  target="_blank"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a onclick="ga4('inicio_instagram')" href="#" target="_blank"
+                  ><i class="fab fa-instagram"></i
+                ></a>
               </div>
             </div>
           </div>
           <span class="border-bottom-footer"></span>
-          <p class="copyright">&copy; <span id="anio"></span> Atiéndelos App. Todos los derechos reservados.</p>
+          <p class="copyright">
+            &copy; <span id="anio"></span> Atiéndelos App. Todos los derechos
+            reservados.
+          </p>
         </div>
       </footer>
     </div>
 
-    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Comienza Ahora</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <div class="modal-body">
             <div class="row">
               <div class="col-md-7">
-                <p class="text-muted">Completa el formulario para acceder inmediatamente a tu plan.</p>
+                <p class="text-muted">
+                  Completa el formulario para acceder inmediatamente a tu plan.
+                </p>
                 <form class="contact-form">
                   <div class="form-group">
                     <label for="name">Nombre completo*</label>
-                    <input type="text" class="form-control" id="name" required />
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      required
+                    />
                     <div class="invalid-feedback">Ingresa tu nombre.</div>
                   </div>
                   <div class="form-group">
                     <label for="company">Nombre de la empresa*</label>
-                    <input type="text" class="form-control" id="company" required />
-                    <div class="invalid-feedback">Ingresa el nombre de tu empresa.</div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="company"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Ingresa el nombre de tu empresa.
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="email">Correo electrónico</label>
                     <input type="email" class="form-control" id="email" />
-                    <div class="invalid-feedback">Ingresa un correo válido.</div>
+                    <div class="invalid-feedback">
+                      Ingresa un correo válido.
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="phone">Teléfono*</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
-                        <select class="form-control" id="country_code" style="width: auto; border-top-right-radius: 0; border-bottom-right-radius: 0; height: 100%;">
-                          <option value="+52">🇲🇽 +52</option><option value="+1">🇺🇸 +1</option><option value="+34">🇪🇸 +34</option><option value="+57">🇨🇴 +57</option>
+                        <select
+                          class="form-control"
+                          id="country_code"
+                          style="
+                            width: auto;
+                            border-top-right-radius: 0;
+                            border-bottom-right-radius: 0;
+                            height: 100%;
+                          "
+                        >
+                          <option value="+52">🇲🇽 +52</option>
+                          <option value="+1">🇺🇸 +1</option>
+                          <option value="+34">🇪🇸 +34</option>
+                          <option value="+57">🇨🇴 +57</option>
                         </select>
                       </div>
-                      <input type="tel" class="form-control" id="phone" required style="border-top-left-radius: 0; border-bottom-left-radius: 0;" />
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        required
+                        style="
+                          border-top-left-radius: 0;
+                          border-bottom-left-radius: 0;
+                        "
+                      />
                     </div>
-                    <div class="invalid-feedback" style="margin-top: 5px">Ingresa un número válido.</div>
+                    <div class="invalid-feedback" style="margin-top: 5px">
+                      Ingresa un número válido.
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="plan">Plan de interés</label>
-                    <select disabled class="form-control" id="plan"><option value="demo">Plan Demo (1 día)</option></select>
+                    <select disabled class="form-control" id="plan">
+                      <option value="demo">Plan Demo (1 día)</option>
+                    </select>
                   </div>
                   <div class="form-group form-check mb-4">
-                    <input type="checkbox" class="form-check-input" id="terms" required />
-                    <label class="form-check-label" for="terms">Acepto los <a href="#">términos y condiciones</a>*</label>
-                    <div class="invalid-feedback">Debes aceptar los términos.</div>
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="terms"
+                      required
+                    />
+                    <label class="form-check-label" for="terms"
+                      >Acepto los <a href="#">términos y condiciones</a>*</label
+                    >
+                    <div class="invalid-feedback">
+                      Debes aceptar los términos.
+                    </div>
                   </div>
-                  <div class="form-group"><div id="turnstile-container"></div></div>
+                  <div class="form-group">
+                    <div id="turnstile-container"></div>
+                  </div>
                 </form>
               </div>
               <div class="col-md-5">
@@ -536,39 +1060,96 @@
                   <h4>Centro de Soporte</h4>
                   <div class="mt-4">
                     <p><i class="fas fa-phone mr-2"></i> +52 (332) 149 64 75</p>
-                    <p><i class="fas fa-envelope mr-2"></i> soporte@atiendelos.com</p>
-                    <p><i class="fas fa-clock mr-2"></i> Lunes a Sábado <br />09:00 a.m. a 09:00 p.m.</p>
+                    <p>
+                      <i class="fas fa-envelope mr-2"></i>
+                      soporte@atiendelos.com
+                    </p>
+                    <p>
+                      <i class="fas fa-clock mr-2"></i> Lunes a Sábado
+                      <br />09:00 a.m. a 09:00 p.m.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" id="btn-submit-form">Comenzar Ahora</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary" id="btn-submit-form">
+              Comenzar Ahora
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="modal fade" id="accessCodeModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="accessCodeModal"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">¡Código generado!</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <div class="modal-body text-center py-5">
-            <i class="fas fa-check-circle fa-4x mb-4" style="color: var(--primary-color)"></i>
+            <i
+              class="fas fa-check-circle fa-4x mb-4"
+              style="color: var(--primary-color)"
+            ></i>
             <h4 class="mb-3">¡Tu enlace está listo!</h4>
-            <div class="url-container d-flex align-items-center justify-content-between mb-2">
-              <span id="generatedUrl" class="mr-2 text-left" style="word-break: break-all; font-family: monospace; font-size: 14px;"></span>
-              <button class="btn btn-primary btn-sm ml-2" onclick="copyUrl()"><i class="fas fa-copy"></i></button>
+            <div
+              class="url-container d-flex align-items-center justify-content-between mb-2"
+            >
+              <span
+                id="generatedUrl"
+                class="mr-2 text-left"
+                style="
+                  word-break: break-all;
+                  font-family: monospace;
+                  font-size: 14px;
+                "
+              ></span>
+              <button class="btn btn-primary btn-sm ml-2" onclick="copyUrl()">
+                <i class="fas fa-copy"></i>
+              </button>
             </div>
-            <div id="copyMessage" style="display: none; color: var(--primary-color); font-size: 0.9em;">¡URL copiada!</div>
+            <div
+              id="copyMessage"
+              style="
+                display: none;
+                color: var(--primary-color);
+                font-size: 0.9em;
+              "
+            >
+              ¡URL copiada!
+            </div>
           </div>
           <div class="modal-footer justify-content-center">
-            <button id="redirectButton" type="button" class="btn btn-primary px-4 py-2">Continuar <i class="fas fa-arrow-right ml-2"></i></button>
+            <button
+              id="redirectButton"
+              type="button"
+              class="btn btn-primary px-4 py-2"
+            >
+              Continuar <i class="fas fa-arrow-right ml-2"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -580,60 +1161,195 @@
     <script src="js/wow.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/toast.js"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+      defer
+    ></script>
 
     <script>
-      let plademo = "demo"; let apitoken = "dsfdsf"; let widgetId = undefined;
-      let datarecibida = function (response) { apitoken = response; };
-
-      let invocarCloudfire = () => {
-        document.getElementById("name").value = ""; document.getElementById("company").value = ""; document.getElementById("email").value = ""; document.getElementById("phone").value = ""; document.getElementById("plan").value = plademo;
-        if (!Boolean(widgetId)) { widgetId = turnstile.render("#turnstile-container", { sitekey: "0x4AAAAAACLGzm57QZTFMOPT", callback: function (token) { datarecibida(token); }, }); } 
-        else { turnstile.remove(widgetId); widgetId = turnstile.render("#turnstile-container", { sitekey: "0x4AAAAAACLGzm57QZTFMOPT", callback: function (token) { datarecibida(token); }, }); }
+      let plademo = "demo";
+      let apitoken = "dsfdsf";
+      let widgetId = undefined;
+      let datarecibida = function (response) {
+        apitoken = response;
       };
 
-      document.getElementById("btn-submit-form").addEventListener("click", async function () {
-          const name = document.getElementById("name").value?.trim(); const company = document.getElementById("company").value?.trim(); const email = document.getElementById("email").value?.trim(); const countryCode = document.getElementById("country_code").value?.trim(); const phoneNumber = document.getElementById("phone").value?.trim(); const phone = countryCode + phoneNumber; const plan = document.getElementById("plan").value?.trim();
-          const isValidName = (name) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/.test(name); const isValidCompany = (company) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]{2,50}$/.test(company); const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); const isValidPhone = (phone) => /^\d{1,15}$/.test(phone);
+      let invocarCloudfire = () => {
+        document.getElementById("name").value = "";
+        document.getElementById("company").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("plan").value = plademo;
+        if (!Boolean(widgetId)) {
+          widgetId = turnstile.render("#turnstile-container", {
+            sitekey: "0x4AAAAAACLGzm57QZTFMOPT",
+            callback: function (token) {
+              datarecibida(token);
+            },
+          });
+        } else {
+          turnstile.remove(widgetId);
+          widgetId = turnstile.render("#turnstile-container", {
+            sitekey: "0x4AAAAAACLGzm57QZTFMOPT",
+            callback: function (token) {
+              datarecibida(token);
+            },
+          });
+        }
+      };
+
+      document
+        .getElementById("btn-submit-form")
+        .addEventListener("click", async function () {
+          const name = document.getElementById("name").value?.trim();
+          const company = document.getElementById("company").value?.trim();
+          const email = document.getElementById("email").value?.trim();
+          const countryCode = document
+            .getElementById("country_code")
+            .value?.trim();
+          const phoneNumber = document.getElementById("phone").value?.trim();
+          const phone = countryCode + phoneNumber;
+          const plan = document.getElementById("plan").value?.trim();
+          const isValidName = (name) =>
+            /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/.test(name);
+          const isValidCompany = (company) =>
+            /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]{2,50}$/.test(company);
+          const isValidEmail = (email) =>
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          const isValidPhone = (phone) => /^\d{1,15}$/.test(phone);
 
           let isValid = true;
-          if (!name || !isValidName(name)) { document.getElementById("name").classList.add("is-invalid"); isValid = false; } else { document.getElementById("name").classList.remove("is-invalid"); }
-          if (!company || !isValidCompany(company)) { document.getElementById("company").classList.add("is-invalid"); isValid = false; } else { document.getElementById("company").classList.remove("is-invalid"); }
-          if (email) { if (!isValidEmail(email)) { document.getElementById("email").classList.add("is-invalid"); isValid = false; } else { document.getElementById("email").classList.remove("is-invalid"); } }
-          if (!phoneNumber || !isValidPhone(phoneNumber)) { document.getElementById("phone").classList.add("is-invalid"); isValid = false; } else { document.getElementById("phone").classList.remove("is-invalid"); }
-          if (!document.getElementById("terms").checked) { document.getElementById("terms").classList.add("is-invalid"); isValid = false; } else { document.getElementById("terms").classList.remove("is-invalid"); }
+          if (!name || !isValidName(name)) {
+            document.getElementById("name").classList.add("is-invalid");
+            isValid = false;
+          } else {
+            document.getElementById("name").classList.remove("is-invalid");
+          }
+          if (!company || !isValidCompany(company)) {
+            document.getElementById("company").classList.add("is-invalid");
+            isValid = false;
+          } else {
+            document.getElementById("company").classList.remove("is-invalid");
+          }
+          if (email) {
+            if (!isValidEmail(email)) {
+              document.getElementById("email").classList.add("is-invalid");
+              isValid = false;
+            } else {
+              document.getElementById("email").classList.remove("is-invalid");
+            }
+          }
+          if (!phoneNumber || !isValidPhone(phoneNumber)) {
+            document.getElementById("phone").classList.add("is-invalid");
+            isValid = false;
+          } else {
+            document.getElementById("phone").classList.remove("is-invalid");
+          }
+          if (!document.getElementById("terms").checked) {
+            document.getElementById("terms").classList.add("is-invalid");
+            isValid = false;
+          } else {
+            document.getElementById("terms").classList.remove("is-invalid");
+          }
 
-          if (!isValid) { modal.showmodal("warning", "Completa los campos requeridos"); return; }
-          if (!apitoken) { modal.showmodal("warning", "Completa la verificación de seguridad"); return; }
+          if (!isValid) {
+            modal.showmodal("warning", "Completa los campos requeridos");
+            return;
+          }
+          if (!apitoken) {
+            modal.showmodal("warning", "Completa la verificación de seguridad");
+            return;
+          }
 
-          const data = { nombre: name, empresa: company, correo: email, telefono: phone, plan: plan, token: apitoken, };
+          const data = {
+            nombre: name,
+            empresa: company,
+            correo: email,
+            telefono: phone,
+            plan: plan,
+            token: apitoken,
+          };
 
           try {
-            const response = await fetch("https://clientesatiendelos-183036175359.northamerica-south1.run.app", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data), });
+            const response = await fetch(
+              "https://clientesatiendelos-183036175359.northamerica-south1.run.app",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+              },
+            );
             if (response.ok) {
-              const jsonResponse = await response.json(); modal.showmodal("success", "¡Gracias! Nos pondremos en contacto contigo pronto."); $("#contactModal").modal("hide");
+              const jsonResponse = await response.json();
+              modal.showmodal(
+                "success",
+                "¡Gracias! Nos pondremos en contacto contigo pronto.",
+              );
+              $("#contactModal").modal("hide");
               if (jsonResponse.submessage) {
-                const redirectUrl = jsonResponse.submessage; document.getElementById("generatedUrl").textContent = redirectUrl; $("#accessCodeModal").modal("show");
-                document.getElementById("redirectButton").onclick = function () { ga4("planes_boton_continuar_click"); $("#accessCodeModal").modal("hide"); window.location.href = redirectUrl; };
+                const redirectUrl = jsonResponse.submessage;
+                document.getElementById("generatedUrl").textContent =
+                  redirectUrl;
+                $("#accessCodeModal").modal("show");
+                document.getElementById("redirectButton").onclick =
+                  function () {
+                    ga4("planes_boton_continuar_click");
+                    $("#accessCodeModal").modal("hide");
+                    window.location.href = redirectUrl;
+                  };
               }
-            } else { modal.showmodal("error", "Error al enviar. Intente nuevamente."); }
-          } catch (error) { modal.showmodal("error", "Error al enviar. Intente nuevamente."); }
+            } else {
+              modal.showmodal("error", "Error al enviar. Intente nuevamente.");
+            }
+          } catch (error) {
+            modal.showmodal("error", "Error al enviar. Intente nuevamente.");
+          }
         });
 
-      let ga4 = (nombreevento, parametros) => { if (parametros) gtag("event", nombreevento, parametros); else gtag("event", nombreevento); };
-      let anio = document.getElementById("anio"); if (anio) anio.innerText = new Date().getFullYear();
+      let ga4 = (nombreevento, parametros) => {
+        if (parametros) gtag("event", nombreevento, parametros);
+        else gtag("event", nombreevento);
+      };
+      let anio = document.getElementById("anio");
+      if (anio) anio.innerText = new Date().getFullYear();
 
       window.copyUrl = function () {
         const urlText = document.getElementById("generatedUrl").textContent;
         navigator.clipboard.writeText(urlText).then(() => {
-          const copyMessage = document.getElementById("copyMessage"); copyMessage.style.display = "block";
-          setTimeout(() => { copyMessage.style.display = "none"; }, 2500);
+          const copyMessage = document.getElementById("copyMessage");
+          copyMessage.style.display = "block";
+          setTimeout(() => {
+            copyMessage.style.display = "none";
+          }, 2500);
         });
       };
 
       $(document).ready(function () {
-        if ($("#functions-slider").length) { $("#functions-slider").owlCarousel({ loop: true, margin: 10, nav: false, dots: true, autoplay: true, items: 1, }); }
-        if ($("#reviews-carousel").length) { $("#reviews-carousel").owlCarousel({ loop: true, margin: 20, nav: false, dots: true, autoplay: true, autoplayTimeout: 5000, responsive: { 0: { items: 1 }, 768: { items: 2 }, 1000: { items: 3 }, }, }); }
+        if ($("#functions-slider").length) {
+          $("#functions-slider").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: true,
+            autoplay: true,
+            items: 1,
+          });
+        }
+        if ($("#reviews-carousel").length) {
+          $("#reviews-carousel").owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: false,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            responsive: {
+              0: { items: 1 },
+              768: { items: 2 },
+              1000: { items: 3 },
+            },
+          });
+        }
       });
     </script>
   </body>

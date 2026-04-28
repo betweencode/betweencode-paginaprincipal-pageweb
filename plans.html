@@ -1,362 +1,201 @@
 <!DOCTYPE html>
-<!--
-	App by FreeHTML5.co
-	Twitter: http://twitter.com/fh5co
-	URL: http://freehtml5.co
--->
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>Planes - Atiéndelos restaurant</title>
-	<link rel="icon" href="img/iconodeatiendelosensvg.svg" type="image/svg+xml">
-	<link rel="icon" type="image/png" href="img/image1.png">
+    <meta charset="UTF-8">
+    <title>Planes - Atiéndelos Restaurant</title>
+    <link rel="icon" href="img/iconodeatiendolosensvg.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" href="img/image1.png">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Descubre nuestros planes de Atiéndelos Restaurant. Administra tu negocio." />
-	<meta name="keywords" content=" Atiéndelos Restaurant, punto de venta para restaurantes, software restaurant, sistema para restaurantes, administración de restaurantes, punto de venta, soft restaurant." />
-	<meta name="author" content="by betweencode" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre nuestros planes de Atiéndelos Restaurant. Administra tu negocio." />
+    <meta name="keywords" content="Atiéndelos Restaurant, punto de venta para restaurantes, software restaurant, sistema para restaurantes, administración de restaurantes." />
+    <meta name="author" content="by betweencode" />
 
-	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="css/owl.carousel.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/carrusel.css">
-	<link rel="preconnect" href="https://challenges.cloudflare.com">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carrusel.css">
 
-	<style>
-
-		.temporal1{
-			flex:1;
-			max-width: none;
-		}
-
-
-        /* Estilos para el modal de contacto */
-        .modal-content {
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: none;
+    <style>
+        /* --- VARIABLES GLOBALES --- */
+        :root {
+            --primary-color: #00a4ae;
+            --primary-dark: #01828a;
+            --secondary-color: #234197;
+            --text-dark: #333333;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+            --danger-color: #dc3545;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
         }
 
-        .modal-header {
-            background: linear-gradient(to right, #00a4ae, #01828a);
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: #fafbfc; }
+        h1, h2, h3, h4, h5 { font-weight: 700; letter-spacing: -0.5px; }
+
+        .temporal1 { flex: 1; max-width: none; }
+
+        /* --- HEADER DE PLANES --- */
+        .plans-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
-            border-radius: 10px 10px 0 0;
-            padding: 20px;
+            padding: 80px 0 60px;
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: -10px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 164, 174, 0.1);
         }
+        .plans-header h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
+        .plans-header p { font-size: 1.15rem; margin: 0 auto; max-width: 700px; opacity: 0.9; }
 
-        .modal-title {
-            font-weight: 600;
-        }
+        .plans-section { padding: 40px 0; }
 
-        .modal-body {
-            padding: 30px;
-        }
-
-        .modal-footer {
-            border-top: none;
-            padding: 20px;
-        }
-
-        .form-control {
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            padding: 10px 15px;
-        }
-
-        /* Estilos para las tarjetas de suscripción */
+        /* --- TARJETAS DE PLANES (FLEXBOX PARA ALINEACIÓN PERFECTA) --- */
         .subscription-card {
             background: white;
-            color: #333;
-            border-radius: 10px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
             height: 100%;
-            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column; /* Fundamental para igualar alturas */
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            position: relative;
         }
-
         .subscription-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
         .subscription-header {
-            background: #f8f9fa;
-            padding: 20px;
+            background: #ffffff;
+            padding: 30px 20px 15px;
             text-align: center;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0f0f0;
         }
+        .subscription-header h3 { font-size: 1.4rem; color: var(--text-dark); margin: 0; }
 
         .subscription-price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 20px 0;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 20px 0 10px;
             text-align: center;
+            color: var(--primary-dark);
         }
+        .subscription-price small { font-size: 1rem; font-weight: 500; color: #888; }
 
-        .subscription-features {
-            padding: 20px;
-        }
-
-        .subscription-features ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
+        .subscription-features { padding: 25px 20px; flex-grow: 1; /* Empuja el footer hacia abajo */ }
+        .subscription-features ul { list-style: none; padding-left: 0; margin: 0; }
         .subscription-features li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+            border-bottom: 1px solid #f4f4f4;
+            font-size: 0.95rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
         }
-
-        .subscription-features li:last-child {
-            border-bottom: none;
-        }
+        .subscription-features li:last-child { border-bottom: none; }
+        .subscription-features li i { margin-top: 4px; margin-right: 10px; font-size: 0.9rem; }
 
         .subscription-footer {
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
+            margin-top: auto; /* Asegura que el botón siempre quede pegado al fondo */
+            background-color: #fafbfc;
+            border-top: 1px solid #f0f0f0;
         }
 
+        /* --- BOTONES Y BADGES --- */
         .btn-subscription {
-            background: #00a4ae;
+            background: var(--primary-color);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: inline-block;
         }
+        .btn-subscription:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,164,174,0.3); color: white;}
 
-        .btn-subscription:hover {
-            background: #008a92;
-        }
-
-        .featured {
-            position: relative;
-        }
-
+        .featured { border: 2px solid var(--primary-color); box-shadow: 0 10px 30px rgba(0, 164, 174, 0.15); }
         .featured::after {
-            content: "Recomendado";
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: #00a4ae;
-            color: white;
-            padding: 5px 10px;
-            font-size: 12px;
-            border-radius: 0 0 0 5px;
+            content: "Recomendado"; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            background: var(--primary-color); color: white; padding: 5px 15px; font-size: 12px; font-weight: 600;
+            border-radius: 0 0 8px 8px; letter-spacing: 1px; text-transform: uppercase;
         }
 
         .demo-badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: #ae0000;
-            color: white;
-            padding: 5px 10px;
-            font-size: 12px;
-            border-radius: 0 0 0 5px;
+            display: inline-block; background: var(--danger-color); color: white; padding: 4px 10px;
+            font-size: 11px; font-weight: 700; border-radius: 12px; margin-top: 10px; letter-spacing: 0.5px;
         }
 
-        .timer-icon {
-            font-size: 1.5rem;
-            color: #00a4ae;
-            margin-right: 5px;
-        }
+        .timer-icon { font-size: 2rem; color: var(--primary-color); margin-right: 8px; vertical-align: middle; }
 
-        .plans-header {
-            background: linear-gradient(to right, #00a4ae, #008a92);
-            color: white;
-            padding: 80px 0 40px;
-            text-align: center;
-            margin-bottom: 50px;
-			margin-top: -10px
-        }
-
-        .plans-header h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .plans-header p {
-            font-size: 1.2rem;
-            margin: 0 auto;
-        }
-
-        .plans-section {
-            padding: 50px 0;
-        }
-
-        .back-to-home {
-            margin-top: 50px;
-            text-align: center;
-        }
-
+        .back-to-home { margin-top: 50px; text-align: center; }
         .back-to-home a {
-            background: #00a4ae;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s ease;
+            background: white; color: var(--text-dark); padding: 12px 25px; border-radius: 8px;
+            text-decoration: none; transition: all 0.3s ease; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee;
         }
+        .back-to-home a:hover { background: var(--primary-color); color: white; box-shadow: 0 5px 15px rgba(0,164,174,0.2); }
 
-        .back-to-home a:hover {
-            background: #008a92;
-        }
+        /* --- MODALES Y FORMULARIOS --- */
+        .modal-content { border-radius: 16px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); border: none; overflow: hidden; }
+        .modal-header { background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: white; border: none; padding: 24px 30px; }
+        .modal-header .close { color: white; opacity: 0.8; text-shadow: none; }
+        .modal-header .close:hover { opacity: 1; }
+        .modal-body { padding: 30px; }
+        .modal-footer { border-top: 1px solid var(--border-color); padding: 20px 30px; background-color: #fafafa; }
+        
+        .form-control { border-radius: 8px; border: 1px solid var(--border-color); padding: 12px 15px; margin-bottom: 20px; transition: all 0.2s; }
+        .form-control:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 164, 174, 0.15); outline: none; }
+        label { font-weight: 500; color: #555; margin-bottom: 8px; font-size: 14px; }
+        .input-group-prepend .form-control { background-color: var(--bg-light); border-right: none; color: #555; cursor: pointer; }
+        
+        .contact-info-panel { background-color: var(--bg-light); padding: 25px; border-radius: 12px; height: 100%; border: 1px solid var(--border-color); }
+        .contact-info-panel h4 { font-size: 1.2rem; margin-bottom: 15px;}
+        .contact-info-panel p { color: #555; font-size: 0.95rem; margin-bottom: 12px; }
+        .contact-info-panel i { color: var(--primary-color); width: 20px; text-align: center; }
 
-/* Estilos para validación de formulario */
-.form-control.is-invalid {
-    border-color: #dc3545;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right calc(0.375em + 0.1875rem) center;
-    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-    padding-right: calc(1.5em + 0.75rem);
-}
-
-.invalid-feedback {
-    display: none;
-    width: 100%;
-    margin-top: 0.25rem;
-    font-size: 80%;
-    color: #dc3545;
-}
-
-.form-control.is-invalid ~ .invalid-feedback {
-    display: block;
-}
-
-/* Estilos para toast de notificación */
-.toast-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-}
-
-.toast {
-    min-width: 250px;
-    background-color: white;
-    color: #333;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    margin-bottom: 10px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    overflow: hidden;
-}
-
-.toast.show {
-    opacity: 1;
-}
-
-.toast-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-    color: white;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.toast-header.success {
-    background-color: #28a745;
-}
-
-.toast-header.error {
-    background-color: #dc3545;
-}
-
-.toast-header.warning {
-    background-color: #ffc107;
-}
-
-.toast-body {
-    padding: 1rem;
-}
-
-/* Estilo para botón deshabilitado */
-.btn-primary:disabled {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    cursor: not-allowed;
-}
-
-/* Estilos para el selector de país con banderas */
-#country_code {
-    padding-right: 10px;
-    font-size: 14px;
-}
-
-#country_code option {
-    padding: 5px;
-    font-size: 14px;
-}
-
-/* Asegura que las banderas se muestren correctamente */
-.flag-icon {
-    margin-right: 5px;
-}
-
-/* Estilos para el spinner de carga */
-#spinner-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #00a4ae;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        .btn-primary:disabled { background-color: #6c757d; border-color: #6c757d; cursor: not-allowed; }
+        .form-control.is-invalid { border-color: var(--danger-color); }
+        .invalid-feedback { display: none; margin-top: -15px; margin-bottom: 15px; font-size: 85%; color: var(--danger-color); font-weight: 500; }
+        .form-control.is-invalid ~ .invalid-feedback { display: block; }
+        
+        /* Spinner */
+        #spinner-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; display: flex; justify-content: center; align-items: center; z-index: 99999; }
+        .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* Utilidades */
+        .text-success { color: var(--success-color) !important; }
+        .text-danger { color: var(--danger-color) !important; }
+        .note-box { background: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; font-size: 0.9rem; margin-top: 15px; border: 1px solid #ffeeba; text-align: left;}
+        
+        /* URL Generator */
+        .url-container { background: rgba(0, 164, 174, 0.05) !important; border: 1px dashed var(--primary-color) !important; border-radius: 8px !important; padding: 15px !important; }
     </style>
 
-
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-78CQW8R24X"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-78CQW8R24X');
-	</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-78CQW8R24X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-78CQW8R24X');
+    </script>
 </head>
 <body>
 
@@ -364,203 +203,164 @@
     <div class="spinner"></div>
 </div>
 
-
-
 <div id="page-wrap">
 
-	<!-- ==========================================================================================================
-												   HERO
-		 ========================================================================================================== -->
+    <div id="fh5co-hero-wrapper" style="height: auto;position: relative;z-index: 100">
+        <nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
+            <a class="navbar-brand" onclick="ga4('planes_Logoatiendelosrestaurant')" href="index.html">Atiéndelos Restaurant</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-	<div id="fh5co-hero-wrapper" style="height: auto;position: relative;z-index: 100">
-		<nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
-			<a class="navbar-brand" onclick="ga4('planes_Logoatiendelosrestaurant')" href="index.html">Atiéndelos Restaurant</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav nav-items-center ml-auto mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" onclick="ga4('planes_inicio')" href="index.html">Inicio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" onclick="ga4('planes_funcion')" href="index.html#fh5co-features">Función</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="index.html#fh5co-reviews" onclick="ga4('planes_testimonos')">Testimonios</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="invocarCloudfire();ga4('planes_comenzar')" data-toggle="modal" data-target="#contactModal">Comenzar</a>
-					</li>
-				</ul>
-				<div class="social-icons-header">
-					<a onclick="ga4('planes_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-					<a onclick="ga4('planes_instagram')" href="https://freeh" target="_blank"><i class="fab fa-instagram"></i></a>
-				</div>
-			</div>
-		</nav>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-items-center ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="ga4('planes_inicio')" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="ga4('planes_funcion')" href="index.html#fh5co-features">Función</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#fh5co-reviews" onclick="ga4('planes_testimonos')">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="invocarCloudfire();ga4('planes_comenzar')" data-toggle="modal" data-target="#contactModal">Comenzar</a>
+                    </li>
+                </ul>
+                <div class="social-icons-header">
+                    <a onclick="ga4('planes_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a onclick="ga4('planes_instagram')" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </nav>
     </div>
-
-    <!-- ==========================================================================================================
-                                                 PLANS HEADER
-    ========================================================================================================== -->
 
     <div class="plans-header">
         <div class="container">
-            <h1>Nuestros Planes</h1>
-            <p>Elige el plan que mejor se adapte a las necesidades de tu restaurante y lleva tu negocio al siguiente nivel</p>
-            <div class="mt-3">
-
-            </div>
+            <h1 class="animated fadeInDown">Nuestros Planes</h1>
+            <p class="animated fadeInUp">Elige el plan que mejor se adapte a las necesidades de tu restaurante y lleva tu negocio al siguiente nivel</p>
         </div>
     </div>
 
-    <!-- ==========================================================================================================
-                                                 PLANS SECTION
-    ========================================================================================================== -->
-
     <div class="plans-section">
         <div class="container">
-			<div id="desaparecerboton" class="row m-auto">
-				 <div style="    text-align: center;
-    padding-bottom: 15px;" class="col-md-12 m-auto">
-					 <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarPanelAtiendelos()">Create una cuenta para 14 días de prueba!..</a>
-				 </div>
-			</div>
-            <div class="row">
-                <!-- Plan Demo -->
-                <div onclick="ga4('planes_plandemo')" id="plandemo" class="col-md-3 wow fadeInUp animated" data-wow-delay="0.1s">
+            
+            <div id="desaparecerboton" class="row m-auto">
+                 <div style="text-align: center; padding-bottom: 25px;" class="col-md-12 m-auto">
+                     <a href="#" class="btn btn-subscription" style="width: auto;" onclick="planinteres='plan1';invocarPanelAtiendelos()">¡Crea una cuenta para 14 días de prueba!</a>
+                 </div>
+            </div>
+
+            <div class="row align-items-stretch">
+                
+                <div onclick="ga4('planes_plandemo')" id="plandemo" class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="subscription-card">
                         <div class="subscription-header">
                             <h3>Vista previa</h3>
-
-
                             <div class="demo-badge">¡NUEVO!</div>
                         </div>
                         <div class="subscription-price">
-                            <i class="fas fa-hourglass-half timer-icon"></i>24<small> Horas</small>
+                            <i class="fas fa-hourglass-half timer-icon"></i>24<small> Hrs</small>
                         </div>
                         <div class="subscription-features">
                             <ul>
                                 <li><i class="fas fa-check text-success"></i> Explora con datos de prueba</li>
                                 <li><i class="fas fa-check text-success"></i> Realiza una venta como mesero / cajero</li>
-								<li><i class="fas fa-check text-success"></i> Punto de venta express</li>
-								<li><i class="fas fa-check text-success"></i> Punto de venta restaurante</li>
-								<li><i class="fas fa-times text-danger"></i> No es aplicación para tu negocio, son datos demo, si quieres para tu negocio create tu cuenta.</li>
+                                <li><i class="fas fa-check text-success"></i> Punto de venta express</li>
+                                <li><i class="fas fa-check text-success"></i> Punto de venta restaurante</li>
+                                <li><i class="fas fa-times text-danger"></i> Datos demo, no apto para operar negocio real.</li>
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a style="white-space: break-spaces" href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Explorar con datos de prueba</a>
-							<span style="    font-size: smaller;
-    font-weight: 200;">*No requiere registro. Datos de ejemplo incluidos</span>
+                            <a href="#" class="btn btn-subscription" onclick="invocarCloudfire()" data-toggle="modal" data-target="#contactModal">Explorar demo</a>
+                            <p class="mt-2 mb-0" style="font-size: 0.8rem; color: #888;">*No requiere registro.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Plan Básico -->
-                <div onclick="ga4('planes_Primer_plan')" id="plandos" class="col-md-3 wow fadeInUp animated temporal1" data-wow-delay="0.2s">
+                <div onclick="ga4('planes_Primer_plan')" id="plandos" class="col-lg-3 col-md-6 mb-4 wow fadeInUp temporal1" data-wow-delay="0.2s">
                     <div class="subscription-card">
                         <div class="subscription-header">
-                            <h3>Plan punto de venta express</h3>
-
+                            <h3>Express</h3>
                         </div>
-
                         <div class="subscription-price">
                             $250<small>/mes</small>
                         </div>
-						<div style="background: #ffeeba; color:#856404;padding: 10px"><strong>Nota:</strong> La venta express podrá hacer la venta y comandar a cocinar y barra, tener productos con código de barra y pistola escaner.
-							<strong>En esta versión no se cuenta con ventas simultaneas por meseros</strong>
-
-
-						</div>
                         <div class="subscription-features">
+                            <div class="note-box mb-3">
+                                <strong>Nota:</strong> Venta rápida y comandos a cocina/barra. Soporte para código de barras. <strong>No incluye ventas simultáneas por meseros.</strong>
+                            </div>
                             <ul>
-								<li><i class="fas fa-check text-success"></i> 1 Usuario activo (Administrador/Venta/Cajero)</li>
+                                <li><i class="fas fa-check text-success"></i> 1 Usuario (Admin/Venta/Cajero)</li>
                                 <li><i class="fas fa-check text-success"></i> 1 dispositivo por usuario</li>
-								<li><i class="fas fa-check text-success"></i> Configuración de impresora (caja / cocina / barra) disponible en venta express</li>
-								<li><i class="fas fa-check text-success"></i> Terminal de pago mercado libre (opcional)</li>
-                                <li><i class="fas fa-check text-success"></i> Punto de venta express</li>
-								<li><i class="fas fa-check text-success"></i> Corte de caja</li>
-								<li><i class="fas fa-times text-danger"></i> Multisucursal</li>
-								<li><i class="fas fa-times text-danger"></i> Punto de venta de restaurante.</li>
+                                <li><i class="fas fa-check text-success"></i> Configuración de impresora</li>
+                                <li><i class="fas fa-check text-success"></i> Terminal Mercado Pago (opcional)</li>
+                                <li><i class="fas fa-check text-success"></i> Punto de venta express y Cortes</li>
+                                <li><i class="fas fa-times text-danger"></i> Multisucursal / Modo Restaurante</li>
                             </ul>
                         </div>
-
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarPanelAtiendelos()">Create una cuenta</a>
+                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan1';invocarPanelAtiendelos()">Crear cuenta</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Plan Estándar -->
-                <div onclick="ga4('planes_segundoplan')" id="plantres" class="col-md-3 wow fadeInUp animated temporal1" data-wow-delay="0.3s">
+                <div onclick="ga4('planes_segundoplan')" id="plantres" class="col-lg-3 col-md-6 mb-4 wow fadeInUp temporal1" data-wow-delay="0.3s">
                     <div class="subscription-card featured">
-                        <div class="subscription-header">
-                            <h3>Plan Estándar</h3>
-
+                        <div class="subscription-header" style="padding-top: 40px;">
+                            <h3>Estándar</h3>
                         </div>
                         <div class="subscription-price">
                             $350<small>/mes</small>
                         </div>
                         <div class="subscription-features">
                             <ul>
-								<li><i class="fas fa-check text-success"></i> Todos los beneficios del plan anterior</li>
-                                <li><i class="fas fa-check text-success"></i> 3 Usuarios (Administrador, Mesero y cajero)</li>
-								<li><i class="fas fa-check text-success"></i> 1 dispositivo por usuario</li>
-								<li><i class="fas fa-check text-success"></i> Terminal de pago mercado libre (opcional)</li>
-								<li><i class="fas fa-check text-success"></i> Configuración de pantalla Barra / Cocina (Según negocio)</li>
-								<li><i class="fas fa-check text-success"></i> Configuración de impresora (Según negocio)</li>
-								<li><i class="fas fa-check text-success"></i> Caja y venta</li>
-								<li><i class="fas fa-check text-success"></i> Corte del día</li>
-								<li><i class="fas fa-check text-success"></i> Reportes Históricos / Estadísticas</li>
-								<li><i class="fas fa-times text-danger"></i> Multisucursal</li>
+                                <li><i class="fas fa-check text-success"></i> Todos los beneficios Express</li>
+                                <li><i class="fas fa-check text-success"></i> 3 Usuarios (Admin, Mesero, Cajero)</li>
+                                <li><i class="fas fa-check text-success"></i> 1 dispositivo por usuario</li>
+                                <li><i class="fas fa-check text-success"></i> Terminal Mercado Pago (opcional)</li>
+                                <li><i class="fas fa-check text-success"></i> Configuración Barra / Cocina</li>
+                                <li><i class="fas fa-check text-success"></i> Reportes Históricos y Estadísticas</li>
+                                <li><i class="fas fa-times text-danger"></i> Multisucursal</li>
                             </ul>
                         </div>
                         <div class="subscription-footer">
-                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan2';invocarPanelAtiendelos()">Create una cuenta</a>
+                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan2';invocarPanelAtiendelos()">Crear cuenta</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Plan Anual -->
-                <div onclick="ga4('planes_tercerplan')" id="plancuatro" class="col-md-3 wow fadeInUp animated temporal1" data-wow-delay="0.4s">
+                <div onclick="ga4('planes_tercerplan')" id="plancuatro" class="col-lg-3 col-md-6 mb-4 wow fadeInUp temporal1" data-wow-delay="0.4s">
                     <div class="subscription-card">
                         <div class="subscription-header">
-                            <h3>Plan empresarial</h3>
-							<div class="demo-badge">¡Pronto!</div>
+                            <h3>Empresarial</h3>
+                            <div class="demo-badge" style="background-color: var(--primary-dark);">¡Pronto!</div>
                         </div>
                         <div class="subscription-price">
-<!--                            $900<small>/mes</small>-->
+                            <span style="font-size: 1.5rem; color: #888;">Próximamente</span>
                         </div>
                         <div class="subscription-features">
                             <ul>
-								<li><i class="fas fa-check text-success"></i> Todos los beneficios del plan anterior</li>
-                                <li><i class="fas fa-check text-success"></i> Usuarios ilimitados</li>
-								<li><i class="fas fa-check text-success"></i> Gestión de usuario</li>
-								<li><i class="fas fa-check text-success"></i> Capitán de meseros</li>
-								<li><i class="fas fa-check text-success"></i> Dispositivos inlimitados</li>
-								<li><i class="fas fa-check text-success"></i> Configuración de comanderas</li>
-								<li><i class="fas fa-check text-success"></i> Configuración de pantalla Barra / Cocina</li>
-								<li><i class="fas fa-check text-success"></i> Configuración de impresoras (Máximo 3)</li>
-								<li><i class="fas fa-check text-success"></i> Reportes Históricos / Estadísticas</li>
-                                <li><i class="fas fa-check text-success"></i> Soporte personalizado</li>
-								<li><i class="fas fa-check text-success"></i> Límite de 3 sucursales (300 pesos más por sucursal extra)</li>
+                                <li><i class="fas fa-check text-success"></i> Beneficios Estándar</li>
+                                <li><i class="fas fa-check text-success"></i> Usuarios y dispositivos ilimitados</li>
+                                <li><i class="fas fa-check text-success"></i> Gestión avanzada y Capitán</li>
+                                <li><i class="fas fa-check text-success"></i> Configuración de comanderas</li>
+                                <li><i class="fas fa-check text-success"></i> Config. impresoras (Máx 3)</li>
+                                <li><i class="fas fa-check text-success"></i> Límite 3 sucursales (+ $300/extra)</li>
+                                <li><i class="fas fa-check text-success"></i> Soporte VIP</li>
                             </ul>
                         </div>
                         <div class="subscription-footer">
-<!--                            <a href="#" class="btn btn-subscription" onclick="planinteres='plan3';invocarPanelAtiendelos()" >Create una cuenta</a>-->
+                            <button class="btn btn-subscription" disabled style="background-color: #ccc;">Próximamente</button>
                         </div>
                     </div>
                 </div>
 
-            </div>
-
-            <div id="ocultar1" class="row mt-5">
-                <div class="col-12 text-center">
-                    <h3>¿Necesitas un plan personalizado?</h3>
-                    <p>Accede ahora y personaliza un plan a medida para tu negocio</p>
-                    <a href="#" class="btn btn-subscription mt-3" onclick="invocarCloudfire();ga4('planes_comenzarahora')">Comenzar Ahora</a>
+            </div> <div id="ocultar1" class="row mt-5">
+                <div class="col-12 text-center wow fadeIn">
+                    <h3 style="font-weight: 700;">¿Necesitas un plan personalizado?</h3>
+                    <p class="text-muted">Accede ahora y personaliza un plan a medida para tu negocio</p>
+                    <a href="#" class="btn btn-subscription mt-2" style="width: auto; padding: 12px 30px;" onclick="invocarCloudfire();ga4('planes_comenzarahora')" data-toggle="modal" data-target="#contactModal">Comenzar Ahora</a>
                 </div>
             </div>
 
@@ -570,508 +370,323 @@
         </div>
     </div>
 
-	<!-- ==========================================================================================================
-                                               SECTION 7 - SUB FOOTER
-    ========================================================================================================== -->
+    <footer id="ocultar3" class="footer-outer">
+        <div class="container footer-inner">
+            <div class="footer-three-grid wow fadeIn animated" data-wow-delay="0.66s">
+                <div class="column-1-3">
+                    <h1>Atiéndelos Restaurant</h1>
+                </div>
+                <div class="column-2-3">
+                    <nav class="footer-nav">
+                        <ul>
+                            <a href="index.html"><li>Inicio</li></a>
+                            <a href="index.html#fh5co-features"><li>Función</li></a>
+                            <a href="index.html#fh5co-reviews"><li>Testimonios</li></a>
+                            <a href="plans.html"><li class="active">Planes</li></a>
+                            <a href="#" data-toggle="modal" onclick="invocarCloudfire()" data-target="#contactModal"><li>Comenzar</li></a>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="column-3-3">
+                    <div class="social-icons-footer">
+                        <a onclick="ga4('planes_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a onclick="ga4('planes_instagram')" target="_blank"><i class="fab fa-instagram" ></i></a>
+                    </div>
+                </div>
+            </div>
+            <span class="border-bottom-footer"></span>
+            <p class="copyright">&copy; <span id="anio"></span> Atiéndelos Restaurant App. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-	<footer id="ocultar3" class="footer-outer">
-		<div class="container footer-inner">
+</div> <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Comienza Ahora</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-7">
+                        <p class="text-muted mb-4">Completa el formulario para probar el sistema internamente. Una vez dentro podrás adquirir tu plan ideal.</p>
 
-			<div class="footer-three-grid wow fadeIn animated" data-wow-delay="0.66s">
-				<div class="column-1-3">
-					<h1>Atiéndelos Restaurant</h1>
-				</div>
-				<div class="column-2-3">
-					<nav class="footer-nav">
-						<ul>
-							<a href="index.html"><li>Inicio</li></a>
-							<a href="index.html#fh5co-features"><li>Función</li></a>
-							<a href="index.html#fh5co-reviews"><li>Testimonios</li></a>
-							<a href="plans.html"><li class="active">Planes</li></a>
-							<a href="#" data-toggle="modal" onclick="invocarCloudfire()" data-target="#contactModal"><li>Comenzar</li></a>
-						</ul>
-					</nav>
-				</div>
-				<div class="column-3-3">
-					<div class="social-icons-footer">
-						<a onclick="ga4('planes_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-						<a onclick="ga4('planes_instagram')" target="_blank"><i class="fab fa-instagram" ></i></a>
-					</div>
-				</div>
-			</div>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="company">Nombre de la empresa*</label>
+                                <input type="text" class="form-control" id="company" placeholder="Ej. Mi Restaurante" required>
+                                <div class="invalid-feedback">Por favor, ingresa el nombre de tu empresa.</div>
+                            </div>
 
-			<span class="border-bottom-footer"></span>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico (opcional)</label>
+                                <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com">
+                                <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+                            </div>
 
-			<p class="copyright">&copy; <span id="anio"></span> Atiéndelos Restaurant App. Todos los derechos reservados.
+                            <div class="form-group">
+                                <label for="phone">Teléfono* (Obligatorio)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <select class="form-control" id="country_code" style="width: auto; border-top-right-radius: 0; border-bottom-right-radius: 0; height: 100%;">
+                                            <option value="+52">🇲🇽 +52</option>
+                                            <option value="+1">🇺🇸 +1</option>
+                                            <option value="+34">🇪🇸 +34</option>
+                                            <option value="+57">🇨🇴 +57</option>
+                                            <option value="+56">🇨🇱 +56</option>
+                                            <option value="+51">🇵🇪 +51</option>
+                                            <option value="+54">🇦🇷 +54</option>
+                                            <option value="+58">🇻🇪 +58</option>
+                                            <option value="+502">🇬🇹 +502</option>
+                                            <option value="+503">🇸🇻 +503</option>
+                                            <option value="+504">🇭🇳 +504</option>
+                                            <option value="+505">🇳🇮 +505</option>
+                                            <option value="+506">🇨🇷 +506</option>
+                                            <option value="+507">🇵🇦 +507</option>
+                                            <option value="+593">🇪🇨 +593</option>
+                                        </select>
+                                    </div>
+                                    <input type="tel" class="form-control" id="phone" placeholder="Tu número" required style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                                </div>
+                                <div class="invalid-feedback" style="margin-top: 5px;">Por favor, ingresa tu número de teléfono.</div>
+                            </div>
+                            <div class="form-group form-check mb-4">
+                                <input type="checkbox" class="form-check-input" id="terms" required>
+                                <label class="form-check-label" for="terms">Acepto los <a href="#" style="color: var(--primary-color);">términos y condiciones</a>*</label>
+                                <div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
+                            </div>
+                            <div class="form-group">
+                                <div id="turnstile-container"></div>
+                            </div>
+                        </form>
+                    </div>
 
-		</div>
-	</footer>
-
-</div> <!-- main page wrapper -->
-
-	<!-- Modal de Contacto -->
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="contactModalLabel">Comienza Ahora</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-md-8">
-						<p>Completa el formulario, para probar con una empresa de prueba como es el sistema internamente, una vez dentro podrás adquirir el sistema mediante los planes disponibles!!..</p>
-
-						<form class="contact-form">
-							<div class="form-group">
-								<label for="company">Nombre de la empresa*</label>
-								<input type="text" class="form-control" id="company" placeholder="Nombre de empresa" required>
-								<div class="invalid-feedback">Por favor, ingresa el nombre de tu empresa.</div>
-							</div>
-
-							<div class="form-group">
-								<label for="email">Correo electrónico (opcional)</label>
-								<input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
-								<div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
-							</div>
-
-							<div class="form-group">
-								<label for="phone">Teléfono* (Obligatorio)</label>
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<select class="form-control" id="country_code" style="width: auto; border-top-right-radius: 0; border-bottom-right-radius: 0;height: 100%;">
-											<option value="+52">🇲🇽 +52 (México)</option>
-											<option value="+1">🇺🇸 +1 (USA/Canadá)</option>
-											<option value="+34">🇪🇸 +34 (España)</option>
-											<option value="+57">🇨🇴 +57 (Colombia)</option>
-											<option value="+56">🇨🇱 +56 (Chile)</option>
-											<option value="+51">🇵🇪 +51 (Perú)</option>
-											<option value="+54">🇦🇷 +54 (Argentina)</option>
-											<option value="+58">🇻🇪 +58 (Venezuela)</option>
-											<option value="+502">🇬🇹 +502 (Guatemala)</option>
-											<option value="+503">🇸🇻 +503 (El Salvador)</option>
-											<option value="+504">🇭🇳 +504 (Honduras)</option>
-											<option value="+505">🇳🇮 +505 (Nicaragua)</option>
-											<option value="+506">🇨🇷 +506 (Costa Rica)</option>
-											<option value="+507">🇵🇦 +507 (Panamá)</option>
-											<option value="+593">🇪🇨 +593 (Ecuador)</option>
-										</select>
-									</div>
-									<input type="tel" class="form-control" id="phone" placeholder="Teléfono" required style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
-								</div>
-								<div class="invalid-feedback">Por favor, ingresa tu número de teléfono.</div>
-							</div>
-							<div class="form-group form-check">
-								<input type="checkbox" class="form-check-input" id="terms" required>
-								<label class="form-check-label" for="terms">Acepto los <a href="#">términos y condiciones</a>*</label>
-								<div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
-							</div>
-							<div class="form-group">
-								<div id="turnstile-container"></div>
-							</div>
-						</form>
-					</div>
-
-					<div class="col-md-4">
-						<div class="contact-info">
-							<h4>Centro de Soporte</h4>
-							<p>Nuestro equipo está listo para ayudarte a comenzar. Accede inmediatamente a través de estos canales:</p>
-
-							<div class="mt-4">
-								<p><i class="fas fa-phone"></i> +52 (332) 149 64 75</p>
-								<p><i class="fas fa-envelope"></i> soporte@atiendelos.com</p>
-								<p><i class="fas fa-clock"></i> Lunes a sábados de 09:00 a.m. a 09:00 p.m.</p>
-							</div>
-
-							<div class="social-media mt-4">
-								<h4>Síguenos en redes sociales</h4>
-								<div class="social-icons mt-3">
-									<a onclick="ga4('inicio_contacto_facebook')" href="https://www.facebook.com/AtiendelosApp/" target="_blank" class="mr-3"><i class="fab fa-facebook-f fa-2x"></i></a>
-									<a onclick="ga4('inicio_contacto_instagram')" href="#" target="_blank" class="mr-3"><i class="fab fa-instagram fa-2x"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-				<button type="button" class="btn btn-primary" style="background-color: #00a4ae;
-    border-color: #007bff;">Comenzar Ahora</button>
-			</div>
-		</div>
-	</div>
+                    <div class="col-md-5">
+                        <div class="contact-info-panel">
+                            <h4>Centro de Soporte</h4>
+                            <p>Nuestro equipo está listo para ayudarte a comenzar:</p>
+                            <div class="mt-4">
+                                <p><i class="fas fa-phone mr-2"></i> +52 (332) 149 64 75</p>
+                                <p><i class="fas fa-envelope mr-2"></i> soporte@atiendelos.com</p>
+                                <p><i class="fas fa-clock mr-2"></i> Lunes a sábados <br><span class="ml-4">09:00 a.m. a 09:00 p.m.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="border:none; background-color: #e0e0e0; color: #333;">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btn-submit-form">Comenzar Ahora</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-	<!-- Modal de Código de Acceso -->
-<div class="modal fade" id="accessCodeModal" tabindex="-1" role="dialog" aria-labelledby="accessCodeModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header" style="background: linear-gradient(to right, #00a4ae, #01828a); color: white;">
-				<h5 class="modal-title" id="accessCodeModalLabel">¡Código generado!</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body text-center">
-				<i class="fas fa-check-circle fa-4x mb-3" style="color: #00a4ae;"></i>
-				<p>Se ha generado el link de atiendelos</p>
-				<div class="url-container p-2 mb-3"
-					 style="background: #f8f9fa; border-radius: 5px; display: flex; align-items: center; justify-content: space-between;">
-					<span id="generatedUrl" class="mr-2" style="word-break: break-all; margin-right: 10px;"></span>
-					<button class="btn btn-sm" style="background: #00a4ae; color: white;" onclick="copyUrl()">
-						<i class="fas fa-copy"></i>
-					</button>
-				</div>
-				<div id="copyMessage" style="display: none; color: #00a4ae; font-size: 0.9em;">
-					¡URL copiada al portapapeles!
-				</div>
-
-			</div>
-			<div class="modal-footer">
-				<button id="redirectButton"  type="button" class="btn btn-primary mx-auto" style="background-color: #00a4ae; border-color: #00a4ae;">Dar clic para continuar</button>
-			</div>
-		</div>
-	</div>
+<div class="modal fade" id="accessCodeModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">¡Código generado!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center py-5">
+                <i class="fas fa-check-circle fa-4x mb-4" style="color: var(--primary-color);"></i>
+                <h4 class="mb-3">Tu enlace está listo</h4>
+                <div class="url-container d-flex align-items-center justify-content-between mb-2">
+                    <span id="generatedUrl" class="mr-2 text-left" style="word-break: break-all; font-family: monospace; font-size: 14px;"></span>
+                    <button class="btn btn-primary btn-sm ml-2" onclick="copyUrl()" title="Copiar enlace">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div id="copyMessage" style="display: none; color: var(--primary-color); font-size: 0.9em;">
+                    <i class="fas fa-check mr-1"></i> ¡URL copiada al portapapeles!
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button id="redirectButton" type="button" class="btn btn-primary px-4 py-2">Dar clic para continuar <i class="fas fa-arrow-right ml-2"></i></button>
+            </div>
+        </div>
+    </div>
 </div>
 
-
-<!-- Loading Modal -->
 <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-	<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-		<div class="modal-content" style="text-align:center; padding: 20px;">
-			<div class="modal-header" style="justify-content: center; border-bottom: none; padding-bottom: 0;">
-				<h5 class="modal-title" id="loadingModalLabel">Cargando...</h5>
-			</div>
-			<div class="modal-body">
-				<div class="spinner" style="margin: 10px auto 20px auto;"></div>
-				<p style="margin: 0;">Por favor, espera un momento.</p>
-			</div>
-		</div>
-	</div>
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content" style="text-align:center; padding: 20px;">
+            <div class="modal-header" style="justify-content: center; border-bottom: none; padding-bottom: 0;">
+                <h5 class="modal-title" id="loadingModalLabel">Cargando...</h5>
+            </div>
+            <div class="modal-body">
+                <div class="spinner" style="margin: 10px auto 20px auto;"></div>
+                <p style="margin: 0; color: #555;">Por favor, espera un momento.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/owl.carousel.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script src="js/configuraciones.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/toast.js"></script>
-<script
-		src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-		async
-		defer
-></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/configuraciones.js"></script>
+<script src="js/main.js"></script>
+<script src="js/toast.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <script>
+    let parametrosrellenados = {};
+    let apitoken = "dsfdsf";
+    let widgetId = undefined;
+    let planinteres = "demo";
+    let isnotIframe = true;
+    
+    let datarecibida = function(response) { apitoken = response; }
 
-	let parametrosrellenados = {};
+    let invocarPanelAtiendelos = ()=>{
+        if(!isparten){
+            document.location.href = CONFIG.URL_ATIENDELOSV2;
+        }else{
+            window.parent.postMessage({type:"registrarplanes",url:CONFIG.URL_ATIENDELOSV2+"/auth/register?parametros="+parametrosrellenados}, "*");
+        }
+    }
 
-	let apitoken = "dsfdsf";
-	let widgetId = undefined;
+    let invocarCloudfire = ()=>{
+        document.getElementById('company').value= ''; document.getElementById('email').value= ''; document.getElementById('phone').value= ''; document.getElementById('country_code').value= '+52'; 
 
-	let planinteres = "demo";
-	let isnotIframe = true;
-	let datarecibida = function(response) {
-		console.log("Token recibido: ", response);
-		apitoken = response;
-	}
+        if(!Boolean(widgetId)){
+            widgetId =  turnstile.render("#turnstile-container", { sitekey: "0x4AAAAAACLGzm57QZTFMOPT", callback: function (token) { datarecibida(token); } });
+        }else{
+            turnstile.remove(widgetId);
+            widgetId =  turnstile.render("#turnstile-container", { sitekey: "0x4AAAAAACLGzm57QZTFMOPT", callback: function (token) { datarecibida(token); } });
+        }
+    }
 
+    document.getElementById('btn-submit-form').addEventListener('click', async function () {
+        const company = document.getElementById('company').value?.trim();
+        const email = document.getElementById('email').value?.trim();
+        const countryCode = document.getElementById('country_code').value?.trim();
+        const phoneNumber = document.getElementById('phone').value?.trim();
+        const phone = countryCode + phoneNumber; 
 
-	let invocarPanelAtiendelos = ()=>{
-		if(!isparten){
-			document.location.href = CONFIG.URL_ATIENDELOSV2;
-		}else{
-			window.parent.postMessage({type:"registrarplanes",url:CONFIG.URL_ATIENDELOSV2+"/auth/register?parametros="+parametrosrellenados}, "*");
-		}
-	}
+        const isValidCompany = (company) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]{2,50}$/.test(company);
+        const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const isValidPhone = (phone) => /^\d{1,15}$/.test(phone);
 
-	let invocarCloudfire = ()=>{
-		document.getElementById('company').value= '';
-		document.getElementById('email').value= '';
-		document.getElementById('phone').value= '';
-		document.getElementById('country_code').value= '+52'; // Reset to default Mexico country code
+        let isValid = true;
 
+        if (!company || !isValidCompany(company)) { document.getElementById('company').classList.add('is-invalid'); isValid = false; } else { document.getElementById('company').classList.remove('is-invalid'); }
+        if(email){ if (!isValidEmail(email)) { document.getElementById('email').classList.add('is-invalid'); isValid = false; } else { document.getElementById('email').classList.remove('is-invalid'); } }
+        if (!phoneNumber || !isValidPhone(phoneNumber)) { document.getElementById('phone').classList.add('is-invalid'); isValid = false; } else { document.getElementById('phone').classList.remove('is-invalid'); }
+        if (!countryCode) { document.getElementById('country_code').classList.add('is-invalid'); isValid = false; } else { document.getElementById('country_code').classList.remove('is-invalid'); }
+        if (!document.getElementById('terms').checked) { document.getElementById('terms').classList.add('is-invalid'); isValid = false; } else { document.getElementById('terms').classList.remove('is-invalid'); }
 
+        if (!isValid) { modal.showmodal('warning', 'Por favor, completa todos los campos requeridos'); return; }
+        if (!apitoken) { modal.showmodal('warning', 'Por favor complete la verificación de seguridad'); return; }
 
-		if(!Boolean(widgetId)){
-			console.log("No existe el widget asi que lo crearemos")
-			widgetId =  turnstile.render("#turnstile-container", {
-				sitekey: "0x4AAAAAACLGzm57QZTFMOPT",
-				callback: function (token) {
-					console.log("Success:", token);
-					datarecibida(token);
-				}
-			});
-		}else{
-			turnstile.remove(widgetId);
-			console.log("Ya existe el widget asi que lo reiniciaremos",widgetId)
-			widgetId =  turnstile.render("#turnstile-container", {
-				sitekey: "0x4AAAAAACLGzm57QZTFMOPT",
-				callback: function (token) {
-					console.log("Success:", token);
-					datarecibida(token);
-				}
-			});
-		}
-
-	}
-
-	document.querySelector('.modal-footer .btn-primary').addEventListener('click', async function () {
-		const company = document.getElementById('company').value?.trim();
-		const email = document.getElementById('email').value?.trim();
-		const countryCode = document.getElementById('country_code').value?.trim();
-		const phoneNumber = document.getElementById('phone').value?.trim();
-		const phone = countryCode + phoneNumber; // Concatenate country code with phone number
-
-
-
-		// Validation functions
-		const isValidCompany = (company) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s]{2,50}$/.test(company);
-		const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-		const isValidPhone = (phone) => /^\d{1,15}$/.test(phone);
-
-		let isValid = true;
-
-
-		// Company validation
-		if (!company || !isValidCompany(company)) {
-			document.getElementById('company').classList.add('is-invalid');
-			isValid = false;
-		} else {
-			document.getElementById('company').classList.remove('is-invalid');
-		}
-
-		// Email validation
-		if(email){
-			if (!isValidEmail(email)) {
-				document.getElementById('email').classList.add('is-invalid');
-				isValid = false;
-			} else {
-				document.getElementById('email').classList.remove('is-invalid');
-			}
-		}
-
-		// Phone validation
-		if (!phoneNumber || !isValidPhone(phoneNumber)) {
-			document.getElementById('phone').classList.add('is-invalid');
-			isValid = false;
-		} else {
-			document.getElementById('phone').classList.remove('is-invalid');
-		}
-
-		if (!countryCode) {
-			document.getElementById('country_code').classList.add('is-invalid');
-			isValid = false;
-		} else {
-			document.getElementById('country_code').classList.remove('is-invalid');
-		}
-
-		if (!document.getElementById('terms').checked) {
-			document.getElementById('terms').classList.add('is-invalid');
-			isValid = false;
-		} else {
-			document.getElementById('terms').classList.remove('is-invalid');
-		}
-
-		if (!isValid) {
-			modal.showmodal('warning', 'Por favor, completa todos los campos requeridos');
-			return; // No continuar si el formulario no es válido
-		}
-
-		if (!apitoken) {
-			modal.showmodal('warning', 'Por favor complete la verificación de seguridad');
-			return;
-		}
-
-		const params = new URLSearchParams(window.location.search);
+        const params = new URLSearchParams(window.location.search);
         const recomendado = params.get('recomendadoPor');
 
-		const data = {
-			empresa: company,
-			correo: email,
-			telefono: phone,
-			token: apitoken
-		};
+        const data = { empresa: company, correo: email, telefono: phone, token: apitoken };
+        if(recomendado){ data.recomendado=recomendado; }
 
-		if(recomendado){
-			data.recomendado=recomendado;
-		}
+        try {
+            showLoadingModal('Generando llaves de creación de la cuenta demo');
+            const response = await fetch(CONFIG.URL_CLIENTES, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
 
-		try {
-			showLoadingModal('Generando llaves de creación de la cuenta demo');
-			const response = await fetch(CONFIG.URL_CLIENTES, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(data)
-			});
+            if (response.ok) {
+                const jsonResponse = await response.json();
+                hideLoadingModal();
+                modal.showmodal('success', '¡Gracias! Nos pondremos en contacto contigo pronto.');
+                $('#contactModal').modal('hide');
+                
+                if (jsonResponse.submessage) {
+                    const redirectUrl = jsonResponse.submessage;
+                    document.getElementById("generatedUrl").textContent = redirectUrl;
+                    $('#accessCodeModal').modal('show');
 
-			if (response.ok) {
-				const jsonResponse = await response.json();
-				hideLoadingModal();
-				modal.showmodal('success', '¡Gracias! Nos pondremos en contacto contigo pronto.');
-				$('#contactModal').modal('hide');
-				console.log("respuesta", jsonResponse);
-				if (jsonResponse.submessage) {
-					// Create and show the custom modal
-					const redirectUrl = jsonResponse.submessage;
-					let temporal = document.getElementById("generatedUrl");
-					temporal.textContent = redirectUrl;
-					$('#accessCodeModal').modal('show');
+                    document.getElementById('redirectButton').onclick = function() {
+                        ga4('planes_boton_continuar_click');
+                        $('#accessCodeModal').modal('hide');
+                        if(!isparten){
+                            let link = document.createElement('a'); link.href = redirectUrl; link.target = '_blank'; link.click();
+                        }else{
+                            window.parent.postMessage({type:"planSelected",url:redirectUrl}, "*");
+                        }
+                    };
+                }
+            } else { modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.'); }
+        } catch (error) { modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.'); }
+    });
 
+    let ga4 = (nombreevento, parametros) => { if (parametros) gtag("event", nombreevento, parametros); else gtag("event", nombreevento); };
+    let anio = document.getElementById('anio'); if(anio) anio.innerText = new Date().getFullYear();
 
-
-					// Set up the redirect when the user clicks on the modal
-					document.getElementById('redirectButton').onclick = function() {
-						ga4('planes_boton_continuar_click');
-						$('#accessCodeModal').modal('hide');
-						if(!isparten){
-							let link = document.createElement('a');
-							link.href = redirectUrl;
-							link.target = '_blank';
-							link.click();
-							//window.location.href = redirectUrl;
-						}else{
-							window.parent.postMessage({type:"planSelected",url:redirectUrl}, "*");
-						}
-					};
-				}
-
-			} else {
-				modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
-			}
-		} catch (error) {
-			console.error('Error:', error);
-			modal.showmodal('error', 'Hubo un error al enviar el formulario. Por favor intente nuevamente.');
-		}
-	});
-
-
-	let ga4 = (nombreevento, parametros) => {
-		if (parametros) gtag("event", nombreevento, parametros);
-		else gtag("event", nombreevento);
-	};
-
-
-	let anio = document.getElementById('anio');
-	anio.innerText = new Date().getFullYear();
-
-
-	window.copyUrl = function () {
-		const urlText = document.getElementById('generatedUrl').textContent;
-		navigator.clipboard.writeText(urlText).then(() => {
-			const copyMessage = document.getElementById('copyMessage');
-			copyMessage.style.display = 'block';
-			setTimeout(() => {
-				copyMessage.style.display = 'none';
-			}, 2000);
-		});
-	};
+    window.copyUrl = function () {
+        const urlText = document.getElementById('generatedUrl').textContent;
+        navigator.clipboard.writeText(urlText).then(() => {
+            const copyMessage = document.getElementById('copyMessage'); copyMessage.style.display = 'block';
+            setTimeout(() => { copyMessage.style.display = 'none'; }, 2000);
+        });
+    };
 </script>
 
-
-
 <script>
-
-
    window.onload = ()=>{
-
-	   const spinner = document.getElementById('spinner-wrapper');
-	   if (spinner) {
-		   const isInIframe = window.self !== window.top;
-
-		   if (!isInIframe) {
-			   spinner.style.display = 'none';
-	       }else{
-			   window.parent.postMessage("planes_onload", "*");
-		   }
-	   }
+       const spinner = document.getElementById('spinner-wrapper');
+       if (spinner) {
+           const isInIframe = window.self !== window.top;
+           if (!isInIframe) { spinner.style.display = 'none'; } else { window.parent.postMessage("planes_onload", "*"); }
+       }
    }
-
-
 
    document.getElementById('desaparecerboton').style.display = 'none';
    let isparten = false;
+   
    window.addEventListener('message', function (event) {
+       if (event.origin !== CONFIG.URL_ATIENDELOSV1) return;
 
+       if(event.data === 'padre_cargando'){
+           isparten = true; isnotIframe=false;
+           ga4('appatiendelos_selecconandoplan');
+           document.getElementById('fh5co-hero-wrapper').style.display = 'none';
+           document.getElementById('plandemo').style.display = 'none';
+           document.getElementById('ocultar1').style.display = 'none';
+           document.getElementById('ocultar2').style.display = 'none';
+           document.getElementById('ocultar3').style.display = 'none';
+           
+           /* Actualizando grid para cuando se oculta un plan */
+           document.getElementById('plandos').className = "col-lg-4 col-md-12 mb-4 wow fadeInUp animated";
+           document.getElementById('plantres').className = "col-lg-4 col-md-12 mb-4 wow fadeInUp animated";
+           document.getElementById('plancuatro').className = "col-lg-4 col-md-12 mb-4 wow fadeInUp animated";
+           
+           document.getElementById('desaparecerboton').style.display = 'block';
 
-
-	   console.log("Mensaje recibido desde el iframe: padre_cargando", event);
-	   // Verify origin
-	   if (event.origin !== CONFIG.URL_ATIENDELOSV1) return;
-
-
-
-	   if(event.data === 'padre_cargando'){
-
-		   isparten = true;
-		   isnotIframe=false;
-
-		   ga4('appatiendelos_selecconandoplan');
-		   document.getElementById('fh5co-hero-wrapper').style.display = 'none';
-		   document.getElementById('plandemo').style.display = 'none';
-		   document.getElementById('ocultar1').style.display = 'none';
-		   document.getElementById('ocultar2').style.display = 'none';
-		   document.getElementById('ocultar3').style.display = 'none';
-		   document.getElementById('plandos').className = "col-md-4 wow fadeInUp animated";
-		   document.getElementById('plantres').className = "col-md-4 wow fadeInUp animated";
-		   document.getElementById('plancuatro').className = "col-md-4 wow fadeInUp animated";
-		   document.getElementById('desaparecerboton').style.display = 'block';
-
-		   const params = new URLSearchParams(window.location.search);
-		   console.log("Tiene parametros");
-		   const parametros = params.get('parametros');
-		   console.log("Extrae parametros",parametros);
-		   if(parametros){
-			   console.log("Tiene parametros");
-			   const parseado = JSON.parse(atob(parametros));
-
-			   parametrosrellenados = parametros;
-			   console.log("Parseado",parseado);
-			   console.log("Estoy desde el hijo!!., se puede parsear",parseado);
-
-
-		   }
-		   const spinner = document.getElementById('spinner-wrapper');
-		   if (spinner) {
-			   spinner.style.display = 'none';
-		   }
-	   }});
-
+           const params = new URLSearchParams(window.location.search);
+           const parametros = params.get('parametros');
+           if(parametros){ parametrosrellenados = parametros; }
+           const spinner = document.getElementById('spinner-wrapper');
+           if (spinner) { spinner.style.display = 'none'; }
+       }
+   });
 </script>
-
 
 <script>
 // Helpers para el modal de loading
 function showLoadingModal(message){
-	try{
-		if(message){
-			$('#loadingModalLabel').text(message);
-		}else{
-			$('#loadingModalLabel').text('Cargando...');
-		}
-		$('#loadingModal').modal('show');
-	}catch(e){
-		console.error('No se pudo mostrar el loading modal:', e);
-	}
+    try{
+        if(message){ $('#loadingModalLabel').text(message); } else { $('#loadingModalLabel').text('Cargando...'); }
+        $('#loadingModal').modal('show');
+    }catch(e){ console.error('No se pudo mostrar el loading modal:', e); }
 }
 
 function hideLoadingModal(){
-	try{
-		$('#loadingModal').modal('hide');
-	}catch(e){
-		console.error('No se pudo ocultar el loading modal:', e);
-	}
+    try{ $('#loadingModal').modal('hide'); } catch(e) { console.error('No se pudo ocultar el loading modal:', e); }
 }
 
-// Botón de demostración: muestra el loading por 2 segundos
-function demoLoading(){
-	showLoadingModal('Cargando...');
-}
+function demoLoading(){ showLoadingModal('Cargando...'); }
 </script>
 
 </body>
